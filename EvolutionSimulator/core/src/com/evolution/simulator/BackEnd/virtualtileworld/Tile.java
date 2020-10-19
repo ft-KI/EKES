@@ -9,4 +9,8 @@ public class Tile {
     public void setLandType(LandType landType) {
         this.landType = landType;
     }
+
+    public LandType getLandType() {
+        return landType;
+    }
 }

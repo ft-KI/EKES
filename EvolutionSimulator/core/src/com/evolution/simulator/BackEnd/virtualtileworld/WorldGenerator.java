@@ -35,9 +35,9 @@ public class WorldGenerator {
             for(int y=0;y<imageHeight;y++){
             System.out.println(getRed(x,y));
             if(getRed(x,y)>200){
-                vtw.getTiles().get(x).get(y).setLandType(LandType.LAND);
+                vtw.getTiles().get(x).get(imageHeight-y-1).setLandType(LandType.LAND);
             }else{
-                vtw.getTiles().get(x).get(y).setLandType(LandType.WATER);
+                vtw.getTiles().get(x).get(imageHeight-y-1).setLandType(LandType.WATER);
             }
             }
         }
