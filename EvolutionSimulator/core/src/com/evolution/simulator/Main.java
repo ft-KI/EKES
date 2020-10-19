@@ -16,6 +16,8 @@ import com.evolution.simulator.BackEnd.EvolutionsSimulator;
 import com.evolution.simulator.BackEnd.virtualtileworld.LandType;
 import com.evolution.simulator.FrontEnd.tilemaprenderer.SimulationsRenderer;
 
+import static com.badlogic.gdx.Gdx.input;
+
 public class Main extends ApplicationAdapter implements GestureDetector.GestureListener {
 	EvolutionsSimulator evolutionsSimulator;
 	SimulationsRenderer simulationsRenderer;
@@ -25,15 +27,14 @@ public class Main extends ApplicationAdapter implements GestureDetector.GestureL
 	public static Texture LandTile;
 	public static OrthographicCamera cam;
 	public static Viewport viewport;
-	public static float aspectRatio;
-	public static float height,width;
+
 	
 	@Override
 	public void create () {
 
 
 
-		Gdx.input.setInputProcessor(new GestureDetector(this));
+
 
 		cam = new OrthographicCamera((float)Gdx.graphics.getWidth(), (float)Gdx.graphics.getHeight());
 		viewport = new ScreenViewport(cam);
@@ -49,6 +50,8 @@ public class Main extends ApplicationAdapter implements GestureDetector.GestureL
 
 	@Override
 	public void render () {
+		Gdx.input.setInputProcessor(new GestureDetector(this));
+
 		handleInput();
 		cam.update();
 		batch.setProjectionMatrix(cam.combined);
@@ -62,6 +65,7 @@ public class Main extends ApplicationAdapter implements GestureDetector.GestureL
 	}
 
 	private void handleInput() {
+		float speed=10;
 		if (Gdx.input.isKeyPressed(Input.Keys.A)) {
 			cam.zoom += 0.02;
 		}
@@ -69,16 +73,16 @@ public class Main extends ApplicationAdapter implements GestureDetector.GestureL
 			cam.zoom -= 0.02;
 		}
 		if (Gdx.input.isKeyPressed(Input.Keys.LEFT)) {
-			cam.translate(-3, 0, 0);
+			cam.translate(-speed, 0, 0);
 		}
 		if (Gdx.input.isKeyPressed(Input.Keys.RIGHT)) {
-			cam.translate(3, 0, 0);
+			cam.translate(speed, 0, 0);
 		}
 		if (Gdx.input.isKeyPressed(Input.Keys.DOWN)) {
-			cam.translate(0, -3, 0);
+			cam.translate(0, -speed, 0);
 		}
 		if (Gdx.input.isKeyPressed(Input.Keys.UP)) {
-			cam.translate(0, 3, 0);
+			cam.translate(0, speed, 0);
 		}
 		int rotationSpeed = 1;
 		if (Gdx.input.isKeyPressed(Input.Keys.W)) {
@@ -120,6 +124,7 @@ public class Main extends ApplicationAdapter implements GestureDetector.GestureL
 
 	@Override
 	public boolean pan(float x, float y, float deltaX, float deltaY) {
+
 		return false;
 	}
 
@@ -130,12 +135,7 @@ public class Main extends ApplicationAdapter implements GestureDetector.GestureL
 
 	@Override
 	public boolean zoom(float initialDistance, float distance) {
-		System.out.println("zoom");
-		if (initialDistance >= distance) {
-			cam.zoom += 0.02;
-		} else {
-			cam.zoom -= 0.02;
-		}
+
 
 		return false;
 	}
