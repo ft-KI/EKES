@@ -33,7 +33,6 @@ public class WorldGenerator {
         luminanz();
         for(int x=0;x<imageWidth;x++){
             for(int y=0;y<imageHeight;y++){
-            System.out.println(getRed(x,y));
             if(getRed(x,y)>200){
                 vtw.getTiles().get(x).get(imageHeight-y-1).setLandType(LandType.LAND);
             }else{

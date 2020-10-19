@@ -5,7 +5,7 @@ import com.evolution.simulator.BackEnd.virtualtileworld.VirtualTileWorld;
 import com.evolution.simulator.BackEnd.virtualtileworld.WorldGenerator;
 
 public class EvolutionsSimulator {
-    int worldWidth=100;
+    int worldWidth=150;
     int worldHeight=100;
     public VirtualTileWorld world=new VirtualTileWorld(worldWidth,worldHeight,10);
     public EvolutionsSimulator(){
