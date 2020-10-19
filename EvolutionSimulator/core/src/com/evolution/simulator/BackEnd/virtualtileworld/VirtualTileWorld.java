@@ -1,13 +1,13 @@
-package com.evolution.simulator.BackEnd.virtualtilemap;
+package com.evolution.simulator.BackEnd.virtualtileworld;
 
 import java.util.ArrayList;
 
-public class VirtualTileMap {
+public class VirtualTileWorld {
     private ArrayList<ArrayList<Tile>>tiles=new ArrayList<ArrayList<Tile>>();
     private int height=0;
     private int width=0;
     private int TileSize=30;
-    public VirtualTileMap(int height, int width, int TileSize){
+    public VirtualTileWorld(int width, int height, int TileSize){
         this.height=height;
         this.width=width;
         this.TileSize=TileSize;
@@ -17,9 +17,15 @@ public class VirtualTileMap {
         for(int x=0;x<width;x++){
             tiles.add(new ArrayList<Tile>());
             for(int y=0;y<height;y++){
-                tiles.get(x).add(new Tile());
+                tiles.get(x).add(new Tile(LandType.NONE));
             }
         }
+    }
+    public void generateWorld(int width, int height,ArrayList<ArrayList<Tile>> world){
+        this.width=width;
+        this.height=height;
+        tiles.clear();
+        createMap();
     }
 
     public void setTile(int x,int y,Tile tile){
@@ -43,5 +49,9 @@ public class VirtualTileMap {
 
     public void setTileSize(int tileSize) {
         TileSize = tileSize;
+    }
+
+    public ArrayList<ArrayList<Tile>> getTiles() {
+        return tiles;
     }
 }
