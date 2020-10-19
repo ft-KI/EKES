@@ -13,6 +13,13 @@ public class VirtualTileWorld {
         this.TileSize=TileSize;
         createMap();
     }
+    public void update(){
+        for(int x=0;x<width;x++){
+            for(int y=0;y<height;y++){
+                
+            }
+        }
+    }
     private void createMap(){
         for(int x=0;x<width;x++){
             tiles.add(new ArrayList<Tile>());

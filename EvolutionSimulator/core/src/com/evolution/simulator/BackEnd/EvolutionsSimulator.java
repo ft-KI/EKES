@@ -17,7 +17,7 @@ public class EvolutionsSimulator {
      * Macht den nächsten schritt der simulation
      */
     public void dostep(){
-
+        world.update();
     }
 
     public int getWorldHeight() {
