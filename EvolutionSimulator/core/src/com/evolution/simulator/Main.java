@@ -27,6 +27,8 @@ public class Main extends ApplicationAdapter{
 	public static Texture LandTile;
 	public static OrthographicCamera cam;
 	public static Viewport viewport;
+	public static int simulationbeschleunigen=1;//beschleunigt simulation//so viele schritte pro frame(hat keine auswirkungen auf genauigkeit)
+
 
 	
 	@Override
@@ -52,13 +54,15 @@ public class Main extends ApplicationAdapter{
 	public void render () {
 
 		handleInput();
+
 		cam.update();
 		batch.setProjectionMatrix(cam.combined);
-		evolutionsSimulator.dostep();
-		Gdx.gl.glClearColor(0, 0, 0, 1);
-		Gdx.gl.glClear(GL20.GL_COLOR_BUFFER_BIT);
-		simulationsRenderer.draw();
-
+		for(int i=0;i<simulationbeschleunigen;i++) {
+			evolutionsSimulator.dostep();
+		}
+			Gdx.gl.glClearColor(0, 0, 0, 1);
+			Gdx.gl.glClear(GL20.GL_COLOR_BUFFER_BIT);
+			simulationsRenderer.draw();
 
 	}
 

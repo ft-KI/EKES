@@ -7,6 +7,8 @@ public class VirtualTileWorld {
     private int height=0;
     private int width=0;
     private int TileSize=30;
+    private float globalGrowSpeed=0.001f;
+    private float maxfoodvalue=1f;
     public VirtualTileWorld(int width, int height, int TileSize){
         this.height=height;
         this.width=width;
@@ -16,7 +18,44 @@ public class VirtualTileWorld {
     public void update(){
         for(int x=0;x<width;x++){
             for(int y=0;y<height;y++){
-                
+                Grow(tiles.get(x).get(y));
+            }
+        }
+    }
+    private void Grow(Tile tile){
+        tile.setFoodvalue(tile.getFoodvalue()+tile.getFruchtbarkeit()*globalGrowSpeed);
+        if(tile.getFoodvalue()>=maxfoodvalue){
+            tile.setFoodvalue(maxfoodvalue);
+        }
+    }
+    public void Fruchtbarkeitenberechnen(){
+        for (int x = 0; x < width; x++) {
+            for (int y = 0; y < height; y++) {
+                if (tiles.get(x).get(y).getLandType() == LandType.WATER) {
+                    tiles.get(x).get(y).setFruchtbarkeit(1f);
+                }
+            }
+        }
+        for(int i=0;i<20;i++) {
+            for (int x = 0; x < width; x++) {
+                for (int y = 0; y < height; y++) {
+
+
+                    float fruchtbarkeitdurchschnit = 0;
+                    for (int mx = -1; mx <= 1; mx = mx + 1) {
+                        for (int my = -1; my <= 1; my = my + 1) {
+                            if (x + mx >= 0 && y + my >= 0 && x + mx < width && y + my < height) {
+                                fruchtbarkeitdurchschnit += tiles.get(x + mx).get(y + my).getFruchtbarkeit();
+                            }
+                        }
+                    }
+                    fruchtbarkeitdurchschnit/=8;
+                   // System.out.println(fruchtbarkeitdurchschnit);
+                    if (tiles.get(x).get(y).getLandType() == LandType.LAND) {
+                        tiles.get(x).get(y).setFruchtbarkeit(fruchtbarkeitdurchschnit * 0.87f);
+                    }
+
+                }
             }
         }
     }
@@ -33,6 +72,7 @@ public class VirtualTileWorld {
         this.height=height;
         tiles.clear();
         createMap();
+        this.tiles=world;
     }
 
     public void setTile(int x,int y,Tile tile){

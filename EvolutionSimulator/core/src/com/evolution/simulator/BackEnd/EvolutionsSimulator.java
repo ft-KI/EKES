@@ -1,6 +1,5 @@
 package com.evolution.simulator.BackEnd;
 
-import com.badlogic.gdx.Gdx;
 import com.evolution.simulator.BackEnd.virtualtileworld.VirtualTileWorld;
 import com.evolution.simulator.BackEnd.virtualtileworld.WorldGenerator;
 
@@ -11,6 +10,7 @@ public class EvolutionsSimulator {
     public EvolutionsSimulator(){
         WorldGenerator worldGenerator=new WorldGenerator("C:\\Users\\Felix\\Documents\\GitHub\\EvolutionSimulator\\EvolutionSimulator\\core\\assets\\Land.jpg",worldWidth,worldHeight);
         worldGenerator.generateWorld(world);
+        world.Fruchtbarkeitenberechnen();
     }
 
     /**
