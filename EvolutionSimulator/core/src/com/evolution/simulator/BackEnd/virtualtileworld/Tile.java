@@ -3,7 +3,7 @@ package com.evolution.simulator.BackEnd.virtualtileworld;
 public class Tile {
     private LandType landType;
     private float foodvalue=0;
-    private float growspeed=0;
+    private float Fruchtbarkeit =0;
     public Tile(LandType landType){
         this.landType=landType;
     }
@@ -20,16 +20,16 @@ public class Tile {
         return foodvalue;
     }
 
-    public float getGrowspeed() {
-        return growspeed;
+    public float getFruchtbarkeit() {
+        return Fruchtbarkeit;
     }
 
     public void setFoodvalue(float foodvalue) {
         this.foodvalue = foodvalue;
     }
 
-    public void setGrowspeed(float growspeed) {
-        this.growspeed = growspeed;
+    public void setFruchtbarkeit(float fruchtbarkeit) {
+        this.Fruchtbarkeit = fruchtbarkeit;
     }
 
 }
