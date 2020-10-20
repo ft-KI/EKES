@@ -54,7 +54,6 @@ public class Main extends ApplicationAdapter{
 		handleInput();
 		cam.update();
 		batch.setProjectionMatrix(cam.combined);
-
 		evolutionsSimulator.dostep();
 		Gdx.gl.glClearColor(0, 0, 0, 1);
 		Gdx.gl.glClear(GL20.GL_COLOR_BUFFER_BIT);
@@ -94,6 +93,13 @@ public class Main extends ApplicationAdapter{
 
 		cam.zoom = MathUtils.clamp(cam.zoom, 0f, 5f);
 
+	}
+
+	@Override
+	public void resize(int width, int height) {
+		viewport.update(width, height);
+
+		super.resize(width, height);
 	}
 
 	@Override
