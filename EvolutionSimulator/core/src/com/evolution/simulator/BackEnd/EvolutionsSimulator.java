@@ -11,7 +11,7 @@ public class EvolutionsSimulator {
     public VirtualTileWorld world=new VirtualTileWorld(worldWidth,worldHeight,10);
     public Time time;
     public EvolutionsSimulator(){
-        WorldGenerator worldGenerator=new WorldGenerator("C:\\Users\\Felix\\Documents\\GitHub\\EvolutionSimulator\\EvolutionSimulator\\core\\assets\\Land.jpg",worldWidth,worldHeight);
+        WorldGenerator worldGenerator=new WorldGenerator(System.getProperty("user.dir")+"/Land.jpg",worldWidth,worldHeight);
         worldGenerator.generateWorld(world);
         world.Fruchtbarkeitenberechnen();
         actorManager=new ActorManager(this);

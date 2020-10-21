@@ -5,7 +5,6 @@ import com.evolution.simulator.BackEnd.actors.Actor;
 import com.evolution.simulator.BackEnd.ai.NeuronalNetwork.NeuronalNetwork;
 import com.evolution.simulator.BackEnd.virtualtileworld.LandType;
 import com.evolution.simulator.BackEnd.virtualtileworld.Tile;
-import com.sun.org.apache.bcel.internal.generic.LADD;
 
 public class Kreatur extends Actor {
     /*
