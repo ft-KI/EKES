@@ -7,6 +7,8 @@ public abstract class Actor {
     public float Yposition=0;
     public EvolutionsSimulator es;
     public boolean killed=false;
+    public boolean israndom ;
+
     public abstract void doStep();
 
     public int getXposition() {

@@ -4,6 +4,7 @@ import com.badlogic.gdx.Gdx;
 import com.badlogic.gdx.Input;
 import com.evolution.simulator.BackEnd.actors.Actor;
 import com.evolution.simulator.BackEnd.actors.kreatur.Kreatur;
+import com.evolution.simulator.BackEnd.actors.kreatur.Kreatur2;
 import com.evolution.simulator.BackEnd.virtualtileworld.LandType;
 
 import java.util.ArrayList;
@@ -19,7 +20,7 @@ public class ActorManager {
         int x=(int)(Math.random()*es.getWorld().getWidth()*es.getWorld().getTileSize());
         int y= (int)(Math.random()*es.getWorld().getHeight()*es.getWorld().getTileSize());
         if(es.getWorld().getTilefromActorPosition(x,y).getLandType()== LandType.LAND) {
-            Kreatur testkreatur = new Kreatur(x, y, es);
+            Kreatur2 testkreatur = new Kreatur2(x, y, es);
             actors.add(testkreatur);
         }
     }
