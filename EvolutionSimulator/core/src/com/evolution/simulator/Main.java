@@ -7,6 +7,7 @@ import com.badlogic.gdx.graphics.GL20;
 import com.badlogic.gdx.graphics.OrthographicCamera;
 import com.badlogic.gdx.graphics.Texture;
 import com.badlogic.gdx.graphics.g2d.SpriteBatch;
+import com.badlogic.gdx.graphics.glutils.ShapeRenderer;
 import com.badlogic.gdx.input.GestureDetector;
 import com.badlogic.gdx.math.MathUtils;
 import com.badlogic.gdx.math.Vector2;
@@ -22,12 +23,13 @@ public class Main extends ApplicationAdapter{
 	EvolutionsSimulator evolutionsSimulator;
 	SimulationsRenderer simulationsRenderer;
 	public static SpriteBatch batch;
+	public static ShapeRenderer shapeRenderer;
 	public static Texture img;
 	public static Texture watertile;
 	public static Texture LandTile;
 	public static OrthographicCamera cam;
 	public static Viewport viewport;
-	public static int simulationbeschleunigen=1;//beschleunigt simulation//so viele schritte pro frame(hat keine auswirkungen auf genauigkeit)
+	public static int simulationbeschleunigen=10;//beschleunigt simulation//so viele schritte pro frame(hat keine auswirkungen auf genauigkeit)
 
 
 	
@@ -36,7 +38,7 @@ public class Main extends ApplicationAdapter{
 
 
 
-
+		shapeRenderer=new ShapeRenderer();
 
 		cam = new OrthographicCamera((float)Gdx.graphics.getWidth(), (float)Gdx.graphics.getHeight());
 		viewport = new ScreenViewport(cam);
@@ -57,6 +59,7 @@ public class Main extends ApplicationAdapter{
 
 		cam.update();
 		batch.setProjectionMatrix(cam.combined);
+		shapeRenderer.setProjectionMatrix(cam.combined);
 		for(int i=0;i<simulationbeschleunigen;i++) {
 			evolutionsSimulator.dostep();
 		}

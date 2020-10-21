@@ -15,7 +15,16 @@ public class VirtualTileWorld {
         this.TileSize=TileSize;
         createMap();
     }
-    public void update(){
+    public Tile getTilefromActorPosition(int x,int y){
+        Tile t;
+        if(x>=0&&y>=0 && x<width*TileSize && y<height*TileSize) {
+            t = tiles.get(x / TileSize).get(y / TileSize);
+        }else{
+            t=new Tile(LandType.NONE);
+        }
+        return t;
+    }
+    public void doStep(){
         for(int x=0;x<width;x++){
             for(int y=0;y<height;y++){
                 Grow(tiles.get(x).get(y));
