@@ -7,7 +7,7 @@ public class VirtualTileWorld {
     private int height=0;
     private int width=0;
     private int TileSize=30;
-    private float globalGrowSpeed=0.001f;
+    private float globalGrowSpeed=0.01f;
     private float maxfoodvalue=1f;
     public VirtualTileWorld(int width, int height, int TileSize){
         this.height=height;
@@ -61,7 +61,7 @@ public class VirtualTileWorld {
                     fruchtbarkeitdurchschnit/=8;
                    // System.out.println(fruchtbarkeitdurchschnit);
                     if (tiles.get(x).get(y).getLandType() == LandType.LAND) {
-                        tiles.get(x).get(y).setFruchtbarkeit(fruchtbarkeitdurchschnit * 0.87f);
+                        tiles.get(x).get(y).setFruchtbarkeit(fruchtbarkeitdurchschnit * 0.90f);
                     }
 
                 }

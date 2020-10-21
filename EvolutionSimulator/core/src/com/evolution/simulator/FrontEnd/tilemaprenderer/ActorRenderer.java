@@ -10,7 +10,7 @@ public class ActorRenderer {
     public void draw(EvolutionsSimulator es){
         for(Actor actor:es.actorManager.getActors()){
             Main.shapeRenderer.begin(ShapeRenderer.ShapeType.Filled);
-            if(((Kreatur) actor).israndom)
+            if(actor.israndom)
             Main.shapeRenderer.setColor(1,0,0,1);
             else
                 Main.shapeRenderer.setColor(0,1,0,1);
