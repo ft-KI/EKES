@@ -1,5 +1,15 @@
 package com.evolution.simulator.BackEnd.virtualtileworld;
 
 public enum LandType {
-    NONE,LAND,WATER
+    NONE(1),LAND(1),WATER(-1);
+    private int value;
+
+    private LandType(int value) {
+        this.value = value;
+    }
+
+    public int getValue() {
+        return value;
+    }
+
 }

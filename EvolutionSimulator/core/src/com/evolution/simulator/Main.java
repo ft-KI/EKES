@@ -29,7 +29,7 @@ public class Main extends ApplicationAdapter{
 	public static Texture LandTile;
 	public static OrthographicCamera cam;
 	public static Viewport viewport;
-	public static int simulationbeschleunigen=10;//beschleunigt simulation//so viele schritte pro frame(hat keine auswirkungen auf genauigkeit)
+	public static int simulationbeschleunigen=1;//beschleunigt simulation//so viele schritte pro frame(hat keine auswirkungen auf genauigkeit)
 
 
 	
@@ -54,7 +54,12 @@ public class Main extends ApplicationAdapter{
 
 	@Override
 	public void render () {
-
+		if(input.isKeyJustPressed(Input.Keys.Y)){
+			simulationbeschleunigen+=10;
+		}
+		if(input.isKeyJustPressed(Input.Keys.X)){
+			simulationbeschleunigen-=10;
+		}
 		handleInput();
 
 		cam.update();

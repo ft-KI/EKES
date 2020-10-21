@@ -9,11 +9,13 @@ public class EvolutionsSimulator {
     int worldHeight=100;
     public ActorManager actorManager;
     public VirtualTileWorld world=new VirtualTileWorld(worldWidth,worldHeight,10);
+    public Time time;
     public EvolutionsSimulator(){
         WorldGenerator worldGenerator=new WorldGenerator("C:\\Users\\Felix\\Documents\\GitHub\\EvolutionSimulator\\EvolutionSimulator\\core\\assets\\Land.jpg",worldWidth,worldHeight);
         worldGenerator.generateWorld(world);
         world.Fruchtbarkeitenberechnen();
         actorManager=new ActorManager(this);
+        time=new Time();
     }
 
     /**
@@ -23,6 +25,7 @@ public class EvolutionsSimulator {
         System.out.println(actorManager.actors.size());
         world.doStep();
         actorManager.doStep();
+        time.Tick();
     }
 
 

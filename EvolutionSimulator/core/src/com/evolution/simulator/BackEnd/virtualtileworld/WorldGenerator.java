@@ -29,7 +29,6 @@ public class WorldGenerator {
         image=ergebnis;
     }
     public void generateWorld(VirtualTileWorld vtw){
-        ArrayList<ArrayList<Tile>>world=new ArrayList<ArrayList<Tile>>();
         luminanz();
         for(int x=0;x<imageWidth;x++){
             for(int y=0;y<imageHeight;y++){
