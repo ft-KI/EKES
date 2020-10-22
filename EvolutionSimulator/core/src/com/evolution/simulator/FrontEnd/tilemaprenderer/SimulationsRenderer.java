@@ -1,6 +1,7 @@
 package com.evolution.simulator.FrontEnd.tilemaprenderer;
 
 import com.evolution.simulator.BackEnd.EvolutionsSimulator;
+import com.evolution.simulator.Main;
 
 
 public class SimulationsRenderer {
@@ -15,6 +16,6 @@ public class SimulationsRenderer {
     public void draw(){
         tileMapRenderer.draw(evolutionsSimulator);
         actorRenderer.draw(evolutionsSimulator);
-        infoRenderer.draw();
+        infoRenderer.draw(Main.InfoBatch);
     }
 }

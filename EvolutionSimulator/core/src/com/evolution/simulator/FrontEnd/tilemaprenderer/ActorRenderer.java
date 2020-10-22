@@ -4,6 +4,7 @@ import com.badlogic.gdx.graphics.glutils.ShapeRenderer;
 import com.evolution.simulator.BackEnd.EvolutionsSimulator;
 import com.evolution.simulator.BackEnd.actors.Actor;
 import com.evolution.simulator.BackEnd.actors.kreatur.Kreatur;
+import com.evolution.simulator.BackEnd.actors.kreatur.Kreatur2;
 import com.evolution.simulator.Main;
 
 public class ActorRenderer {
@@ -17,6 +18,9 @@ public class ActorRenderer {
             }
 
             Main.shapeRenderer.circle(actor.getXposition(),actor.getYposition(),5);
+            if(actor instanceof Kreatur2) {
+                Main.shapeRenderer.rectLine(actor.getXposition(),actor.getYposition(),((Kreatur2) actor).getFeelerListPos().x,((Kreatur2) actor).getFeelerListPos().y,2);
+            }
             Main.shapeRenderer.end();
         }
     }

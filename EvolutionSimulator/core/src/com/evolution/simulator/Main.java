@@ -29,6 +29,7 @@ public class Main extends ApplicationAdapter{
 	public static Viewport infoViewport;
 	public static SpriteBatch batch;
 	public static SpriteBatch InfoBatch;
+	public static ShapeRenderer InfoShapeRenderer;
 	public static BitmapFont infoFont;
 	public static GlyphLayout glyphLayout=new GlyphLayout();
 	public static ShapeRenderer shapeRenderer;
@@ -45,7 +46,7 @@ public class Main extends ApplicationAdapter{
 	public void create () {
 
 
-
+		InfoShapeRenderer=new ShapeRenderer();
 		shapeRenderer=new ShapeRenderer();
 		InfoBatch=new SpriteBatch();
 		infoFont=new BitmapFont();
@@ -73,11 +74,18 @@ public class Main extends ApplicationAdapter{
 		if(input.isKeyJustPressed(Input.Keys.X)){
 			simulationbeschleunigen-=10;
 		}
+		if(input.isKeyJustPressed(Input.Keys.S)){
+			simulationbeschleunigen=1000;
+		}
+		if(input.isKeyJustPressed(Input.Keys.R)){
+			simulationbeschleunigen=1;
+		}
 		handleInput();
 
 		cam.update();
 		infocam.update();
 		InfoBatch.setProjectionMatrix(infocam.combined);
+		InfoShapeRenderer.setProjectionMatrix(infocam.combined);
 		batch.setProjectionMatrix(cam.combined);
 		shapeRenderer.setProjectionMatrix(cam.combined);
 		for(int i=0;i<simulationbeschleunigen;i++) {
