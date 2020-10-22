@@ -10,10 +10,11 @@ public class SimulationsRenderer {
     private InfoRenderer infoRenderer=new InfoRenderer();
     public SimulationsRenderer(EvolutionsSimulator evolutionsSimulator){
         this.evolutionsSimulator=evolutionsSimulator;
+        this.infoRenderer.setEvolutionsSimulator(this.evolutionsSimulator);
     }
     public void draw(){
         tileMapRenderer.draw(evolutionsSimulator);
         actorRenderer.draw(evolutionsSimulator);
-        infoRenderer.draw(evolutionsSimulator);
+        infoRenderer.draw();
     }
 }

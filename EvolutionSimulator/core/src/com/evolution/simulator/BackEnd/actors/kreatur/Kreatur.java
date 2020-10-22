@@ -23,7 +23,6 @@ public class Kreatur extends Actor {
     private NeuronalNetwork brain;
     private float energy=200;
     private float moveFaktor=5;
-    private float age=0;
     private float moveCostMult=5;
     private float eatMult=50;
     private float permanetcostland=0.01f;
@@ -58,7 +57,7 @@ public class Kreatur extends Actor {
     }
 
     @Override
-    public void doStep() {
+    public void DoStep() {
         brain.reset();
         float positionFoodValue=super.es.world.getTilefromActorPosition(super.getXposition(), super.getYposition()).getFoodvalue();
 
@@ -74,7 +73,6 @@ public class Kreatur extends Actor {
             costMult=permanetcostwater;
         }
         energy-=permanetcostland*costMult;
-        age+=0.01;
         costMult+=age*0.1f;
         if(energy<100){
             super.kill();

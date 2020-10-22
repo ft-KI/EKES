@@ -23,7 +23,6 @@ public class Kreatur2 extends Actor {
     private float energy=200;
     private float moveFaktor=5;
     private float rotatFaktor=2;
-    private float age=0;
     private float moveCostMult=5;
     private float rotateCostMult=3;
     private float eatMult=50;
@@ -44,8 +43,8 @@ public class Kreatur2 extends Actor {
         this.rotationangle=(float)(Math.random()*Math.PI*2);
         brain=new NeuronalNetwork();
         brain.createInputNeurons(3);
-        brain.addHiddenLayer(6);
-        brain.addHiddenLayer(6);
+        brain.addHiddenLayer(20);
+        brain.addHiddenLayer(20);
         brain.createOutputtNeurons(4);
         brain.connectRandomFullMeshed();
         brain.addBiasforallNeurons();
@@ -67,7 +66,7 @@ public class Kreatur2 extends Actor {
     }
 
     @Override
-    public void doStep() {
+    public void DoStep() {
         brain.reset();
         float INpositionFoodValue=super.es.world.getTilefromActorPosition(super.getXposition(), super.getYposition()).getFoodvalue();
         float INpsitionladtype=super.es.world.getTilefromActorPosition(super.getXposition(),super.getYposition()).getLandType().getValue()*100;
@@ -90,7 +89,6 @@ public class Kreatur2 extends Actor {
             costMult=permanetcostwater;
         }
         energy-=permanetcostland*costMult;
-        age+=0.01;
         costMult+=age*0.1f;
         if(energy<100){
             super.kill();
@@ -125,5 +123,9 @@ public class Kreatur2 extends Actor {
         Yposition+=Math.sin(this.rotationangle)*moveFaktor*outMoveForward;
         energy-=(outMoveForward)*moveCostMult*costMult;
 
+    }
+
+    public float getAge() {
+        return age;
     }
 }

@@ -7,6 +7,7 @@ import com.badlogic.gdx.graphics.GL20;
 import com.badlogic.gdx.graphics.OrthographicCamera;
 import com.badlogic.gdx.graphics.Texture;
 import com.badlogic.gdx.graphics.g2d.BitmapFont;
+import com.badlogic.gdx.graphics.g2d.GlyphLayout;
 import com.badlogic.gdx.graphics.g2d.Sprite;
 import com.badlogic.gdx.graphics.g2d.SpriteBatch;
 import com.badlogic.gdx.graphics.glutils.ShapeRenderer;
@@ -24,9 +25,12 @@ import static com.badlogic.gdx.Gdx.input;
 public class Main extends ApplicationAdapter{
 	EvolutionsSimulator evolutionsSimulator;
 	SimulationsRenderer simulationsRenderer;
+	public static OrthographicCamera infocam;
+	public static Viewport infoViewport;
 	public static SpriteBatch batch;
 	public static SpriteBatch InfoBatch;
 	public static BitmapFont infoFont;
+	public static GlyphLayout glyphLayout=new GlyphLayout();
 	public static ShapeRenderer shapeRenderer;
 	public static Texture img;
 	public static Texture watertile;
@@ -45,6 +49,7 @@ public class Main extends ApplicationAdapter{
 		shapeRenderer=new ShapeRenderer();
 		InfoBatch=new SpriteBatch();
 		infoFont=new BitmapFont();
+		infocam=new OrthographicCamera();
 		cam = new OrthographicCamera((float)Gdx.graphics.getWidth(), (float)Gdx.graphics.getHeight());
 		viewport = new ScreenViewport(cam);
 		evolutionsSimulator=new EvolutionsSimulator();
@@ -54,6 +59,9 @@ public class Main extends ApplicationAdapter{
 		watertile=new Texture("WaterTile.png");
 		LandTile=new Texture("LandTile.jpg");
 		cam.position.set((float)(Gdx.graphics.getWidth() / 2), (float)(Gdx.graphics.getHeight() / 2), 0.0F);
+		infoViewport=new ScreenViewport(infocam);
+
+
 
 	}
 
@@ -68,6 +76,8 @@ public class Main extends ApplicationAdapter{
 		handleInput();
 
 		cam.update();
+		infocam.update();
+		InfoBatch.setProjectionMatrix(infocam.combined);
 		batch.setProjectionMatrix(cam.combined);
 		shapeRenderer.setProjectionMatrix(cam.combined);
 		for(int i=0;i<simulationbeschleunigen;i++) {
@@ -115,6 +125,8 @@ public class Main extends ApplicationAdapter{
 	@Override
 	public void resize(int width, int height) {
 		viewport.update(width, height);
+		infoViewport.update(width, height);
+		infocam.position.set((float)(Gdx.graphics.getWidth() / 2), (float)(Gdx.graphics.getHeight() / 2), 0.0F);
 
 		super.resize(width, height);
 	}

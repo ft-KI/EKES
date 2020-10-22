@@ -12,6 +12,8 @@ import java.util.ArrayList;
 public class ActorManager {
     ArrayList<Actor>actors=new ArrayList<>();
     EvolutionsSimulator es;
+    public float highestAge=0;
+    public float averageAge=0;
     public ActorManager(EvolutionsSimulator es){
         this.es=es;
 
@@ -28,6 +30,8 @@ public class ActorManager {
         if(actors.size()<100){
             createRandomActor();
         }
+        float getha=0;
+        float calcaverageage=0;
         for (int i = 0, actorsSize = actors.size(); i < actorsSize; i++) {
             Actor actor = actors.get(i);
             actor.doStep();
@@ -35,7 +39,15 @@ public class ActorManager {
                 actors.remove(actor);
                 actorsSize--;
             }
+                if(((Kreatur2) actor).getAge()>getha){
+                    getha=((Kreatur2) actor).getAge();
+                }
+
+            calcaverageage+=actor.age;
         }
+        averageAge=calcaverageage/actors.size();
+
+        highestAge=getha;
     }
 
     public ArrayList<Actor> getActors() {
