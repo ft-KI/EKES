@@ -8,6 +8,7 @@ public abstract class Actor {
     public EvolutionsSimulator es;
     public boolean killed=false;
     public boolean israndom ;
+    public int generation=1;
 
     public abstract void doStep();
 
@@ -20,5 +21,9 @@ public abstract class Actor {
     }
     public void kill(){
         killed=true;
+    }
+
+    public int getGeneration() {
+        return generation;
     }
 }

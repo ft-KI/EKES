@@ -32,6 +32,11 @@ public class Kreatur2 extends Actor {
     private float eatcostMult=1;
     private float costMult=1;
     private float rotationangle=0;
+
+    private float outMoveForward=0;
+    private float outRotate=0;
+    private float outEat=0;
+    private float outGenerateChildren=0;
     public Kreatur2(int x, int y, EvolutionsSimulator es){
         super.es=es;
         super.Xposition=x;
@@ -56,6 +61,7 @@ public class Kreatur2 extends Actor {
             brain.randomMutate(0.23f);
         }
         this.israndom = false;
+        super.generation=parent.generation+1;
 
 
     }
@@ -63,13 +69,19 @@ public class Kreatur2 extends Actor {
     @Override
     public void doStep() {
         brain.reset();
-        float positionFoodValue=super.es.world.getTilefromActorPosition(super.getXposition(), super.getYposition()).getFoodvalue();
+        float INpositionFoodValue=super.es.world.getTilefromActorPosition(super.getXposition(), super.getYposition()).getFoodvalue();
+        float INpsitionladtype=super.es.world.getTilefromActorPosition(super.getXposition(),super.getYposition()).getLandType().getValue()*100;
+        float INenergy=energy;
+        brain.setInputValues(INpsitionladtype,INpositionFoodValue*100,INenergy);
 
-        brain.setInputValues(super.es.world.getTilefromActorPosition(super.getXposition(),super.getYposition()).getLandType().getValue()*100,positionFoodValue*100,energy);
+        outMoveForward=brain.getOutputNeurons().get(0).getOutputValue();
+        outRotate=brain.getOutputNeurons().get(1).getOutputValue();
+        outEat=brain.getOutputNeurons().get(2).getOutputValue();
+        outGenerateChildren=brain.getOutputNeurons().get(3).getOutputValue();
         Rotate();
         moveForward();
         eat();
-        if(brain.getOutputNeurons().get(3).getOutputValue()>0.5f){
+        if(outGenerateChildren>0.5f){
             createChild();
         }
         if(super.es.world.getTilefromActorPosition(super.getXposition(), super.getYposition()).getLandType()== LandType.LAND){
@@ -85,7 +97,7 @@ public class Kreatur2 extends Actor {
         }
     }
     public void createChild(){
-        if(energy>=200 && age>=2) {
+        if(energy>=300 && age>=4) {
             Kreatur2 child = new Kreatur2(this);
             super.es.actorManager.getActors().add(child);
             energy-=200*costMult;
@@ -95,23 +107,23 @@ public class Kreatur2 extends Actor {
         Tile t=super.es.getWorld().getTilefromActorPosition(super.getXposition(),super.getYposition());
         if(super.es.getWorld().getTilefromActorPosition(super.getXposition(),super.getYposition()).getLandType()==LandType.LAND) {
             float eaten;
-            eaten = brain.getOutputNeurons().get(2).getOutputValue();
+            eaten = outEat;
             if(super.es.getWorld().getTilefromActorPosition(super.getXposition(),super.getYposition()).getFoodvalue()<eaten){
                 eaten+=super.es.getWorld().getTilefromActorPosition(super.getXposition(),super.getYposition()).getFoodvalue()-eaten;
             }
             energy += eaten*eatMult;
             t.setFoodvalue(t.getFoodvalue() - eaten);
         }
-        energy-=brain.getOutputNeurons().get(2).getOutputValue()*eatcostMult*costMult;
+        energy-=outEat*eatcostMult*costMult;
     }
     public void Rotate(){
-        this.rotationangle+=0.5f-brain.getOutputNeurons().get(1).getOutputValue()*rotatFaktor;
-        energy-=brain.getOutputNeurons().get(1).getOutputValue()*rotateCostMult*costMult;
+        this.rotationangle+=0.5f-outRotate*rotatFaktor;
+        energy-=outRotate*rotateCostMult*costMult;
     }
     public void moveForward(){
-        Xposition+=Math.cos(this.rotationangle)*moveFaktor*brain.getOutputNeurons().get(0).getOutputValue();
-        Yposition+=Math.sin(this.rotationangle)*moveFaktor*brain.getOutputNeurons().get(0).getOutputValue();
-        energy-=(brain.getOutputNeurons().get(0).getOutputValue())*moveCostMult*costMult;
+        Xposition+=Math.cos(this.rotationangle)*moveFaktor*outMoveForward;
+        Yposition+=Math.sin(this.rotationangle)*moveFaktor*outMoveForward;
+        energy-=(outMoveForward)*moveCostMult*costMult;
 
     }
 }
