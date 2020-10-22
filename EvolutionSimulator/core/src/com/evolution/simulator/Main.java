@@ -6,6 +6,8 @@ import com.badlogic.gdx.Input;
 import com.badlogic.gdx.graphics.GL20;
 import com.badlogic.gdx.graphics.OrthographicCamera;
 import com.badlogic.gdx.graphics.Texture;
+import com.badlogic.gdx.graphics.g2d.BitmapFont;
+import com.badlogic.gdx.graphics.g2d.Sprite;
 import com.badlogic.gdx.graphics.g2d.SpriteBatch;
 import com.badlogic.gdx.graphics.glutils.ShapeRenderer;
 import com.badlogic.gdx.input.GestureDetector;
@@ -23,6 +25,8 @@ public class Main extends ApplicationAdapter{
 	EvolutionsSimulator evolutionsSimulator;
 	SimulationsRenderer simulationsRenderer;
 	public static SpriteBatch batch;
+	public static SpriteBatch InfoBatch;
+	public static BitmapFont infoFont;
 	public static ShapeRenderer shapeRenderer;
 	public static Texture img;
 	public static Texture watertile;
@@ -39,7 +43,8 @@ public class Main extends ApplicationAdapter{
 
 
 		shapeRenderer=new ShapeRenderer();
-
+		InfoBatch=new SpriteBatch();
+		infoFont=new BitmapFont();
 		cam = new OrthographicCamera((float)Gdx.graphics.getWidth(), (float)Gdx.graphics.getHeight());
 		viewport = new ScreenViewport(cam);
 		evolutionsSimulator=new EvolutionsSimulator();

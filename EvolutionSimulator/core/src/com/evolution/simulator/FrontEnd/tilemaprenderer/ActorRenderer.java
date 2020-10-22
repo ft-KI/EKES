@@ -11,7 +11,7 @@ public class ActorRenderer {
         for(Actor actor:es.actorManager.getActors()){
             Main.shapeRenderer.begin(ShapeRenderer.ShapeType.Filled);
             if(actor.getGeneration()<=10) {
-                Main.shapeRenderer.setColor(1f-actor.generation/10,actor.getGeneration()/10,0,1);
+                Main.shapeRenderer.setColor(1f-actor.generation/10f,actor.getGeneration()/10f,0,1);
             }else{
                 Main.shapeRenderer.setColor(1,1,1,1);
             }
