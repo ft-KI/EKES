@@ -7,7 +7,7 @@ public class VirtualTileWorld {
     private int height=0;
     private int width=0;
     private int TileSize=30;
-    private float globalGrowSpeed=0.01f;
+    private float globalGrowSpeed=0.005f;
     private float maxfoodvalue=1f;
     public VirtualTileWorld(int width, int height, int TileSize){
         this.height=height;
