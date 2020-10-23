@@ -18,4 +18,17 @@ public class SimulationsRenderer {
         actorRenderer.draw(evolutionsSimulator);
         infoRenderer.draw(Main.InfoBatch);
     }
+
+    public ActorRenderer getActorRenderer() {
+        return actorRenderer;
+    }
+
+    public EvolutionsSimulator getEvolutionsSimulator() {
+        return evolutionsSimulator;
+    }
+
+    public TileMapRenderer getTileMapRenderer() {
+        return tileMapRenderer;
+    }
+
 }

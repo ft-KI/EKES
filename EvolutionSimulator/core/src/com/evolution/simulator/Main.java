@@ -77,6 +77,9 @@ public class Main extends ApplicationAdapter{
 		}
 		handleInput();
 
+		if(simulationsRenderer.getActorRenderer().FocusedActor!=null){
+			cam.position.set(simulationsRenderer.getActorRenderer().FocusedActor.getXposition(),simulationsRenderer.getActorRenderer().FocusedActor.getYposition(),0);
+		}
 		cam.update();
 		infocam.update();
 		InfoBatch.setProjectionMatrix(infocam.combined);
