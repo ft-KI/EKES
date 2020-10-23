@@ -80,7 +80,7 @@ public class Kreatur2 extends Actor {
         calcFeeler();
         float INLandTypefromTileinViewDirection=super.es.world.getTilefromActorPosition((int)(feelerListPos.x),(int)(feelerListPos.y)).getLandType().getValue()*100;
         float INFoodValuefromTileinViewDirection=super.es.world.getTilefromActorPosition((int)(feelerListPos.x),(int)(feelerListPos.y)).getFoodvalue();
-        brain.setInputValues(INpsitionladtype,INFoodValuefromTileinViewDirection,INLandTypefromTileinViewDirection,INpositionFoodValue*100,INenergy);
+        brain.setInputValues(INpsitionladtype,INFoodValuefromTileinViewDirection,INLandTypefromTileinViewDirection,INpositionFoodValue,INenergy);
 
         outMoveForward=brain.getOutputNeurons().get(0).getOutputValue();
         outRotate=brain.getOutputNeurons().get(1).getOutputValue();

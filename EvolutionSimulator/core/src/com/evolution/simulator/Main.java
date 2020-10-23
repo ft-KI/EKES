@@ -27,7 +27,6 @@ public class Main extends ApplicationAdapter{
 	public static SpriteBatch InfoBatch;
 	public static ShapeRenderer InfoShapeRenderer;
 	public static BitmapFont infoFont;
-	public static GlyphLayout glyphLayout=new GlyphLayout();
 	public static ShapeRenderer shapeRenderer;
 	public static Texture img;
 	public static Texture watertile;
