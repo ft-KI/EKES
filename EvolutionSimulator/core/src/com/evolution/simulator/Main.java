@@ -75,6 +75,9 @@ public class Main extends ApplicationAdapter{
 		if(input.isKeyJustPressed(Input.Keys.R)){
 			simulationbeschleunigen=1;
 		}
+		if(input.isKeyJustPressed(Input.Keys.D)){
+			simulationsRenderer.getActorRenderer().FocusedActor=null;
+		}
 		handleInput();
 
 		if(simulationsRenderer.getActorRenderer().FocusedActor!=null){

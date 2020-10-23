@@ -13,8 +13,8 @@ public class ActorRenderer {
     public void draw(EvolutionsSimulator es){
         for(Actor actor:es.actorManager.getActors()){
             int checkradius=10;
-            if(Unproject.getMouseX()>actor.getXposition()-checkradius&&Unproject.getMouseX()<actor.getXposition()+checkradius && Unproject.getMouseY()>actor.getYposition()-checkradius && Unproject.getMouseY()<actor.getYposition()+checkradius){
-                if(Gdx.input.isButtonJustPressed(0)){
+            if(Gdx.input.isButtonJustPressed(0)){
+                if(Unproject.getMouseX()>actor.getXposition()-checkradius&&Unproject.getMouseX()<actor.getXposition()+checkradius && Unproject.getMouseY()>actor.getYposition()-checkradius && Unproject.getMouseY()<actor.getYposition()+checkradius){
                     FocusedActor=actor;
                     System.out.println("1234");
                 }
