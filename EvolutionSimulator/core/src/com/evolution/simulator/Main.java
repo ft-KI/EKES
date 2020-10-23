@@ -96,6 +96,8 @@ public class Main extends ApplicationAdapter{
 			Gdx.gl.glClear(GL20.GL_COLOR_BUFFER_BIT);
 			simulationsRenderer.draw();
 
+
+
 	}
 
 	private void handleInput() {
@@ -128,6 +130,12 @@ public class Main extends ApplicationAdapter{
 		}
 
 		cam.zoom = MathUtils.clamp(cam.zoom, 0f, 5f);
+
+		if(input.isKeyJustPressed(Input.Keys.DEL)) {
+			evolutionsSimulator=new EvolutionsSimulator();
+			simulationsRenderer=new SimulationsRenderer(evolutionsSimulator);
+
+		}
 
 	}
 
