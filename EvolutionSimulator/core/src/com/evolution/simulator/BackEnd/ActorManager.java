@@ -14,6 +14,8 @@ public class ActorManager {
     EvolutionsSimulator es;
     public float highestAge=0;
     public float averageAge=0;
+    public float ageOnDeathaverage=0;
+    public float DeathesperStep=0;
     public ActorManager(EvolutionsSimulator es){
         this.es=es;
 
@@ -32,10 +34,14 @@ public class ActorManager {
         }
         float getha=0;
         float calcaverageage=0;
+        float calcageOnDeathAverage=0;
+        DeathesperStep=0;
         for (int i = 0, actorsSize = actors.size(); i < actorsSize; i++) {
             Actor actor = actors.get(i);
             actor.doStep();
             if(actor.killed){
+                calcageOnDeathAverage+=actor.age;
+                DeathesperStep++;
                 actors.remove(actor);
                 actorsSize--;
             }
@@ -46,7 +52,9 @@ public class ActorManager {
             calcaverageage+=actor.age;
         }
         averageAge=calcaverageage/actors.size();
-
+        if(DeathesperStep>0) {
+            ageOnDeathaverage = calcageOnDeathAverage / DeathesperStep;
+        }
         highestAge=getha;
     }
 
