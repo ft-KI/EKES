@@ -29,7 +29,7 @@ public class Feeler {
         return feelerlength;
     }
     public void calculateFeelerPosition(float rotationangle, int x, int y){
-        feelerpos.set((int)(x+Math.cos(rotationangle)*feelerlength),(int)(y+Math.sin(rotationangle)*feelerlength));
+        feelerpos.set((int)(x+Math.cos(rotationangle+this.angle)*feelerlength),(int)(y+Math.sin(rotationangle+this.angle)*feelerlength));
     }
     public Tile getFeelerTile(VirtualTileWorld vtw, float rotationangle, int x, int y){
         calculateFeelerPosition(rotationangle,x,y);

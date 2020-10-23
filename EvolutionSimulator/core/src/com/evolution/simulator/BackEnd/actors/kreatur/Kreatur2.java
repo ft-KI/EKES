@@ -8,6 +8,8 @@ import com.evolution.simulator.BackEnd.ai.NeuronalNetwork.activationFunktions.Si
 import com.evolution.simulator.BackEnd.virtualtileworld.LandType;
 import com.evolution.simulator.BackEnd.virtualtileworld.Tile;
 
+import java.util.ArrayList;
+
 public class Kreatur2 extends Actor {
     /*
         Inputs:
@@ -38,14 +40,16 @@ public class Kreatur2 extends Actor {
     private float outEat=0;
     private float outGenerateChildren=0;
     private int feelerlength=20;
-    public Feeler feelerone=new Feeler(0,feelerlength);
+   // public Feeler feelerone=new Feeler(-10,feelerlength);
+    public ArrayList<Feeler>feelers=new ArrayList<>();
     public Kreatur2(int x, int y, EvolutionsSimulator es){
         super.es=es;
         super.Xposition=x;
         super.Yposition=y;
+        generateFeelers();
         this.rotationangle=(float)(Math.random()*Math.PI*2);
         brain=new NeuronalNetwork();
-        brain.createInputNeurons(5);
+        brain.createInputNeurons(3+feelers.size()*2);
         brain.addHiddenLayer(20);
         brain.addHiddenLayer(20);
         brain.createOutputtNeurons(4);
@@ -58,6 +62,7 @@ public class Kreatur2 extends Actor {
         super.es=parent.es;
         super.Xposition=parent.getXposition()+10;
         super.Yposition= parent.getYposition()+10;
+        generateFeelers();
         this.rotationangle=(float)(Math.random()*Math.PI*2);
         brain=parent.brain.cloneFullMeshed();
         for(int i=0;i<4;i++) {
@@ -65,7 +70,14 @@ public class Kreatur2 extends Actor {
         }
         this.israndom = false;
         super.generation=parent.generation+1;
-        feelerone.calculateFeelerPosition(rotationangle,super.getXposition(),super.getYposition());
+        for(Feeler f:feelers) {
+            f.calculateFeelerPosition(rotationangle, super.getXposition(), super.getYposition());
+        }
+    }
+    private void generateFeelers(){
+        feelers.add(new Feeler((float)(20*Math.PI/180), feelerlength));
+        feelers.add(new Feeler((float)(-20*Math.PI/180), feelerlength));
+
     }
 
     @Override
@@ -75,9 +87,17 @@ public class Kreatur2 extends Actor {
         float INpsitionladtype=super.es.world.getTilefromActorPosition(super.getXposition(),super.getYposition()).getLandType().getValue()*100f;
         float INenergy=energy;
 
-        float INLandTypefromTileinViewDirection=feelerone.getFeelerTile(es.world,rotationangle,super.getXposition(),super.getYposition()).getLandType().getValue()*100f;
-        float INFoodValuefromTileinViewDirection=feelerone.getFeelerTile(es.world,rotationangle,super.getXposition(),super.getYposition()).getFoodvalue();
-        brain.setInputValues(INpsitionladtype,INFoodValuefromTileinViewDirection,INLandTypefromTileinViewDirection,INpositionFoodValue,INenergy);
+      //  float INLandTypefromTileinViewDirection=feelerone.getFeelerTile(es.world,rotationangle,super.getXposition(),super.getYposition()).getLandType().getValue()*100f;
+        //float INFoodValuefromTileinViewDirection=feelerone.getFeelerTile(es.world,rotationangle,super.getXposition(),super.getYposition()).getFoodvalue();
+        brain.getInputNeurons().get(0).setValue(INpsitionladtype);
+        brain.getInputNeurons().get(1).setValue(INpositionFoodValue);
+        brain.getInputNeurons().get(2).setValue(INenergy);
+        for(int i=0;i<feelers.size();i++){
+            brain.getInputNeurons().get(3+i).setValue(feelers.get(i).getFeelerTile(es.getWorld(),rotationangle,super.getXposition(),super.getYposition()).getLandType().getValue()*100f);
+        }
+        for(int i=0;i<feelers.size();i++){
+            brain.getInputNeurons().get(3+i+feelers.size()).setValue(feelers.get(i).getFeelerTile(es.getWorld(),rotationangle,super.getXposition(),super.getYposition()).getFoodvalue());
+        }
         outMoveForward=brain.getOutputNeurons().get(0).getOutputValue();
         outRotate=brain.getOutputNeurons().get(1).getOutputValue();
         outEat=brain.getOutputNeurons().get(2).getOutputValue();
