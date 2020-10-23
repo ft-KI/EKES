@@ -1,7 +1,7 @@
 package com.evolution.simulator.BackEnd.actors.kreatur;
 
-import com.badlogic.gdx.math.Vector2;
 import com.evolution.simulator.BackEnd.EvolutionsSimulator;
+import com.evolution.simulator.BackEnd.Vector2;
 import com.evolution.simulator.BackEnd.actors.Actor;
 import com.evolution.simulator.BackEnd.ai.NeuronalNetwork.NeuronalNetwork;
 import com.evolution.simulator.BackEnd.ai.NeuronalNetwork.activationFunktions.Sigmoid;
@@ -58,6 +58,7 @@ public class Kreatur2 extends Actor {
         super.es=parent.es;
         super.Xposition=parent.getXposition()+10;
         super.Yposition= parent.getYposition()+10;
+        this.rotationangle=(float)(Math.random()*Math.PI*2);
         brain=parent.brain.cloneFullMeshed();
         for(int i=0;i<4;i++) {
             brain.randomMutate(0.23f);

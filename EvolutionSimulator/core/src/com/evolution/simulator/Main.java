@@ -8,16 +8,12 @@ import com.badlogic.gdx.graphics.OrthographicCamera;
 import com.badlogic.gdx.graphics.Texture;
 import com.badlogic.gdx.graphics.g2d.BitmapFont;
 import com.badlogic.gdx.graphics.g2d.GlyphLayout;
-import com.badlogic.gdx.graphics.g2d.Sprite;
 import com.badlogic.gdx.graphics.g2d.SpriteBatch;
 import com.badlogic.gdx.graphics.glutils.ShapeRenderer;
-import com.badlogic.gdx.input.GestureDetector;
 import com.badlogic.gdx.math.MathUtils;
-import com.badlogic.gdx.math.Vector2;
 import com.badlogic.gdx.utils.viewport.ScreenViewport;
 import com.badlogic.gdx.utils.viewport.Viewport;
 import com.evolution.simulator.BackEnd.EvolutionsSimulator;
-import com.evolution.simulator.BackEnd.virtualtileworld.LandType;
 import com.evolution.simulator.FrontEnd.tilemaprenderer.SimulationsRenderer;
 
 import static com.badlogic.gdx.Gdx.input;
