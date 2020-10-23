@@ -36,7 +36,7 @@ public class ActorRenderer {
 
             Main.shapeRenderer.circle(actor.getXposition(),actor.getYposition(),5);
             if(actor instanceof Kreatur2) {
-                Main.shapeRenderer.rectLine(actor.getXposition(),actor.getYposition(),((Kreatur2) actor).getFeelerListPos().x,((Kreatur2) actor).getFeelerListPos().y,2);
+                Main.shapeRenderer.rectLine(actor.getXposition(),actor.getYposition(),((Kreatur2) actor).feelerone.getFeelerPosition().x,((Kreatur2) actor).feelerone.getFeelerPosition().y,2);
             }
             Main.shapeRenderer.end();
         }

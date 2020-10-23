@@ -37,8 +37,8 @@ public class Kreatur2 extends Actor {
     private float outRotate=0;
     private float outEat=0;
     private float outGenerateChildren=0;
-    private float feelerlength=15;
-    private Vector2 feelerListPos=new Vector2();
+    private int feelerlength=20;
+    public Feeler feelerone=new Feeler(0,feelerlength);
     public Kreatur2(int x, int y, EvolutionsSimulator es){
         super.es=es;
         super.Xposition=x;
@@ -65,23 +65,19 @@ public class Kreatur2 extends Actor {
         }
         this.israndom = false;
         super.generation=parent.generation+1;
-        calcFeeler();
+        feelerone.calculateFeelerPosition(rotationangle,super.getXposition(),super.getYposition());
     }
-    public void calcFeeler(){
-        feelerListPos.set((int)(super.getXposition()+Math.cos(rotationangle)*feelerlength),(int)(super.getYposition()+Math.sin(rotationangle)*feelerlength));
 
-    }
     @Override
     public void DoStep() {
         brain.reset();
         float INpositionFoodValue=super.es.world.getTilefromActorPosition(super.getXposition(), super.getYposition()).getFoodvalue();
-        float INpsitionladtype=super.es.world.getTilefromActorPosition(super.getXposition(),super.getYposition()).getLandType().getValue()*100;
+        float INpsitionladtype=super.es.world.getTilefromActorPosition(super.getXposition(),super.getYposition()).getLandType().getValue()*100f;
         float INenergy=energy;
-        calcFeeler();
-        float INLandTypefromTileinViewDirection=super.es.world.getTilefromActorPosition((int)(feelerListPos.x),(int)(feelerListPos.y)).getLandType().getValue()*100;
-        float INFoodValuefromTileinViewDirection=super.es.world.getTilefromActorPosition((int)(feelerListPos.x),(int)(feelerListPos.y)).getFoodvalue();
-        brain.setInputValues(INpsitionladtype,INFoodValuefromTileinViewDirection,INLandTypefromTileinViewDirection,INpositionFoodValue,INenergy);
 
+        float INLandTypefromTileinViewDirection=feelerone.getFeelerTile(es.world,rotationangle,super.getXposition(),super.getYposition()).getLandType().getValue()*100f;
+        float INFoodValuefromTileinViewDirection=feelerone.getFeelerTile(es.world,rotationangle,super.getXposition(),super.getYposition()).getFoodvalue();
+        brain.setInputValues(INpsitionladtype,INFoodValuefromTileinViewDirection,INLandTypefromTileinViewDirection,INpositionFoodValue,INenergy);
         outMoveForward=brain.getOutputNeurons().get(0).getOutputValue();
         outRotate=brain.getOutputNeurons().get(1).getOutputValue();
         outEat=brain.getOutputNeurons().get(2).getOutputValue();
@@ -142,7 +138,5 @@ public class Kreatur2 extends Actor {
         return feelerlength;
     }
 
-    public Vector2 getFeelerListPos() {
-        return feelerListPos;
-    }
+
 }
