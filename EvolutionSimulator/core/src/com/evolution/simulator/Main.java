@@ -131,7 +131,7 @@ public class Main extends ApplicationAdapter{
 
 		cam.zoom = MathUtils.clamp(cam.zoom, 0f, 5f);
 
-		if(input.isKeyJustPressed(Input.Keys.DEL)) {
+		if(input.isKeyJustPressed(Input.Keys.FORWARD_DEL)) {
 			evolutionsSimulator=new EvolutionsSimulator();
 			simulationsRenderer=new SimulationsRenderer(evolutionsSimulator);
 
