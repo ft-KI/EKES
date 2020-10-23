@@ -31,4 +31,7 @@ public class SimulationsRenderer {
         return tileMapRenderer;
     }
 
+    public void setEvolutionsSimulator(EvolutionsSimulator evolutionsSimulator) {
+        this.evolutionsSimulator = evolutionsSimulator;
+    }
 }
