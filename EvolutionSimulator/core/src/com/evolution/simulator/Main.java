@@ -96,9 +96,7 @@ public class Main extends ApplicationAdapter{
 			Gdx.gl.glClear(GL20.GL_COLOR_BUFFER_BIT);
 			simulationsRenderer.draw();
 
-			if(input.isKeyJustPressed(Input.Keys.FORWARD_DEL)) {
-				evolutionsSimulator = new EvolutionsSimulator();
-			}
+
 
 	}
 
