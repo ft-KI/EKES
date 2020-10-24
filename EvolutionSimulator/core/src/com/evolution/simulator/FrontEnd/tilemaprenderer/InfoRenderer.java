@@ -15,6 +15,7 @@ public class InfoRenderer {
     Info averageAge=new Info("average Age", "");
     Info simulationSpeed=new Info("simulations Beschleunigung","");
     Info averageAgeOnDeath=new Info("averageAgeOnDeathperStep","");
+    Info timeinYears=new Info("time in years","");
     public InfoRenderer(){
     }
     public void setEvolutionsSimulator(EvolutionsSimulator es){
@@ -24,6 +25,7 @@ public class InfoRenderer {
         simulationsInfo.addInfo(averageAge);
         simulationsInfo.addInfo(simulationSpeed);
         simulationsInfo.addInfo(averageAgeOnDeath);
+        simulationsInfo.addInfo(timeinYears);
     }
     public void draw(SpriteBatch batch){
         this.highestAge.setInfo(Float.toString(es.getActorManager().highestAge));
@@ -31,6 +33,7 @@ public class InfoRenderer {
         this.averageAge.setInfo(Float.toString(es.getActorManager().averageAge));
         this.simulationSpeed.setInfo(Integer.toString(Main.simulationbeschleunigen));
         this.averageAgeOnDeath.setInfo(Float.toString(es.getActorManager().ageOnDeathaverage));
+        this.timeinYears.setInfo(Double.toString(es.time.year));
         simulationsInfo.setPosition(0, Gdx.graphics.getHeight());
         simulationsInfo.draw(batch);
 

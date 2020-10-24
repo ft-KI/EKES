@@ -1,35 +1,42 @@
 package com.evolution.simulator.BackEnd.actors;
 
 import com.evolution.simulator.BackEnd.EvolutionsSimulator;
+import com.google.gson.annotations.Expose;
 
 public abstract class Actor {
     public float Xposition=0;
     public float Yposition=0;
+
+    @Expose
     public EvolutionsSimulator es;
+
     public float age=0;
+
     public boolean killed=false;
+
     public boolean israndom ;
+
     public int generation=1;
 
     public abstract void DoStep();
 
-    public void doStep(){
+    public final void doStep(){
         DoStep();
-        this.age+=0.01f;
+        this.age+=es.time.TicksperYear;
     }
 
-    public int getXposition() {
+    public final int getXposition() {
         return (int)Xposition;
     }
 
-    public int getYposition() {
+    public final int getYposition() {
         return (int)Yposition;
     }
-    public void kill(){
+    public final void kill(){
         killed=true;
     }
 
-    public int getGeneration() {
+    public final int getGeneration() {
         return generation;
     }
 }
