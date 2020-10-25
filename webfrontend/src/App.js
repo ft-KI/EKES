@@ -23,13 +23,18 @@ async function getActors() {
 
 setInterval(getWorld, 13);
 setInterval(getActors, 13);
-
+    var XpositionInCanvas=0;
+    var YpositionInCanvas=0;
+    var worldheightinpx=0;
+    var worldwidthinpx=0;
 function draw() {
 
 
     var Tilesize = world.tilesize;
     var worldheight = world.height;
     var worldwidth=world.width;
+    worldheightinpx=Tilesize*worldheight;
+    worldwidthinpx=Tilesize*worldwidth;
     context.fillStyle = 'black';
     context.fillRect(0,0,4500,3000);
 
@@ -43,7 +48,7 @@ function draw() {
 
                 context.fillStyle = 'rgb(' + (1 - world.world[x][y]) * 255 + ',' + 191 + ',' + 15 + ')'
             }
-            context.fillRect(x * Tilesize, worldheight * Tilesize - y * Tilesize, Tilesize, Tilesize);
+            context.fillRect(x * Tilesize + XpositionInCanvas, YpositionInCanvas+worldheight * Tilesize - y * Tilesize, Tilesize, Tilesize);
 
         }
     }
@@ -57,7 +62,7 @@ function draw() {
         }else{
             context.fillStyle='white';
         }
-        context.arc(actors[i].x, worldheight*Tilesize-actors[i].y, 4, 0, 2 * Math.PI);
+        context.arc(actors[i].x+XpositionInCanvas, YpositionInCanvas+worldheight*Tilesize-actors[i].y, 4, 0, 2 * Math.PI);
         context.fill();
 
         var feelersize=actors[i].feelers.length;
@@ -65,8 +70,8 @@ function draw() {
 
             context.linewidth=10;
             context.beginPath();
-            context.moveTo(actors[i].feelers[a].feelerpos.x, worldheight*Tilesize-actors[i].feelers[a].feelerpos.y);
-            context.lineTo(actors[i].x,worldheight*Tilesize-actors[i].y);
+            context.moveTo(XpositionInCanvas+actors[i].feelers[a].feelerpos.x, YpositionInCanvas+worldheight*Tilesize-actors[i].feelers[a].feelerpos.y);
+            context.lineTo(XpositionInCanvas+actors[i].x,YpositionInCanvas+worldheight*Tilesize-actors[i].y);
             context.stroke();
 
             context.closePath();
@@ -102,21 +107,21 @@ async  function startShow() {
     elem.addEventListener ("keydown", function (event) {
         console.log(event.code);
         if(event.code=="ArrowUp"){
-
+            YpositionInCanvas+=10;
         }
         if(event.code=="ArrowDown"){
-
+            YpositionInCanvas+=-10;
         }
         if(event.code=="ArrowLeft"){
-
+            XpositionInCanvas+=10;
         }
         if(event.code=="ArrowRight"){
-            
+            XpositionInCanvas+=-10;
         }
-        if(event.key=="q") {
+        if(event.key=="a") {
             context.scale(0.9,0.9);
         }
-        if(event.key=="a"){
+        if(event.key=="q"){
             context.scale(1.1,1.1);
         }
     });
