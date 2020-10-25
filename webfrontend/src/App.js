@@ -3,6 +3,7 @@ import './App.css';
 import {BrowserRouter as Router, Route} from "react-router-dom"
 import Communication from "./communication";
 import {act} from "@testing-library/react";
+import React from "react";
 
 let backend = new Communication("http://localhost:8080");
 
@@ -24,7 +25,14 @@ setInterval(getWorld, 13);
 setInterval(getActors, 13);
 
 function draw() {
+    var elem = document.querySelector('body'), text = '';
+    elem.addEventListener ("keydown", function (event) {
+        console.log (event.key + " " + event.metaKey)
+    });
 
+    elem.addEventListener ("keypress", function (event) {
+        console.log (event.key + " " + event.metaKey)
+    });
 
     var Tilesize = world.tilesize;
     var worldheight = world.height;
@@ -109,6 +117,7 @@ function App() {
             <canvas id="screen" width="1200" height="800"></canvas>
         </div>
     );
+
 }
 
 export default App;
