@@ -1,5 +1,6 @@
 package com.evolution.simulator.weblauncher;
 
+import com.evolution.simulator.BackEnd.ActorManager;
 import com.evolution.simulator.BackEnd.actors.Actor;
 import com.evolution.simulator.BackEnd.actors.kreatur.Feeler;
 import com.evolution.simulator.BackEnd.actors.kreatur.Kreatur2;
@@ -90,12 +91,13 @@ jsonObject.put("tilesize",WebMain.evolutionsSimulator.getWorld().getTileSize());
 
     @CrossOrigin
     @RequestMapping("/getParams")
-    public static String getParams() {
+    public static String getParams() throws JSONException {
 
         JSONObject jsonObject = new JSONObject();
 
 
-        jsonObject.put();
+        jsonObject.put("populationsize", WebMain.evolutionsSimulator.actorManager.getActors().size());
+        jsonObject.put("TimeYear", WebMain.evolutionsSimulator.time.year);
 
 
         return jsonObject.toString();

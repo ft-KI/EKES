@@ -37,10 +37,10 @@ function draw() {
         for (var y = 0; y < worldheight; y++) {
             //console.log(world.tiles[x][y].landType);
             if (world.world[x][y] == -1) {
-                context.fillStyle = 'darkblue'
+                context.fillStyle = 'rgb(20,0,43)'
             } else {
 
-                context.fillStyle = 'rgb(' + (1 - world.world[x][y]) * 255 + ',' + 255 + ',' + 0 + ')'
+                context.fillStyle = 'rgb(' + (1 - world.world[x][y]) * 255 + ',' + 191 + ',' + 15 + ')'
             }
             context.fillRect(x * Tilesize, worldheight * Tilesize - y * Tilesize, Tilesize, Tilesize);
 
