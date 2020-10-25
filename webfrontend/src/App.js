@@ -25,14 +25,7 @@ setInterval(getWorld, 13);
 setInterval(getActors, 13);
 
 function draw() {
-    var elem = document.querySelector('body'), text = '';
-    elem.addEventListener ("keydown", function (event) {
-        console.log (event.key + " " + event.metaKey)
-    });
 
-    elem.addEventListener ("keypress", function (event) {
-        console.log (event.key + " " + event.metaKey)
-    });
 
     var Tilesize = world.tilesize;
     var worldheight = world.height;
@@ -104,8 +97,33 @@ async  function startShow() {
     context = simulation.getContext('2d');
     context.scale(0.80,0.80);
 
-    requestAnimationFrame(draw);
 
+    var elem = document.querySelector('body'), text = '';
+    elem.addEventListener ("keydown", function (event) {
+        console.log(event.code);
+        if(event.code=="ArrowUp"){
+
+        }
+        if(event.code=="ArrowDown"){
+
+        }
+        if(event.code=="ArrowLeft"){
+
+        }
+        if(event.code=="ArrowRight"){
+            
+        }
+        if(event.key=="q") {
+            context.scale(0.9,0.9);
+        }
+        if(event.key=="a"){
+            context.scale(1.1,1.1);
+        }
+    });
+
+
+
+    requestAnimationFrame(draw);
 
 }
 
