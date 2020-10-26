@@ -29,6 +29,7 @@ setInterval(getActors, 13);
     var worldwidthinpx=0;
 function draw() {
 
+    document.getElementById("test").innerHTML="<h1>Sollen mal infos sein</h1>";
 
     var Tilesize = world.tilesize;
     var worldheight = world.height;
@@ -97,7 +98,6 @@ document.body.onload = startShow;
 
 async  function startShow() {
 
-
     simulation = document.getElementById('screen');
     context = simulation.getContext('2d');
     context.scale(0.80,0.80);
@@ -122,13 +122,15 @@ async  function startShow() {
             context.scale(0.9,0.9);
         }
         if(event.key=="q"){
-            context.scale(1.1,1.1);
+            context.scale(1.01,1.01);
         }
     });
 
-
+    //var DeinName = prompt("Gib bitte Deinen Namen an.", "Name");
+    //document.write("<b>Hallo " + DeinName + "<\/b>");
 
     requestAnimationFrame(draw);
+    //alert("Hier die Simulation");
 
 }
 
@@ -137,7 +139,14 @@ function App() {
 
     return (
         <div className="App">
+            <div id="infos">
+                <p id="test"></p>
+            </div>
             <canvas id="screen" width="1200" height="800"></canvas>
+            <div id="controll">
+                <p>controllelemte</p>
+            </div>
+
         </div>
     );
 

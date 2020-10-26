@@ -1,10 +1,26 @@
+
 #screen {
-
-  margin: auto;
-  display: block;
-
-
+  padding: 15px;
+  background-color: #920000;
+  border-radius: 8px;
+  border: 3px solid #4c4c4c;
+  margin: 10px;
+//margin: auto;
+  //display: block;
+  float: left;
 }
-#info {
-
+#infos {
+  margin: 10px;
+  padding: 15px;
+  background-color: #969696;
+  border: 3px solid #4c4c4c;
+  border-radius: 8px;
+}
+#controll{
+  float: right;
+  margin: 10px;
+  padding: 15px;
+  background-color: #969696;
+  border: 3px solid #4c4c4c;
+  border-radius: 8px;
 }
