@@ -1,6 +1,11 @@
 package com.evolution.simulator.weblauncher;
 
 
+import com.google.gson.ExclusionStrategy;
+import com.google.gson.FieldAttributes;
+import com.google.gson.Gson;
+import com.google.gson.GsonBuilder;
+import com.google.gson.annotations.Expose;
 import org.java_websocket.WebSocket;
 import org.java_websocket.drafts.Draft;
 import org.java_websocket.drafts.Draft_6455;
@@ -19,6 +24,8 @@ import java.util.Set;
 import java.util.concurrent.ConcurrentHashMap;
 
 public class SocketController extends WebSocketServer {
+
+
 
     ArrayList<WebSocket> connections = new ArrayList<>();
     public SocketController(int port) throws UnknownHostException {
@@ -44,8 +51,9 @@ public class SocketController extends WebSocketServer {
 
     @Override
     public void onClose(WebSocket conn, int code, String reason, boolean remote) {
+        System.out.println("Someone has left the room!");
         connections.remove(conn);
-        System.out.println(conn + " has left the room!");
+
     }
 
     @Override
