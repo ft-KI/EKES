@@ -10,14 +10,10 @@ import com.google.gson.annotations.Expose;
 import org.json.JSONArray;
 import org.json.JSONException;
 import org.json.JSONObject;
-import org.springframework.web.bind.annotation.CrossOrigin;
-import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.RequestParam;
-import org.springframework.web.bind.annotation.RestController;
 
-import java.awt.dnd.DropTarget;
+
 import java.util.ArrayList;
-
+/*
 @RestController
 public class Controller {
     public static Gson gson=new GsonBuilder()
@@ -103,3 +99,4 @@ jsonObject.put("tilesize",WebMain.evolutionsSimulator.getWorld().getTileSize());
         return jsonObject.toString();
     }
 }
+*/

@@ -5,13 +5,23 @@ import Communication from "./communication";
 import {act} from "@testing-library/react";
 import React from "react";
 
-let backend = new Communication("http://localhost:8080");
+
+
+var wsConnection = new WebSocket('ws://localhost:8080/evodata');
+wsConnection.onopen = function () {};
+wsConnection.onerror = function (error) {};
+wsConnection.onmessage = function (e) {};
+
+
+//let backend = new Communication("http://localhost:8080");
+
+
 
 var world;
 var actors;
 var simulation;
 var context;
-
+/*
 async function getWorld() {
     world = JSON.parse( backend.getWorld());
 }
@@ -19,10 +29,10 @@ async function getWorld() {
 async function getActors() {
     actors = JSON.parse(backend.getActors());
 
-}
+}*/
 
-setInterval(getWorld, 13);
-setInterval(getActors, 13);
+//setInterval(getWorld, 13);
+//setInterval(getActors, 13);
     var XpositionInCanvas=0;
     var YpositionInCanvas=0;
     var worldheightinpx=0;

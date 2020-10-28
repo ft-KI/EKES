@@ -1,20 +1,18 @@
 package com.evolution.simulator.weblauncher;
 
 import com.evolution.simulator.BackEnd.EvolutionsSimulator;
-import org.springframework.boot.SpringApplication;
-import org.springframework.boot.autoconfigure.SpringBootApplication;
 
+
+import java.net.UnknownHostException;
 import java.util.concurrent.TimeUnit;
 
-@SpringBootApplication
 public class WebMain {
     public static EvolutionsSimulator evolutionsSimulator;
 
-
     public static Thread simulationThread;
-    public static void main(String[] args) {
-        SpringApplication.run(WebMain.class, args);
+    public static void main(String[] args) throws UnknownHostException {
         evolutionsSimulator=new EvolutionsSimulator();
+
 
         simulationThread=new Thread(){
             @Override
@@ -22,7 +20,7 @@ public class WebMain {
                 while (true){
                     evolutionsSimulator.dostep();
                     try {
-                        TimeUnit.MILLISECONDS.sleep(1);
+                        TimeUnit.MILLISECONDS.sleep(13);
                     } catch (InterruptedException e) {
 
                     }
@@ -30,5 +28,10 @@ public class WebMain {
             }
         };
         simulationThread.start();
+
+
+        SocketController s = new SocketController(8080);
+        s.start();
+
     }
 }

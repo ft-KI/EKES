@@ -22,7 +22,7 @@ public class EvolutionsSimulator {
      * Macht den nächsten schritt der simulation
      */
     public void dostep(){
-        System.out.println(actorManager.actors.size());
+        //System.out.println(actorManager.actors.size());
         world.doStep();
         actorManager.doStep();
         time.Tick();
