@@ -139,6 +139,7 @@ function App() {
 
     return (
         <div className="App">
+            <div id="wrapper">
             <div id="infos">
                 <p id="test"></p>
             </div>
@@ -147,6 +148,7 @@ function App() {
                 <p>controllelemte</p>
             </div>
 
+        </div>
         </div>
     );
 

@@ -1,23 +1,30 @@
-
+#wrapper{
+  display: flex;
+  justify-content: center;
+}
 #screen {
+  width: 50%;
   padding: 15px;
   background-color: #920000;
   border-radius: 8px;
   border: 3px solid #4c4c4c;
   margin: 10px;
-//margin: auto;
-  //display: block;
   float: left;
+
+
 }
 #infos {
+  width: 25%;
   margin: 10px;
   padding: 15px;
   background-color: #969696;
   border: 3px solid #4c4c4c;
   border-radius: 8px;
+  float: left;
 }
 #controll{
-  float: right;
+  width: 25%;
+  float: left;
   margin: 10px;
   padding: 15px;
   background-color: #969696;
