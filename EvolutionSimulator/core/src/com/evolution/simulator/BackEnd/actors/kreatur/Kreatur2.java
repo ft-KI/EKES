@@ -29,8 +29,8 @@ public class Kreatur2 extends Actor {
     private float moveCostMult=5;
     private float rotateCostMult=3;
     private float eatMult=50;
-    private float permanetcostland=0.01f;
-    private float permanetcostwater=2f;
+    private float permanetcostland=0.04f;
+    private float permanetcostwater=3f;
     private float eatcostMult=1;
     private float costMult=1;
     private float rotationangle=0;
@@ -140,10 +140,10 @@ public class Kreatur2 extends Actor {
         }
     }
     public void createChild(){
-        if(energy>=300 && age>=7) {
+        if(energy>=400 && age>=6) {
             Kreatur2 child = new Kreatur2(this);
             super.es.actorManager.getActors().add(child);
-            energy-=300*costMult;
+            energy-=480*costMult;
         }
     }
     public void eat(){
