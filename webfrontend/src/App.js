@@ -13,12 +13,16 @@ var worldwidth;
 var Tilesize;
 var worldheight;
 var worldfield;
+var rawInfos
 
 var wsConnection = new WebSocket('ws://localhost:8080/evodata');
 wsConnection.onopen = function () {
 };
 wsConnection.onerror = function (error) {
 };
+var ActorsSize;
+var Timeinyears;
+var averageage;
 wsConnection.onmessage = async function (e) {
 
     // console.log(e.data);
@@ -28,8 +32,15 @@ wsConnection.onmessage = async function (e) {
         worldfield = world.world;
     } else if (JSON.parse(e.data).type === "creatures") {
         actors = JSON.parse(JSON.parse(e.data).kreatures);
+    }else if(JSON.parse(e.data).type==="info"){
+        rawInfos = JSON.parse(e.data);
+        ActorsSize=rawInfos.ActorsSize;
+        Timeinyears=rawInfos.Timeinyears;
+        averageage=rawInfos.averageage;
+        infodraw();
 
     }
+
 
 };
 
@@ -38,9 +49,21 @@ var YpositionInCanvas = 0;
 var worldheightinpx = 0;
 var worldwidthinpx = 0;
 
+var infoblock;
+function infodraw(){
+    var infos;
+
+
+    infos="<h1>Sollen mal infos sein</h1>"
+    infos=infos+"<br>ActorsSize: "+ActorsSize+"</br>";
+    infos=infos+"<br>Timeinyears: "+Timeinyears+"</br>";
+    infos=infos+"<br>averageage: "+averageage+"</br>";
+
+    infoblock.innerHTML = infos;
+
+}
 function draw() {
     try {
-
 
         Tilesize = world.tilesize;
         worldheight = world.height;
@@ -107,12 +130,12 @@ document.body.onload = startShow;
 async function startShow() {
 
     simulation = document.getElementById('screen');
+    infoblock =  document.getElementById("info");
     context = simulation.getContext('2d');
     context.linewidth = 10;
 
     context.scale(0.80, 0.80);
 
-    document.getElementById("info").innerHTML = "<h1>Sollen mal infos sein</h1>";
 
 
     var elem = document.querySelector('body'), text = '';
@@ -144,7 +167,6 @@ async function startShow() {
 
 
 function App() {
-
     return (
         <div className="App">
             <div id="wrapper">

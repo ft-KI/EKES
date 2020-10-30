@@ -76,4 +76,12 @@ public class SendingPacker {
         return jsonObject.toString();
 
     }
+    public static String packInfos(){
+        JSONObject jsonObject = new JSONObject();
+        jsonObject.put("ActorsSize", WebMain.evolutionsSimulator.actorManager.getActors().size());
+        jsonObject.put("Timeinyears", WebMain.evolutionsSimulator.time.year);
+        jsonObject.put("averageage", WebMain.evolutionsSimulator.actorManager.averageAge);
+        jsonObject.put("type","info");
+        return jsonObject.toString();
+    }
 }

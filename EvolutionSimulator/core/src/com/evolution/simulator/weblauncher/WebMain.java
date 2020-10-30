@@ -39,6 +39,7 @@ public class WebMain {
 
                     s.broadcast(SendingPacker.packWorld());
                     s.broadcast(SendingPacker.packActors());
+                    s.broadcast(SendingPacker.packInfos());
 
                     try {
                         TimeUnit.MILLISECONDS.sleep(30);
