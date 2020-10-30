@@ -22,7 +22,7 @@ public class WebMain {
                 while (true){
                     evolutionsSimulator.dostep();
                     try {
-                        TimeUnit.MILLISECONDS.sleep(30);
+                        TimeUnit.MILLISECONDS.sleep(0);
                     } catch (InterruptedException e) {
 
                     }

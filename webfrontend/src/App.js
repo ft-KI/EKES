@@ -50,7 +50,7 @@ function draw() {
         worldwidthinpx = Tilesize * worldwidth;
         context.fillStyle = '#14002b'
 
-        context.fillRect(0, 0, 1500, 1000);
+        context.fillRect(0, 0, 4000,4000);
 
         ////////Draw Tile World////////
 
@@ -134,7 +134,7 @@ async function startShow() {
             context.scale(0.9, 0.9);
         }
         if (event.key == "q") {
-            context.scale(1.01, 1.01);
+            context.scale(1.1, 1.1);
         }
     });
 
