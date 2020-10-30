@@ -54,7 +54,7 @@ function infodraw(){
     var infos;
 
 
-    infos="<h1>Sollen mal infos sein</h1>"
+    infos="<h2>Info Daten</h2>"
     infos=infos+"<br>ActorsSize: "+ActorsSize+"</br>";
     infos=infos+"<br>Timeinyears: "+Timeinyears+"</br>";
     infos=infos+"<br>averageage: "+averageage+"</br>";

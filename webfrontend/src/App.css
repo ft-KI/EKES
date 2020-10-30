@@ -12,6 +12,9 @@
 
 
 }
+#info{
+    line-height: 1;
+}
 #infos {
   width: 25%;
   margin: 0.5%;
