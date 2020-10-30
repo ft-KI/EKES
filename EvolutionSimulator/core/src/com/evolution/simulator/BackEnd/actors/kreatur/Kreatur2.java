@@ -143,7 +143,7 @@ public class Kreatur2 extends Actor {
         if(energy>=400 && age>=6) {
             Kreatur2 child = new Kreatur2(this);
             super.es.actorManager.getActors().add(child);
-            energy-=480*costMult;
+            energy-=280*costMult;
         }
     }
     public void eat(){
