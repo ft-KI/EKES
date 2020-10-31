@@ -9,11 +9,25 @@ public class VirtualTileWorld {
     private int TileSize=30;
     private float globalGrowSpeed=0.005f;
     private float maxfoodvalue=1f;
+    private int LandTilesCount=0;
+    private int WaterTilesCount=0;
+    private float foodavailable=0;
     public VirtualTileWorld(int width, int height, int TileSize){
         this.height=height;
         this.width=width;
         this.TileSize=TileSize;
         createMap();
+    }
+    public void calculateTileCounts(){
+        for(int i=0;i<tiles.size();i++){
+            for(int b=0;b<tiles.get(i).size();b++){
+                if(tiles.get(i).get(b).getLandType()==LandType.LAND){
+                    LandTilesCount++;
+                }else if(tiles.get(i).get(b).getLandType()==LandType.WATER){
+                    WaterTilesCount++;
+                }
+            }
+        }
     }
     public Tile getTilefromActorPosition(int x,int y){
         Tile t;
@@ -25,11 +39,17 @@ public class VirtualTileWorld {
         return t;
     }
     public void doStep(){
+        float calcfoodavailable=0;
         for(int x=0;x<width;x++){
             for(int y=0;y<height;y++){
-                Grow(tiles.get(x).get(y));
+                Tile tile=tiles.get(x).get(y);
+                Grow(tile);
+                if(tile.getLandType()==LandType.LAND){
+                    calcfoodavailable+=tile.getFoodvalue();
+                }
             }
         }
+        foodavailable=calcfoodavailable/LandTilesCount;
     }
     private void Grow(Tile tile){
         tile.setFoodvalue(tile.getFoodvalue()+tile.getFruchtbarkeit()*globalGrowSpeed);
@@ -109,5 +129,17 @@ public class VirtualTileWorld {
 
     public ArrayList<ArrayList<Tile>> getTiles() {
         return tiles;
+    }
+
+    public int getLandTilesCount() {
+        return LandTilesCount;
+    }
+
+    public int getWaterTilesCount() {
+        return WaterTilesCount;
+    }
+
+    public float getFoodavailable() {
+        return foodavailable;
     }
 }

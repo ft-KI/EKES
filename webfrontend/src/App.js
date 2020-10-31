@@ -24,6 +24,7 @@ wsConnection.onerror = function (error) {
 var ActorsSize;
 var Timeinyears;
 var averageage;
+var foodavailable;
 wsConnection.onmessage = async function (e) {
 
     // console.log(e.data);
@@ -38,6 +39,7 @@ wsConnection.onmessage = async function (e) {
         ActorsSize=rawInfos.ActorsSize;
         Timeinyears=rawInfos.Timeinyears;
         averageage=rawInfos.averageage;
+        foodavailable=rawInfos.foodavailable;
         infodraw();
 
     }
@@ -61,6 +63,9 @@ function infodraw(){
     infos=infos+"<br>ActorsSize: "+ActorsSize+"</br>";
     infos=infos+"<br>Timeinyears: "+Timeinyears+"</br>";
     infos=infos+"<br>averageage: "+averageage+"</br>";
+    infos=infos+"<br>foodavailable: "+foodavailable+"</br>";
+
+
 
     infoblock.innerHTML = infos;
 
@@ -68,12 +73,16 @@ function infodraw(){
 function updateGraphs(){
     window.graphAverageAge.data.labels.push("");
     window.graphActorsSize.data.labels.push("");
+    window.graphFoodAvailable.data.labels.push("");
 
     window.graphAverageAge.data.datasets.forEach(function(dataset) {
         dataset.data.push(averageage);
     });
     window.graphActorsSize.data.datasets.forEach(function(dataset) {
         dataset.data.push(ActorsSize);
+    });
+    window.graphFoodAvailable.data.datasets.forEach(function(dataset) {
+        dataset.data.push(foodavailable);
     });
     while(window.graphAverageAge.data.labels.length > parseInt(Graphsichtfeld.value)) {
         window.graphAverageAge.data.labels.splice(0, 1); // remove the label first
@@ -89,8 +98,17 @@ function updateGraphs(){
             dataset.data.splice(0,1);
         });
     }
+    while(window.graphFoodAvailable.data.labels.length > parseInt(Graphsichtfeld.value)) {
+        window.graphFoodAvailable.data.labels.splice(0, 1); // remove the label first
+
+        window.graphFoodAvailable.data.datasets.forEach(function (dataset) {
+            dataset.data.splice(0,1);
+        });
+    }
     window.graphAverageAge.update();
     window.graphActorsSize.update();
+    window.graphFoodAvailable.update();
+
 
 }
 var drawcount=0;
@@ -168,7 +186,7 @@ function draw() {
 
 document.body.onload = startShow;
 Chart.defaults.global.elements.point.radius = 0;
-var config = {
+var config_averageage = {
     type: 'line',
     data: {
         labels: [],
@@ -215,7 +233,7 @@ var config = {
         }
     }
 };
-var config2={
+var config_actorssize={
     type: 'line',
     data: {
         labels: [],
@@ -262,11 +280,61 @@ var config2={
         }
     }
 };
+var config_foodavailable={
+    type: 'line',
+    data: {
+        labels: [],
+        datasets: [ {
+            label: 'Food Available',
+            fill: false,
+            backgroundColor: 'red',
+            borderColor: 'yellow',
+            data: [
+
+
+            ],
+        }]
+    },
+    options: {
+        responsive: true,
+        title: {
+            display: true,
+            text: 'Food Available'
+        },
+        tooltips: {
+            mode: 'index',
+            intersect: false,
+        },
+        hover: {
+            mode: 'nearest',
+            intersect: true
+        },
+        scales: {
+            x: {
+                display: true,
+                scaleLabel: {
+                    display: true,
+                    labelString: 'Value'
+                }
+            },
+            y: {
+                display: true,
+                scaleLabel: {
+                    display: true,
+                    labelString: 'Value'
+                }
+            }
+        }
+    }
+};
 async function startShow() {
     var ctx = document.getElementById('graphAverageAge').getContext('2d');
     var ctx2 = document.getElementById('graphActorsSize').getContext('2d');
-    window.graphAverageAge = new Chart(ctx, config);
-    window.graphActorsSize = new Chart(ctx2,config2);
+    var ctx3 = document.getElementById('graphFoodAvailable').getContext('2d');
+
+    window.graphAverageAge = new Chart(ctx, config_averageage);
+    window.graphActorsSize = new Chart(ctx2,config_actorssize);
+    window.graphFoodAvailable=new Chart(ctx3, config_foodavailable);
 
     simulation = document.getElementById('screen');
     infoblock =  document.getElementById("info");
@@ -316,6 +384,7 @@ function App() {
                     <div >
                         <canvas id="graphAverageAge"></canvas>
                         <canvas id="graphActorsSize"></canvas>
+                        <canvas id="graphFoodAvailable"></canvas>
                     </div>
                 </div>
                 <canvas id="screen" width="1200" height="800"></canvas>
