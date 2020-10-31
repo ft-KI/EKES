@@ -3,6 +3,7 @@ import './App.css';
 import {BrowserRouter as Router, Route} from "react-router-dom"
 import Communication from "./communication";
 import React from "react";
+import Chart from "chart.js";
 
 var world;
 var actors;
@@ -50,6 +51,8 @@ var worldheightinpx = 0;
 var worldwidthinpx = 0;
 
 var infoblock;
+var graphupdatespeed;
+var Graphsichtfeld;
 function infodraw(){
     var infos;
 
@@ -62,8 +65,40 @@ function infodraw(){
     infoblock.innerHTML = infos;
 
 }
+function updateGraphs(){
+    window.graphAverageAge.data.labels.push("");
+    window.graphActorsSize.data.labels.push("");
+
+    window.graphAverageAge.data.datasets.forEach(function(dataset) {
+        dataset.data.push(averageage);
+    });
+    window.graphActorsSize.data.datasets.forEach(function(dataset) {
+        dataset.data.push(ActorsSize);
+    });
+    while(window.graphAverageAge.data.labels.length > parseInt(Graphsichtfeld.value)) {
+        window.graphAverageAge.data.labels.splice(0, 1); // remove the label first
+
+        window.graphAverageAge.data.datasets.forEach(function (dataset) {
+            dataset.data.splice(0,1);
+        });
+    }
+    while(window.graphActorsSize.data.labels.length > parseInt(Graphsichtfeld.value)) {
+        window.graphActorsSize.data.labels.splice(0, 1); // remove the label first
+
+        window.graphActorsSize.data.datasets.forEach(function (dataset) {
+            dataset.data.splice(0,1);
+        });
+    }
+    window.graphAverageAge.update();
+    window.graphActorsSize.update();
+
+}
+var drawcount=0;
 function draw() {
     try {
+        if(parseInt(graphupdatespeed.value) % drawcount) {
+            updateGraphs();
+        }
 
         Tilesize = world.tilesize;
         worldheight = world.height;
@@ -121,16 +156,122 @@ function draw() {
     } catch (e) {
         console.error(e);
     }
-    requestAnimationFrame(draw);
 
+
+
+
+
+
+    drawcount++;
+    requestAnimationFrame(draw);
 }
 
 document.body.onload = startShow;
+Chart.defaults.global.elements.point.radius = 0;
+var config = {
+    type: 'line',
+    data: {
+        labels: [],
+        datasets: [ {
+            label: 'Average Age',
+            fill: false,
+            backgroundColor: 'red',
+            borderColor: 'orange',
+            data: [
 
+
+            ],
+        }]
+    },
+    options: {
+        responsive: true,
+        title: {
+            display: true,
+            text: 'Average Age'
+        },
+        tooltips: {
+            mode: 'index',
+            intersect: false,
+        },
+        hover: {
+            mode: 'nearest',
+            intersect: true
+        },
+        scales: {
+            x: {
+                display: true,
+                scaleLabel: {
+                    display: true,
+                    labelString: 'Value'
+                }
+            },
+            y: {
+                display: true,
+                scaleLabel: {
+                    display: true,
+                    labelString: 'Value'
+                }
+            }
+        }
+    }
+};
+var config2={
+    type: 'line',
+    data: {
+        labels: [],
+        datasets: [ {
+            label: 'Actor Size',
+            fill: false,
+            backgroundColor: 'red',
+            borderColor: 'red',
+            data: [
+
+
+            ],
+        }]
+    },
+    options: {
+        responsive: true,
+        title: {
+            display: true,
+            text: 'Actor Size'
+        },
+        tooltips: {
+            mode: 'index',
+            intersect: false,
+        },
+        hover: {
+            mode: 'nearest',
+            intersect: true
+        },
+        scales: {
+            x: {
+                display: true,
+                scaleLabel: {
+                    display: true,
+                    labelString: 'Value'
+                }
+            },
+            y: {
+                display: true,
+                scaleLabel: {
+                    display: true,
+                    labelString: 'Value'
+                }
+            }
+        }
+    }
+};
 async function startShow() {
+    var ctx = document.getElementById('graphAverageAge').getContext('2d');
+    var ctx2 = document.getElementById('graphActorsSize').getContext('2d');
+    window.graphAverageAge = new Chart(ctx, config);
+    window.graphActorsSize = new Chart(ctx2,config2);
 
     simulation = document.getElementById('screen');
     infoblock =  document.getElementById("info");
+    graphupdatespeed=document.getElementById("graphupdatespeed");
+    Graphsichtfeld=document.getElementById("Graphsichtfeld");
     context = simulation.getContext('2d');
     context.linewidth = 10;
 
@@ -172,10 +313,21 @@ function App() {
             <div id="wrapper">
                 <div id="infos">
                     <p id="info"></p>
+                    <div >
+                        <canvas id="graphAverageAge"></canvas>
+                        <canvas id="graphActorsSize"></canvas>
+                    </div>
                 </div>
                 <canvas id="screen" width="1200" height="800"></canvas>
                 <div id="controll">
-                    <p>controllelemte</p>
+                    <h2>Controll Elemente</h2>
+                    <h3>Darstellungs Optionen:</h3>
+                    <label htmlFor="graphupdatespeed">Graph update speezd</label>
+                    <input type="range" id="graphupdatespeed" name="graphupdatespeed" min="1" max="100"/>
+                    <br></br>
+                    <label htmlFor="Graphsichtfeld">Graphsichtfeld</label>
+                    <input type="range" id="Graphsichtfeld" name="Graphsichtfeld" min="10" max="1000"/>
+                    <h3>Simulations Optionen:</h3>
                 </div>
 
             </div>
