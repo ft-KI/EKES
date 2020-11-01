@@ -285,7 +285,7 @@ var config_foodavailable={
     data: {
         labels: [],
         datasets: [ {
-            label: 'Food Available',
+            label: 'durchschnitt der Foodvalues auf Landflächen',
             fill: false,
             backgroundColor: 'red',
             borderColor: 'yellow',
