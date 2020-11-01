@@ -1,6 +1,7 @@
 package com.evolution.simulator.weblauncher;
 
 import com.evolution.simulator.BackEnd.EvolutionsSimulator;
+import com.sun.rmi.rmid.ExecPermission;
 
 
 import java.net.UnknownHostException;
@@ -36,11 +37,13 @@ public class WebMain {
             @Override
             public void run() {
                 while(true) {
-
-                    s.broadcast(SendingPacker.packWorld());
-                    s.broadcast(SendingPacker.packActors());
-                    s.broadcast(SendingPacker.packInfos());
-
+                    try {
+                        s.broadcast(SendingPacker.packWorld());
+                        s.broadcast(SendingPacker.packActors());
+                        s.broadcast(SendingPacker.packInfos());
+                    }catch (Exception e){
+                        System.out.println("problem");
+                    }
                     try {
                         TimeUnit.MILLISECONDS.sleep(30);
                     } catch (InterruptedException e) {

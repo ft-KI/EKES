@@ -41,7 +41,6 @@ wsConnection.onmessage = async function (e) {
         averageage=rawInfos.averageage;
         foodavailable=rawInfos.foodavailable;
         infodraw();
-
     }
 
 
@@ -392,11 +391,13 @@ function App() {
                     <h2>Controll Elemente</h2>
                     <h3>Darstellungs Optionen:</h3>
                     <label htmlFor="graphupdatespeed">Graph update speezd</label>
-                    <input type="range" id="graphupdatespeed" name="graphupdatespeed" min="1" max="100"/>
+                    <input type="range" id="graphupdatespeed" name="graphupdatespeed" min="1" max="100" defaultValue="1"/>
                     <br></br>
                     <label htmlFor="Graphsichtfeld">Graphsichtfeld</label>
-                    <input type="range" id="Graphsichtfeld" name="Graphsichtfeld" min="10" max="1000"/>
+                    <input type="range" id="Graphsichtfeld" name="Graphsichtfeld" min="10" max="1000" defaultValue="200"/>
                     <h3>Simulations Optionen:</h3>
+                    <label htmlFor="Simulations Beschleunigung">Simulations Beschleunigung</label>
+                    <input type="range" id="Simulations Beschleunigung" name="Simulations Beschleunigung" min="1" max="1000" defaultValue="1"/>
                 </div>
 
             </div>

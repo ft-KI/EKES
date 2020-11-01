@@ -1,44 +1,55 @@
-#wrapper{
- display: flex;
-  justify-content: center;
+#wrapper {
+    display: flex;
+    justify-content: flex-end;
 }
+
 #screen {
-  width: 50%;
-  background-color: #920000;
-  border-radius: 8px;
-  border: 3px solid #4c4c4c;
-  margin: 0.5%;
-  float: left;
-
+    width: 50%;
+    background-color: #920000;
+    border-radius: 8px;
+    border: 3px solid #4c4c4c;
+    margin: 0.5vh;
+    float: left;
+    height: 70%;
 
 }
-#info{
+
+#info {
     line-height: 1;
 }
+
 #infos {
-  width: 25%;
-  margin: 0.5%;
-  padding: 15px;
-  background-color: #969696;
-  border: 3px solid #4c4c4c;
-  border-radius: 8px;
-  float: left;
+    width: 25%;
+    height: 95vh;
+    margin: 0.5vh;
+    padding: 15px;
+    background-color: #969696;
+    border: 3px solid #4c4c4c;
+    border-radius: 8px;
+    float: left;
+    overflow-x: hidden;
+    overflow-y: auto;
 }
-#controll{
-  width: 25%;
-  float: left;
-  margin: 0.5%;
-  padding: 15px;
-  background-color: #969696;
-  border: 3px solid #4c4c4c;
-  border-radius: 8px;
+
+#controll {
+    width: 25%;
+    float: left;
+    margin: 0.5vh;
+    padding: 15px;
+    background-color: #969696;
+    border: 3px solid #4c4c4c;
+    border-radius: 8px;
+    overflow-x: hidden;
+    overflow-y: auto;
+    height: 95vh;
+
 }
 
 p,
 label {
-  font: 1rem 'Fira Sans', sans-serif;
+    font: 1rem 'Fira Sans', sans-serif;
 }
 
 input {
-  margin: .4rem;
+    margin: .4rem;
 }
