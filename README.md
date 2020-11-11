@@ -2,7 +2,7 @@
 
 
 
-Quick Start
+## Quick Start
  - Command `git clone https://github.com/ft-KI/EKES` ausführen
  - Gehe in den Ordner webfrontend
  - Führe den Befehl npm install aus
