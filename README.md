@@ -1,6 +1,6 @@
 # EKES
 
-
+EKES ist eine Evolutions-Simulation, mit einem Webfronted und einem JAVA-Backend.
 
 ## Quick Start
  - Command `git clone https://github.com/ft-KI/EKES` ausführen
