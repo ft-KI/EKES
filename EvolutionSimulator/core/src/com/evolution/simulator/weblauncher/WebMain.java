@@ -13,6 +13,7 @@ public class WebMain {
     public static Thread simulationThread;
     public static Thread sendingInterval;
     public static SocketController s;
+    public static int sps = 30;
     public static void main(String[] args) throws UnknownHostException {
         evolutionsSimulator=new EvolutionsSimulator();
 
@@ -23,7 +24,7 @@ public class WebMain {
                 while (true){
                     evolutionsSimulator.dostep();
                     try {
-                        TimeUnit.MILLISECONDS.sleep(0);
+                        TimeUnit.MILLISECONDS.sleep(1000/sps);
                     } catch (InterruptedException e) {
 
                     }

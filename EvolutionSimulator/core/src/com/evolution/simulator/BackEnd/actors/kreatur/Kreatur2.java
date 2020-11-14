@@ -1,6 +1,7 @@
 package com.evolution.simulator.BackEnd.actors.kreatur;
 
 import com.evolution.simulator.BackEnd.EvolutionsSimulator;
+import com.evolution.simulator.BackEnd.Variables;
 import com.evolution.simulator.BackEnd.Vector2;
 import com.evolution.simulator.BackEnd.actors.Actor;
 import com.evolution.simulator.BackEnd.ai.NeuronalNetwork.NeuronalNetwork;
@@ -24,14 +25,16 @@ public class Kreatur2 extends Actor {
      */
     private NeuronalNetwork brain;
     private float energy=200;
-    private float moveFaktor=5;
-    private float rotatFaktor=2;
-    private float moveCostMult=5;
-    private float rotateCostMult=3;
-    private float eatMult=50;
-    private float permanetcostland=0.04f;
-    private float permanetcostwater=3f;
-    private float eatcostMult=1;
+    private float moveFaktor= Variables.moveFaktor;
+    private float rotatFaktor=Variables.rotatFaktor;
+    private float moveCostMult=Variables.moveCostMult;
+    private float rotateCostMult=Variables.rotateCostMult;
+    private float eatMult=Variables.eatMult;
+    private float permanetcostland=Variables.permanetcostland;
+    private float permanetcostwater=Variables.permanetcostwater;
+    private float eatcostMult=Variables.eatcostMult;
+    private float createChildAge = Variables.createChildAge;
+    private float createChildEnergie = Variables.createChildEnergie;
     private float costMult=1;
     private float rotationangle=0;
 
@@ -42,7 +45,7 @@ public class Kreatur2 extends Actor {
     private float outEat=0;
     private float outGenerateChildren=0;
     private int feelerlength=15;
-   // public Feeler feelerone=new Feeler(-10,feelerlength);
+    // public Feeler feelerone=new Feeler(-10,feelerlength);
     public ArrayList<Feeler>feelers=new ArrayList<>();
     public Kreatur2(int x, int y, EvolutionsSimulator es){
         super.es=es;
@@ -106,7 +109,7 @@ public class Kreatur2 extends Actor {
         float INpsitionladtype=super.es.world.getTilefromActorPosition(super.getXposition(),super.getYposition()).getLandType().getValue()*100f;
         float INenergy=energy;
 
-      //  float INLandTypefromTileinViewDirection=feelerone.getFeelerTile(es.world,rotationangle,super.getXposition(),super.getYposition()).getLandType().getValue()*100f;
+        //  float INLandTypefromTileinViewDirection=feelerone.getFeelerTile(es.world,rotationangle,super.getXposition(),super.getYposition()).getLandType().getValue()*100f;
         //float INFoodValuefromTileinViewDirection=feelerone.getFeelerTile(es.world,rotationangle,super.getXposition(),super.getYposition()).getFoodvalue();
         brain.getInputNeurons().get(0).setValue(INpsitionladtype);
         brain.getInputNeurons().get(1).setValue(INpositionFoodValue);
@@ -140,10 +143,10 @@ public class Kreatur2 extends Actor {
         }
     }
     public void createChild(){
-        if(energy>=400 && age>=6) {
+        if(energy>=createChildEnergie && age>=createChildAge) {
             Kreatur2 child = new Kreatur2(this);
             super.es.actorManager.getActors().add(child);
-            energy-=280*costMult;
+            energy-=createChildEnergie/2*costMult;
         }
     }
     public void eat(){
@@ -182,5 +185,87 @@ public class Kreatur2 extends Actor {
         return feelerlength;
     }
 
+    public float getMoveFaktor() {
+        return moveFaktor;
+    }
 
+    public void setMoveFaktor(float moveFaktor) {
+        this.moveFaktor = moveFaktor;
+    }
+
+    public float getRotatFaktor() {
+        return rotatFaktor;
+    }
+
+    public void setRotatFaktor(float rotatFaktor) {
+        this.rotatFaktor = rotatFaktor;
+    }
+
+    public float getMoveCostMult() {
+        return moveCostMult;
+    }
+
+    public void setMoveCostMult(float moveCostMult) {
+        this.moveCostMult = moveCostMult;
+    }
+
+    public float getRotateCostMult() {
+        return rotateCostMult;
+    }
+
+    public void setRotateCostMult(float rotateCostMult) {
+        this.rotateCostMult = rotateCostMult;
+    }
+
+    public float getEatMult() {
+        return eatMult;
+    }
+
+    public void setEatMult(float eatMult) {
+        this.eatMult = eatMult;
+    }
+
+    public float getPermanetcostland() {
+        return permanetcostland;
+    }
+
+    public void setPermanetcostland(float permanetcostland) {
+        this.permanetcostland = permanetcostland;
+    }
+
+    public float getPermanetcostwater() {
+        return permanetcostwater;
+    }
+
+    public void setPermanetcostwater(float permanetcostwater) {
+        this.permanetcostwater = permanetcostwater;
+    }
+
+    public float getEatcostMult() {
+        return eatcostMult;
+    }
+
+    public void setEatcostMult(float eatcostMult) {
+        this.eatcostMult = eatcostMult;
+    }
+
+    public float getCreateChildAge() {
+        return createChildAge;
+    }
+
+    public void setCreateChildAge(float createChildAge) {
+        this.createChildAge = createChildAge;
+    }
+
+    public float getCreateChildEnergie() {
+        return createChildEnergie;
+    }
+
+    public void setCreateChildEnergie(float createChildEnergie) {
+        this.createChildEnergie = createChildEnergie;
+    }
+
+    public void setFeelerlength(int feelerlength) {
+        this.feelerlength = feelerlength;
+    }
 }

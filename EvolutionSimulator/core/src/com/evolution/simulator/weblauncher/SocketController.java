@@ -1,16 +1,23 @@
 package com.evolution.simulator.weblauncher;
 
 
+import com.evolution.simulator.BackEnd.EvolutionsSimulator;
+import com.evolution.simulator.BackEnd.Variables;
+import com.evolution.simulator.BackEnd.actors.Actor;
+import com.evolution.simulator.BackEnd.actors.kreatur.Kreatur;
+import com.evolution.simulator.BackEnd.actors.kreatur.Kreatur2;
 import com.google.gson.ExclusionStrategy;
 import com.google.gson.FieldAttributes;
 import com.google.gson.Gson;
 import com.google.gson.GsonBuilder;
 import com.google.gson.annotations.Expose;
+import com.sun.org.apache.xpath.internal.operations.Variable;
 import org.java_websocket.WebSocket;
 import org.java_websocket.drafts.Draft;
 import org.java_websocket.drafts.Draft_6455;
 import org.java_websocket.handshake.ClientHandshake;
 import org.java_websocket.server.WebSocketServer;
+import org.json.JSONObject;
 
 import java.io.BufferedReader;
 import java.io.IOException;
@@ -44,7 +51,7 @@ public class SocketController extends WebSocketServer {
     @Override
     public void onOpen(WebSocket conn, ClientHandshake handshake) {
         //conn.send("Welcome to the server!"); //This method sends a message to the new client
-       connections.add(conn);
+        connections.add(conn);
         System.out.println(
                 conn.getRemoteSocketAddress().getAddress().getHostAddress() + " entered the room!");
     }
@@ -58,7 +65,43 @@ public class SocketController extends WebSocketServer {
 
     @Override
     public void onMessage(WebSocket conn, String message) {
-       // broadcast(message);
+
+        // broadcast(message);
+        JSONObject jsonMessage = new JSONObject(message);
+        if(jsonMessage.getString("type").contentEquals("param")) {
+
+            WebMain.sps = jsonMessage.getInt("speed");
+            for(Actor actor:WebMain.evolutionsSimulator.getActorManager().getActors()) {
+
+                ((Kreatur2) actor).setMoveFaktor(jsonMessage.getFloat("movespeed"));
+                ((Kreatur2) actor).setMoveCostMult(jsonMessage.getFloat("movecost"));
+                ((Kreatur2) actor).setRotateCostMult(jsonMessage.getFloat("rotcost"));
+                ((Kreatur2) actor).setRotatFaktor(jsonMessage.getFloat("rotspeed"));
+                ((Kreatur2) actor).setEatcostMult(jsonMessage.getFloat("eatcost"));
+                ((Kreatur2) actor).setEatMult(jsonMessage.getFloat("eatspeed"));
+                ((Kreatur2) actor).setCreateChildEnergie(jsonMessage.getFloat("childenergie"));
+                ((Kreatur2) actor).setCreateChildAge(jsonMessage.getFloat("childage"));
+
+
+            }
+
+            Variables.moveFaktor =(jsonMessage.getFloat("movespeed"));
+            Variables.moveCostMult = (jsonMessage.getFloat("movecost"));
+            Variables.rotateCostMult=(jsonMessage.getFloat("rotcost"));
+            Variables.rotatFaktor = (jsonMessage.getFloat("rotspeed"));
+            Variables.eatcostMult =(jsonMessage.getFloat("eatcost"));
+            Variables.eatMult =(jsonMessage.getFloat("eatspeed"));
+            Variables.createChildEnergie =(jsonMessage.getFloat("childenergie"));
+            Variables.createChildAge =(jsonMessage.getFloat("childage"));
+
+
+        }else if(jsonMessage.getString("type").contentEquals("reset")){
+
+            WebMain.evolutionsSimulator = new EvolutionsSimulator();
+
+
+
+        }
         System.out.println(conn + ": " + message);
     }
 

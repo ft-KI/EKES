@@ -326,6 +326,21 @@ var config_foodavailable={
         }
     }
 };
+
+//PARAMS
+var simulationSpeedParam;
+var movespeed;
+var movecost;
+var rotspeed;
+var rotcost;
+var eatcost;
+var eatspeed;
+var costland;
+var costwater;
+var childage;
+var childenergie;
+
+
 async function startShow() {
     var ctx = document.getElementById('graphAverageAge').getContext('2d');
     var ctx2 = document.getElementById('graphActorsSize').getContext('2d');
@@ -339,6 +354,23 @@ async function startShow() {
     infoblock =  document.getElementById("info");
     graphupdatespeed=document.getElementById("graphupdatespeed");
     Graphsichtfeld=document.getElementById("Graphsichtfeld");
+    simulationSpeedParam = document.getElementById("simspeed");
+    movespeed = document.getElementById("simmovementspeed");
+    movecost = document.getElementById("simmovecost");
+    rotspeed = document.getElementById("simrotspeed");
+    rotcost = document.getElementById("simrotcost");
+    eatcost = document.getElementById("simeatcost");
+    eatspeed = document.getElementById("simgettingenergie");
+    costland = document.getElementById("permcostland");
+    costwater = document.getElementById("permcostwater");
+    childage = document.getElementById("childage");
+    childenergie = document.getElementById("createchildcost");
+
+
+
+
+
+
     context = simulation.getContext('2d');
     context.linewidth = 10;
 
@@ -373,6 +405,36 @@ async function startShow() {
 
 }
 
+function sendParams() {
+console.log("Sending Params...");
+var obj = {
+  speed:simulationSpeedParam.value,
+    type:"param",
+  movespeed:movespeed.value,
+    movecost:movecost.value,
+    rotcost:rotcost.value,
+    rotspeed:rotspeed.value,
+    eatcost:eatcost.value,
+    eatspeed:eatspeed.value,
+    childenergie:childenergie.value,
+    childage:childage.value
+
+    }
+
+wsConnection.send(JSON.stringify(obj));
+console.log("Sending Successful")
+}
+
+function resetSimulation (){
+
+    var obj = {
+        type:"reset"
+    }
+    wsConnection.send(JSON.stringify(obj));
+
+    document.location.reload();
+}
+
 
 function App() {
     return (
@@ -390,14 +452,64 @@ function App() {
                 <div id="controll">
                     <h2>Controll Elemente</h2>
                     <h3>Darstellungs Optionen:</h3>
-                    <label htmlFor="graphupdatespeed">Graph update speezd</label>
+                    <label htmlFor="graphupdatespeed">Graph update Speed</label>
                     <input type="range" id="graphupdatespeed" name="graphupdatespeed" min="1" max="100" defaultValue="1"/>
                     <br></br>
                     <label htmlFor="Graphsichtfeld">Graphsichtfeld</label>
                     <input type="range" id="Graphsichtfeld" name="Graphsichtfeld" min="10" max="1000" defaultValue="200"/>
                     <h3>Simulations Optionen:</h3>
-                    <label htmlFor="Simulations Beschleunigung">Simulations Beschleunigung</label>
-                    <input type="range" id="Simulations Beschleunigung" name="Simulations Beschleunigung" min="1" max="1000" defaultValue="1"/>
+                    <label htmlFor="Simulations Beschleunigung">SPS: </label>
+                    <input type="number" id="simspeed" name="Simulations Beschleunigung" min="1" max="1000" defaultValue="30"/>
+
+                    <br/>
+
+
+
+                    <label htmlFor="simmovecost">Move Cost: </label>
+                    <input type="number" id="simmovecost" name="simmovecost" min="1" max="1000" defaultValue="5"/>
+                    <br/>
+                    <label htmlFor="simmovementspeed">Geschwindkeit: </label>
+                    <input type="number" id="simmovementspeed" name="simmovementspeed" min="1" max="1000" defaultValue="5"/>
+
+                    <br/>
+
+                    <label htmlFor="simrotcost">Rot Cost: </label>
+                    <input type="number" id="simrotcost" name="simrotcost" min="1" max="1000" defaultValue="3"/>
+                    <br/>
+                    <label htmlFor="simrotspeed">Rot-Geschwindkeit: </label>
+                    <input type="number" id="simrotspeed" name="simrotspeed" min="1" max="1000" defaultValue="2"/>
+
+                    <br/>
+
+                    <label htmlFor="simeatcost">Eat Cost: </label>
+                    <input type="number" id="simeatcost" name="simeatcost" min="1" max="1000" defaultValue="1"/>
+                    <br/>
+                    <label htmlFor="simgettingenergie">Essens-Energie-Gewinn: </label>
+                    <input type="number" id="simgettingenergie" name="simgettingenergie" min="1" max="1000" defaultValue="50"/>
+                    <br/>
+
+                    <label htmlFor="permcostland">Land Cost: </label>
+                    <input type="number" id="permcostland" name="permcostland" min="1" max="1000" defaultValue="0.04"/>
+                    <br/>
+                    <label htmlFor="permcostwater">Water-Cost: </label>
+                    <input type="number" id="permcostwater" name="permcostwater" min="1" max="1000" defaultValue="3"/>
+
+                    <br/>
+
+                    <label htmlFor="createchildcost">Child Cost: </label>
+                    <input type="number" id="createchildcost" name="createchildcost" min="1" max="1000" defaultValue="400"/>
+                    <br/>
+                    <label htmlFor="childage">Create Child Age: </label>
+                    <input type="number" id="childage" name="childage" min="1" max="1000" defaultValue="6"/>
+
+
+
+                    <br/>
+
+
+                    <button onClick={sendParams} id={"send"}>Apply</button>
+                    <button onClick={resetSimulation} id={"reset"}>Reset</button>
+
                 </div>
 
             </div>
