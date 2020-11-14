@@ -40,7 +40,7 @@ wsConnection.onmessage = async function (e) {
         Timeinyears=rawInfos.Timeinyears;
         averageage=rawInfos.averageage;
         foodavailable=rawInfos.foodavailable;
-        infodraw();
+
     }
 
 
@@ -177,7 +177,7 @@ function draw() {
 
 
 
-
+    infodraw();
 
     drawcount++;
     requestAnimationFrame(draw);
