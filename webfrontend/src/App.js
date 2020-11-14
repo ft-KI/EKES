@@ -417,7 +417,9 @@ var obj = {
     eatcost:eatcost.value,
     eatspeed:eatspeed.value,
     childenergie:childenergie.value,
-    childage:childage.value
+    childage:childage.value,
+    costwater:costwater.value,
+    costland:costland.value
 
     }
 

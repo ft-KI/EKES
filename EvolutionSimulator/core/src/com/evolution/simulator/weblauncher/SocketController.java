@@ -81,6 +81,8 @@ public class SocketController extends WebSocketServer {
                 ((Kreatur2) actor).setEatMult(jsonMessage.getFloat("eatspeed"));
                 ((Kreatur2) actor).setCreateChildEnergie(jsonMessage.getFloat("childenergie"));
                 ((Kreatur2) actor).setCreateChildAge(jsonMessage.getFloat("childage"));
+                ((Kreatur2) actor).setPermanetcostland(jsonMessage.getFloat("costland"));
+                ((Kreatur2) actor).setPermanetcostwater(jsonMessage.getFloat("costwater"));
 
 
             }
@@ -93,12 +95,15 @@ public class SocketController extends WebSocketServer {
             Variables.eatMult =(jsonMessage.getFloat("eatspeed"));
             Variables.createChildEnergie =(jsonMessage.getFloat("childenergie"));
             Variables.createChildAge =(jsonMessage.getFloat("childage"));
+            Variables.permanetcostland =(jsonMessage.getFloat("costland"));
+            Variables.permanetcostwater =(jsonMessage.getFloat("costwater"));
 
 
         }else if(jsonMessage.getString("type").contentEquals("reset")){
 
             WebMain.evolutionsSimulator = new EvolutionsSimulator();
             Variables.reset();
+            WebMain.sps = 30;
 
 
         }
