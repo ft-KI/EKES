@@ -98,7 +98,7 @@ public class SocketController extends WebSocketServer {
         }else if(jsonMessage.getString("type").contentEquals("reset")){
 
             WebMain.evolutionsSimulator = new EvolutionsSimulator();
-
+            Variables.reset();
 
 
         }
