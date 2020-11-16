@@ -13,6 +13,7 @@ public class Variables {
     public static float eatcostMult=1;
     public static float createChildAge = 6;
     public static float createChildEnergie = 400;
+    public static float eatadmission=0.8f;
 
     public static void reset() {
         moveFaktor=5;

@@ -339,6 +339,7 @@ var costland;
 var costwater;
 var childage;
 var childenergie;
+var eatadmission;
 
 
 async function startShow() {
@@ -365,6 +366,7 @@ async function startShow() {
     costwater = document.getElementById("permcostwater");
     childage = document.getElementById("childage");
     childenergie = document.getElementById("createchildcost");
+    eatadmission = document.getElementById("eatadmission");
 
 
 
@@ -419,7 +421,8 @@ var obj = {
     childenergie:childenergie.value,
     childage:childage.value,
     costwater:costwater.value,
-    costland:costland.value
+    costland:costland.value,
+    eatadmission:eatadmission.value
 
     }
 
@@ -503,6 +506,12 @@ function App() {
                     <br/>
                     <label htmlFor="childage">Create Child Age: </label>
                     <input type="number" id="childage" name="childage" min="1" max="1000" defaultValue="6"/>
+
+                    <br/>
+
+                    <label htmlFor="eatadmission">eatadmission: </label>
+                    <input type="number" id="eatadmission" name="eatadmission" min="0" max="10" defaultValue="0.8"/>
+
 
 
 

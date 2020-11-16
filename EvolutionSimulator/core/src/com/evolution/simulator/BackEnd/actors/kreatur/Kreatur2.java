@@ -35,6 +35,8 @@ public class Kreatur2 extends Actor {
     private float eatcostMult=Variables.eatcostMult;
     private float createChildAge = Variables.createChildAge;
     private float createChildEnergie = Variables.createChildEnergie;
+    private float eatadmission=Variables.eatadmission;
+
     private float costMult=1;
     private float rotationangle=0;
 
@@ -153,7 +155,7 @@ public class Kreatur2 extends Actor {
         Tile t=super.es.getWorld().getTilefromActorPosition(super.getXposition(),super.getYposition());
         if(super.es.getWorld().getTilefromActorPosition(super.getXposition(),super.getYposition()).getLandType()==LandType.LAND) {
             float eaten;
-            eaten = outEat*0.8f;
+            eaten = outEat*eatadmission;
             if(super.es.getWorld().getTilefromActorPosition(super.getXposition(),super.getYposition()).getFoodvalue()<eaten){
                 eaten+=super.es.getWorld().getTilefromActorPosition(super.getXposition(),super.getYposition()).getFoodvalue()-eaten;
             }
@@ -267,5 +269,13 @@ public class Kreatur2 extends Actor {
 
     public void setFeelerlength(int feelerlength) {
         this.feelerlength = feelerlength;
+    }
+
+    public void setEatadmission(float eatadmission) {
+        this.eatadmission = eatadmission;
+    }
+
+    public float getEatadmission() {
+        return eatadmission;
     }
 }

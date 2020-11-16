@@ -83,6 +83,8 @@ public class SocketController extends WebSocketServer {
                 ((Kreatur2) actor).setCreateChildAge(jsonMessage.getFloat("childage"));
                 ((Kreatur2) actor).setPermanetcostland(jsonMessage.getFloat("costland"));
                 ((Kreatur2) actor).setPermanetcostwater(jsonMessage.getFloat("costwater"));
+                ((Kreatur2) actor).setEatadmission(jsonMessage.getFloat("eatadmission"));
+
 
 
             }
@@ -97,6 +99,7 @@ public class SocketController extends WebSocketServer {
             Variables.createChildAge =(jsonMessage.getFloat("childage"));
             Variables.permanetcostland =(jsonMessage.getFloat("costland"));
             Variables.permanetcostwater =(jsonMessage.getFloat("costwater"));
+            Variables.eatadmission =(jsonMessage.getFloat("eatadmission"));
 
 
         }else if(jsonMessage.getString("type").contentEquals("reset")){
