@@ -15,6 +15,7 @@ public class WebMain {
     public static SocketController s;
     public static int sps = 30;
     public static long timer=0;
+    public static long delay=0;
     public static void main(String[] args) throws UnknownHostException {
         evolutionsSimulator=new EvolutionsSimulator();
 
@@ -23,13 +24,15 @@ public class WebMain {
             @Override
             public void run() {
                 while (true){
+                    delay=1000/sps;
                     timer=System.currentTimeMillis();
                     evolutionsSimulator.dostep();
                     try {
-                        if(Math.abs(System.currentTimeMillis()-timer)>1000/sps){
-                            System.out.println("Speed Warning: durchlauf hat: "+(System.currentTimeMillis()-timer-1000/sps)+"ms zu lange gedauert");
+                        if(Math.abs(System.currentTimeMillis()-timer)>delay){
+                            System.out.println("Speed Warning: durchlauf hat: "+(System.currentTimeMillis()-timer-delay)+"ms zu lange gedauert");
+                            System.out.print("SPS: "+delay);
                         }
-                        TimeUnit.MILLISECONDS.sleep((int)(1000/sps-Math.abs(System.currentTimeMillis()-timer)));
+                        TimeUnit.MILLISECONDS.sleep((int)(delay-Math.abs(System.currentTimeMillis()-timer)));
                     } catch (InterruptedException e) {
 
                     }
