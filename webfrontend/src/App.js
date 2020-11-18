@@ -463,7 +463,7 @@ function App() {
                     <label htmlFor="Graphsichtfeld">Graphsichtfeld</label>
                     <input type="range" id="Graphsichtfeld" name="Graphsichtfeld" min="10" max="1000" defaultValue="200"/>
                     <h3>Simulations Optionen:</h3>
-                    <label htmlFor="Simulations Beschleunigung">SPS: </label>
+                    <label htmlFor="Simulations Beschleunigung">SPS begrenzung: </label>
                     <input type="number" id="simspeed" name="Simulations Beschleunigung" min="1" max="1000" defaultValue="30"/>
 
                     <br/>
