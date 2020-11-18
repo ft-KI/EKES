@@ -21,7 +21,7 @@ export function register() {
    
     camera.position.z = 5;
 
-    const geometry = new THREE.PlaneGeometry(width/150,height/100,1); //0.045,50
+    const geometry = new THREE.PlaneBufferGeometry(width/150,height/100,1); //0.045,50
 
 
 for(var x=0;x<150;x++) {
@@ -37,8 +37,7 @@ for(var x=0;x<150;x++) {
 
 
 
-     
-
+    
 
 }
 

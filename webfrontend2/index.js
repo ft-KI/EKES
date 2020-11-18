@@ -105,7 +105,7 @@ function infodraw(){
 
 }
 
-function updateGraphs(){
+async function updateGraphs(){
     window.graphAverageAge.data.labels.push("");
     window.graphActorsSize.data.labels.push("");
     window.graphFoodAvailable.data.labels.push("");
@@ -218,7 +218,7 @@ wsConnection.onmessage = async function (e) {
     }
 
 
-     function updateWorld() {
+     async function updateWorld() {
 
         for (var x = 0; x < window.world.width; x++) {
             for (var y = 0; y < window.world.height; y++) {
