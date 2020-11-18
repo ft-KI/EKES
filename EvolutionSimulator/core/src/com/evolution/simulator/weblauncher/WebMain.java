@@ -30,9 +30,9 @@ public class WebMain {
                     try {
                         if(Math.abs(System.currentTimeMillis()-timer)>delay){
                             System.out.println("Speed Warning: durchlauf hat: "+(System.currentTimeMillis()-timer-delay)+"ms zu lange gedauert");
-                            System.out.println("SPS: "+delay);
+                        }else {
+                            TimeUnit.MILLISECONDS.sleep((int) (delay - (System.currentTimeMillis() - timer)));
                         }
-                        TimeUnit.MILLISECONDS.sleep((int)(delay-Math.abs(System.currentTimeMillis()-timer)));
                     } catch (InterruptedException e) {
 
                     }
