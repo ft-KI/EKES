@@ -14,6 +14,7 @@ public class WebMain {
     public static Thread sendingInterval;
     public static SocketController s;
     public static int sps = 30;
+    public static long timer=0;
     public static void main(String[] args) throws UnknownHostException {
         evolutionsSimulator=new EvolutionsSimulator();
 
@@ -22,9 +23,13 @@ public class WebMain {
             @Override
             public void run() {
                 while (true){
+                    timer=System.currentTimeMillis();
                     evolutionsSimulator.dostep();
                     try {
-                        TimeUnit.MILLISECONDS.sleep(1000/sps);
+                        if(Math.abs(System.currentTimeMillis()-timer)>1000/sps){
+                            System.out.println("Speed Warning: "+(System.currentTimeMillis()-timer));
+                        }
+                        TimeUnit.MILLISECONDS.sleep((int)(1000/sps-Math.abs(System.currentTimeMillis()-timer)));
                     } catch (InterruptedException e) {
 
                     }
