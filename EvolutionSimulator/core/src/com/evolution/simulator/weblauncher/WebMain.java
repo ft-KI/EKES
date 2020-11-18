@@ -27,7 +27,7 @@ public class WebMain {
                     evolutionsSimulator.dostep();
                     try {
                         if(Math.abs(System.currentTimeMillis()-timer)>1000/sps){
-                            System.out.println("Speed Warning: "+(System.currentTimeMillis()-timer));
+                            System.out.println("Speed Warning: durchlauf hat: "+(System.currentTimeMillis()-timer-1000/sps)+"ms zu lange gedauert");
                         }
                         TimeUnit.MILLISECONDS.sleep((int)(1000/sps-Math.abs(System.currentTimeMillis()-timer)));
                     } catch (InterruptedException e) {
