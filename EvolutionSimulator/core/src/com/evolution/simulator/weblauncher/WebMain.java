@@ -1,7 +1,6 @@
 package com.evolution.simulator.weblauncher;
 
 import com.evolution.simulator.BackEnd.EvolutionsSimulator;
-import com.sun.rmi.rmid.ExecPermission;
 
 
 import java.net.UnknownHostException;
