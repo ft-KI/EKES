@@ -15,7 +15,7 @@ var worldheight;
 var worldfield;
 var rawInfos
 
-var wsConnection = new WebSocket('ws://192.168.178.101:8080/evodata');
+var wsConnection = new WebSocket('ws://localhost:8080/evodata');
 wsConnection.onopen = function () {
 };
 wsConnection.onerror = function (error) {

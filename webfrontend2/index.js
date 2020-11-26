@@ -1,11 +1,12 @@
 
 import {config_foodavailable, config_actorssize, config_averageage} from "./chartconfig.js"
-import {register,animate,worldtils} from "./wordRendering.js"
+import {register,animate,worldmesh} from "./wordRendering.js"
 
 //Darstellung
 var infoblock;
 var graphupdatespeed;
 var Graphsichtfeld;
+const color = new THREE.Color();
 
 //PARAMS
 var simulationSpeedParam;
@@ -63,7 +64,7 @@ function loadInfoDisplay() {
     var ctx2 = document.getElementById('graphActorsSize').getContext('2d');
     var ctx3 = document.getElementById('graphFoodAvailable').getContext('2d');
 
-    window.graphAverageAge = new Chart(ctx, config_averageage);
+   window.graphAverageAge = new Chart(ctx, config_averageage);
     window.graphActorsSize = new Chart(ctx2,config_actorssize);
     window.graphFoodAvailable=new Chart(ctx3, config_foodavailable);
 
@@ -155,7 +156,7 @@ var rawInfos
 //Connections
 var wsConnection;
 function initWS() {
-     wsConnection = new WebSocket('ws://192.168.178.101:8080/evodata');
+     wsConnection = new WebSocket('ws://localhost:8080/evodata');
 wsConnection.onopen = function () {
 };
 wsConnection.onerror = function (error) {
@@ -200,41 +201,45 @@ wsConnection.onmessage = async function (e) {
         costwater:costwater.value,
         costland:costland.value,
         eatadmission:eatadmission.value
-    
+
         }
-    
+
     wsConnection.send(JSON.stringify(obj));
     console.log("Sending Successful")
     }
-    
+
     function resetSimulation (){
-    
+
         var obj = {
             type:"reset"
         }
         wsConnection.send(JSON.stringify(obj));
-    
+
         document.location.reload();
     }
 
 
      async function updateWorld() {
 
+        var i =0;
+
         for (var x = 0; x < window.world.width; x++) {
             for (var y = 0; y < window.world.height; y++) {
                 if (window.worldfield[x][y] === -1) {
-                    worldtils[x][y].material.color.setHex( 0x14002b );
+                    worldmesh.setColorAt(i,color.setHex( 0x14002b));
                 }else{
-
-                    worldtils[x][y].material.color.setHex(rgbToHex(Math.floor((1 - window.worldfield[x][y]) * 255),191,15));
-
+                    worldmesh.setColorAt(i,color.setHex( rgbToHex(Math.floor((1 - window.worldfield[x][y]) * 255),191,15)));
                 }
+
+                i++;
 
             }
         }
 
         //worldtils[x][y]
         //console.log(window.worldfield);
+
+        worldmesh.instanceColor.needsUpdate = true;
     }
     function rgbToHex(r, g, b) {
         return "0x" + componentToHex(r) + componentToHex(g) + componentToHex(b);
