@@ -1,4 +1,4 @@
-package com.evolution.simulator.weblauncher;
+package com.evolution.simulator.weblauncher.Communication;
 
 import com.evolution.simulator.BackEnd.actors.kreatur.Feeler;
 

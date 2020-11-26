@@ -1,7 +1,6 @@
 import logo from './logo.svg';
 import './App.css';
 import {BrowserRouter as Router, Route} from "react-router-dom"
-import Communication from "./communication";
 import React from "react";
 import Chart from "chart.js";
 
@@ -16,7 +15,7 @@ var worldheight;
 var worldfield;
 var rawInfos
 
-var wsConnection = new WebSocket('ws://192.168.2.146:8080/evodata');
+var wsConnection = new WebSocket('ws://192.168.178.101:8080/evodata');
 wsConnection.onopen = function () {
 };
 wsConnection.onerror = function (error) {
@@ -340,6 +339,8 @@ var costwater;
 var childage;
 var childenergie;
 var eatadmission;
+var mutation_neurons;
+var mutation_percentage;
 
 
 async function startShow() {
@@ -367,6 +368,10 @@ async function startShow() {
     childage = document.getElementById("childage");
     childenergie = document.getElementById("createchildcost");
     eatadmission = document.getElementById("eatadmission");
+    mutation_percentage = document.getElementById("mutation_percentage");
+    mutation_neurons = document.getElementById("mutation_neurons");
+
+
 
 
 
@@ -422,9 +427,13 @@ var obj = {
     childage:childage.value,
     costwater:costwater.value,
     costland:costland.value,
-    eatadmission:eatadmission.value
+    eatadmission:eatadmission.value,
+    mutation_percentage:mutation_percentage.value,
+    mutation_neurons:mutation_neurons.value
 
-    }
+
+
+}
 
 wsConnection.send(JSON.stringify(obj));
 console.log("Sending Successful")
@@ -512,8 +521,15 @@ function App() {
                     <label htmlFor="eatadmission">eatadmission: </label>
                     <input type="number" id="eatadmission" name="eatadmission" min="0" max="10" defaultValue="0.8"/>
 
+                    <br/>
 
+                    <label htmlFor="mutation_percentage">mutation_percentage: </label>
+                    <input type="number" id="mutation_percentage" name="mutation_percentage" min="0" max="1000" defaultValue="0.23"/>
 
+                    <br/>
+
+                    <label htmlFor="mutation_neurons">mutation_neurons: </label>
+                    <input type="number" id="mutation_neurons" name="mutation_neurons" min="0" max="1000" defaultValue="4"/>
 
                     <br/>
 

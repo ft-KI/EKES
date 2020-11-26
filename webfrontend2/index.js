@@ -155,7 +155,7 @@ var rawInfos
 //Connections
 var wsConnection;
 function initWS() {
-     wsConnection = new WebSocket('ws://192.168.2.146:8080/evodata');
+     wsConnection = new WebSocket('ws://192.168.178.101:8080/evodata');
 wsConnection.onopen = function () {
 };
 wsConnection.onerror = function (error) {

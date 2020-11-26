@@ -1,14 +1,14 @@
-package com.evolution.simulator.weblauncher;
+package com.evolution.simulator.weblauncher.Communication;
 
 import com.evolution.simulator.BackEnd.actors.kreatur.Kreatur2;
 import com.evolution.simulator.BackEnd.virtualtileworld.LandType;
+import com.evolution.simulator.weblauncher.WebMain;
 import com.google.gson.ExclusionStrategy;
 import com.google.gson.FieldAttributes;
 import com.google.gson.Gson;
 import com.google.gson.GsonBuilder;
 import com.google.gson.annotations.Expose;
 import org.json.JSONArray;
-import org.json.JSONException;
 import org.json.JSONObject;
 
 import java.util.ArrayList;
@@ -34,7 +34,7 @@ public class SendingPacker {
 
         JSONArray json = new JSONArray();
 
-        for(int x=0;x<WebMain.evolutionsSimulator.getWorld().getTiles().size();x++) {
+        for(int x = 0; x< WebMain.evolutionsSimulator.getWorld().getTiles().size(); x++) {
             JSONArray reihen=new JSONArray();
             for(int y=0;y<WebMain.evolutionsSimulator.getWorld().getTiles().get(x).size();y++) {
 

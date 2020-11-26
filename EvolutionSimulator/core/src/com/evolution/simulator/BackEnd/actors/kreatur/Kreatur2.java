@@ -36,6 +36,8 @@ public class Kreatur2 extends Actor {
     private float createChildAge = Variables.createChildAge;
     private float createChildEnergie = Variables.createChildEnergie;
     private float eatadmission=Variables.eatadmission;
+    private float mutation_percentage=Variables.mutation_percentage;
+    private float mutation_neurons=Variables.mutation_neurons;
 
     private float costMult=1;
     private float rotationangle=0;
@@ -72,8 +74,8 @@ public class Kreatur2 extends Actor {
         generateFeelers();
         this.rotationangle=(float)(Math.random()*Math.PI*2);
         brain=parent.brain.cloneFullMeshed();
-        for(int i=0;i<4;i++) {
-            brain.randomMutate(0.23f);
+        for(int i=0;i<mutation_neurons;i++) {
+            brain.randomMutate(mutation_percentage);
         }
         this.israndom = false;
         super.generation=parent.generation+1;
@@ -277,5 +279,13 @@ public class Kreatur2 extends Actor {
 
     public float getEatadmission() {
         return eatadmission;
+    }
+
+    public void setMutation_percentage(float mutation_percentage) {
+        this.mutation_percentage = mutation_percentage;
+    }
+
+    public void setMutation_neurons(float mutation_neurons) {
+        this.mutation_neurons = mutation_neurons;
     }
 }

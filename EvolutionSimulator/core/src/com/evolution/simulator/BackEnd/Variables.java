@@ -14,6 +14,8 @@ public class Variables {
     public static float createChildAge = 6;
     public static float createChildEnergie = 400;
     public static float eatadmission=0.8f;
+    public static float mutation_percentage=0.23f;
+    public static int mutation_neurons=4;
 
     public static void reset() {
         moveFaktor=5;
@@ -26,5 +28,9 @@ public class Variables {
         eatcostMult=1;
         createChildAge = 6;
         createChildEnergie = 400;
+        eatadmission=0.8f;
+        mutation_percentage=0.23f;
+        mutation_neurons=4;
+
     }
 }
