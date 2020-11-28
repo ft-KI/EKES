@@ -5,8 +5,11 @@ export var worldmesh;
 export var actormesh;
 
 
-const width = 1200;
-const height = 800;
+export const width = 1200;
+export const height = 800;
+
+const color = new THREE.Color();
+const matrix = new THREE.Matrix4();
 
 
 export function register() {
@@ -22,14 +25,20 @@ export function register() {
 
    
     camera.position.z = 5;
+       
 
     var material = new THREE.MeshBasicMaterial( { color: 0xFFFFFF } );
     const geometry = new THREE.PlaneBufferGeometry(width/150,height/100,1); //0.045,50
+    
+ 
+    const actormaterial = new THREE.MeshBasicMaterial( { color: 0xFFFFFF } );
+    const actorgeometry = new THREE.CircleGeometry( 10, 10 );
+    actormesh = new THREE.InstancedMesh(actorgeometry,actormaterial,1200); //!!! WENN ANZEIGE FEHLER ZAHL HÖHER STELLEN !!!
     worldmesh = new THREE.InstancedMesh( geometry, material, 15000 );
-    const color = new THREE.Color();
-    const matrix = new THREE.Matrix4();
+    actormesh.instanceMatrix.setUsage( THREE.DynamicDrawUsage ); // will be updated every frame
 
-
+    const axesHelper = new THREE.AxesHelper( 400 );
+    //scene.add( axesHelper );
 var i=0;
 for(var x=0;x<150;x++) {
     
@@ -40,6 +49,9 @@ for(var x=0;x<150;x++) {
 
        worldmesh.setMatrixAt( i, matrix );
        worldmesh.setColorAt( i, color );
+     
+
+
        i++;
 
        // worldtils[x][y].position.x = -width/2+(width/150)/2+x*width/150;
@@ -48,13 +60,18 @@ for(var x=0;x<150;x++) {
     }
 }
 
-scene.add(worldmesh);
 
+scene.add(worldmesh);
+console.log("added");
+
+scene.add(actormesh);
 
 
     
 
 }
+
+
 
 export function animate() {
     renderer.render( scene, camera );

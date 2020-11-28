@@ -1,12 +1,15 @@
 
 import {config_foodavailable, config_actorssize, config_averageage} from "./chartconfig.js"
-import {register,animate,worldmesh} from "./wordRendering.js"
+import {register,animate,worldmesh,actormesh,height,width} from "./wordRendering.js"
 
 //Darstellung
 var infoblock;
 var graphupdatespeed;
 var Graphsichtfeld;
 const color = new THREE.Color();
+const actorcolor = new THREE.Color();
+const actormatrix = new THREE.Matrix4();
+const matrix = new THREE.Matrix4();
 
 //PARAMS
 var simulationSpeedParam;
@@ -22,6 +25,8 @@ var childage;
 var childenergie;
 var eatadmission;
 var drawcount=0;
+var mutation_neurons;
+var mutation_percentage;
 
 //infos
 var ActorsSize;
@@ -87,6 +92,8 @@ function loadInfoDisplay() {
     childage = document.getElementById("childage");
     childenergie = document.getElementById("createchildcost");
     eatadmission = document.getElementById("eatadmission");
+    mutation_percentage = document.getElementById("mutation_percentage");
+    mutation_neurons = document.getElementById("mutation_neurons");
 }
 
 
@@ -171,6 +178,7 @@ wsConnection.onmessage = async function (e) {
         updateWorld();
     } else if (JSON.parse(e.data).type === "creatures") {
         window.actors = JSON.parse(JSON.parse(e.data).kreatures);
+        updateActors();
     }else if(JSON.parse(e.data).type==="info"){
         rawInfos = JSON.parse(e.data);
         ActorsSize=rawInfos.ActorsSize;
@@ -200,7 +208,9 @@ wsConnection.onmessage = async function (e) {
         childage:childage.value,
         costwater:costwater.value,
         costland:costland.value,
-        eatadmission:eatadmission.value
+        eatadmission:eatadmission.value,
+        mutation_percentage:mutation_percentage.value,
+        mutation_neurons:mutation_neurons.value
 
         }
 
@@ -241,6 +251,38 @@ wsConnection.onmessage = async function (e) {
 
         worldmesh.instanceColor.needsUpdate = true;
     }
+
+
+     function updateActors() {
+        const actorSize = window.actors.length;
+         //actormesh.count =ActorsSize;
+    
+        for(var i=0;i<actorSize;i++) {
+    
+         if (window.actors[i].gen <= 10) {
+           actorcolor.setHex(rgbToHex(Math.floor((1 - window.actors[i].gen / 10) * 255),Math.floor(window.actors[i].gen / 10 * 255),0));
+         } else {
+            actorcolor.setHex(0xFFFFFF);  
+         }
+    
+         //
+         //console.log(actormesh);
+         //matrix.setPosition((-width/2+4)+window.actors[i].x,(-height/2+4)+window.actors[i].y,0.5);
+        actormatrix.setPosition( -500,-396, 1 );
+        actormesh.setMatrixAt( 1, actormatrix );
+    
+        actormesh.setColorAt( 1, actorcolor );
+    
+        actormesh.instanceMatrix.needsUpdate = true;
+        actormesh.instanceColor.needsUpdate = true;
+
+     }
+    
+    
+     }
+
+
+
     function rgbToHex(r, g, b) {
         return "0x" + componentToHex(r) + componentToHex(g) + componentToHex(b);
     }

@@ -22,12 +22,9 @@ public class WebMain {
     public static ArrayList<Parameter>worldparams=new ArrayList<>();
     public static ArrayList<Parameter>actorparams=new ArrayList<>();
     public static ArrayList<Parameter>infoparams=new ArrayList<>();
-    public static void createParameters(){
-        worldparams.add(new Parameter());
-    }
+
     public static void main(String[] args) throws UnknownHostException {
         evolutionsSimulator=new EvolutionsSimulator();
-        createParameters();
 
         simulationThread=new Thread(){
             @Override
