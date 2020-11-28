@@ -255,30 +255,28 @@ wsConnection.onmessage = async function (e) {
 
      function updateActors() {
         const actorSize = window.actors.length;
-         //actormesh.count =ActorsSize;
+         actormesh.count =actorSize;
     
         for(var i=0;i<actorSize;i++) {
-    
+
          if (window.actors[i].gen <= 10) {
-           actorcolor.setHex(rgbToHex(Math.floor((1 - window.actors[i].gen / 10) * 255),Math.floor(window.actors[i].gen / 10 * 255),0));
+           actormesh.setColorAt(i,color.setHex(rgbToHex(Math.floor((1 - window.actors[i].gen / 10) * 255),Math.floor(window.actors[i].gen / 10 * 255),0)));
          } else {
-            actorcolor.setHex(0xFFFFFF);  
+            actormesh.setColorAt(i,color.setHex(0xFFFFFF));  
          }
-    
+  
+      
          //
          //console.log(actormesh);
-         //matrix.setPosition((-width/2+4)+window.actors[i].x,(-height/2+4)+window.actors[i].y,0.5);
-        actormatrix.setPosition( -500,-396, 1 );
-        actormesh.setMatrixAt( 1, actormatrix );
-    
-        actormesh.setColorAt( 1, actorcolor );
-    
-        actormesh.instanceMatrix.needsUpdate = true;
-        actormesh.instanceColor.needsUpdate = true;
+         actormatrix.setPosition((-width/2)+window.actors[i].x*0.8,(-height/2+1)+window.actors[i].y*0.8,1);
+        //actormatrix.setPosition( -500,-396, 1 );
+        actormesh.setMatrixAt( i, actormatrix );
+        
+
 
      }
-    
-    
+     actormesh.instanceColor.needsUpdate = true;
+     actormesh.instanceMatrix.needsUpdate = true;
      }
 
 

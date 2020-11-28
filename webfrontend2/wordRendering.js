@@ -29,16 +29,15 @@ export function register() {
 
     var material = new THREE.MeshBasicMaterial( { color: 0xFFFFFF } );
     const geometry = new THREE.PlaneBufferGeometry(width/150,height/100,1); //0.045,50
-    
- 
-    const actormaterial = new THREE.MeshBasicMaterial( { color: 0xFFFFFF } );
-    const actorgeometry = new THREE.CircleGeometry( 10, 10 );
-    actormesh = new THREE.InstancedMesh(actorgeometry,actormaterial,1200); //!!! WENN ANZEIGE FEHLER ZAHL HÖHER STELLEN !!!
     worldmesh = new THREE.InstancedMesh( geometry, material, 15000 );
-    actormesh.instanceMatrix.setUsage( THREE.DynamicDrawUsage ); // will be updated every frame
+ 
+    var actormaterial = new THREE.MeshBasicMaterial();
+    const actorgeometry = new THREE.CircleBufferGeometry( 3.1, 20 );
+    actormesh = new THREE.InstancedMesh(actorgeometry,actormaterial,1200);
 
-    const axesHelper = new THREE.AxesHelper( 400 );
-    //scene.add( axesHelper );
+    actormesh.instanceMatrix.setUsage( THREE.DynamicDrawUsage ); 
+
+
 var i=0;
 for(var x=0;x<150;x++) {
     
@@ -60,11 +59,9 @@ for(var x=0;x<150;x++) {
     }
 }
 
-
-scene.add(worldmesh);
-console.log("added");
-
 scene.add(actormesh);
+scene.add(worldmesh);
+
 
 
     
@@ -74,5 +71,8 @@ scene.add(actormesh);
 
 
 export function animate() {
+
+   
+
     renderer.render( scene, camera );
 }
