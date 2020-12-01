@@ -255,7 +255,7 @@ wsConnection.onmessage = async function (e) {
 
      async function updateActors() {
         const actorSize = window.actors.length;
-         actormesh.count =actorSize;
+         //actormesh.count =actorSize;
     
         for(var i=0;i<actorSize;i++) {
 
@@ -266,7 +266,12 @@ wsConnection.onmessage = async function (e) {
         //actormatrix.setPosition( -500,-396, 1 );
         actormesh.setMatrixAt( i, actormatrix );
         
+     }
 
+     for(var i=ActorsSize;i<1200;i++) {
+
+        actormatrix.setPosition(1000,1000, 1 );
+        actormesh.setMatrixAt( i, actormatrix );
 
      }
      
