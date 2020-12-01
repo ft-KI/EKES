@@ -253,20 +253,14 @@ wsConnection.onmessage = async function (e) {
     }
 
 
-     function updateActors() {
+     async function updateActors() {
         const actorSize = window.actors.length;
-         actormesh.count =actorSize;
+         //actormesh.count =actorSize;
     
         for(var i=0;i<actorSize;i++) {
 
-         if (window.actors[i].gen <= 10) {
-           actormesh.setColorAt(i,color.setHex(rgbToHex(Math.floor((1 - window.actors[i].gen / 10) * 255),Math.floor(window.actors[i].gen / 10 * 255),0)));
-         } else {
-            actormesh.setColorAt(i,color.setHex(0xFFFFFF));  
-         }
-  
-      
-         //
+        
+         //actormesh
          //console.log(actormesh);
          actormatrix.setPosition((-width/2)+window.actors[i].x*0.8,(-height/2+1)+window.actors[i].y*0.8,1);
         //actormatrix.setPosition( -500,-396, 1 );
@@ -275,8 +269,20 @@ wsConnection.onmessage = async function (e) {
 
 
      }
-     actormesh.instanceColor.needsUpdate = true;
+     
      actormesh.instanceMatrix.needsUpdate = true;
+     actormesh.updateMatrix();
+
+     for(var i=0;i<actorSize;i++) {
+
+     if (window.actors[i].gen <= 10) {
+        actormesh.setColorAt(i,color.setHex(rgbToHex(Math.floor((1 - window.actors[i].gen / 10) * 255),Math.floor(window.actors[i].gen / 10 * 255),0)));
+      } else {
+        actormesh.setColorAt(i,color.setHex( 0xffffff)); 
+      }
+
+    }
+     actormesh.instanceColor.needsUpdate = true;
      }
 
 

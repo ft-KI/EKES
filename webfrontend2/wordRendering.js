@@ -31,12 +31,11 @@ export function register() {
     const geometry = new THREE.PlaneBufferGeometry(width/150,height/100,1); //0.045,50
     worldmesh = new THREE.InstancedMesh( geometry, material, 15000 );
  
-    var actormaterial = new THREE.MeshBasicMaterial();
+    var actormaterial = new THREE.MeshBasicMaterial({ color: 0xFFFFFF } );
     const actorgeometry = new THREE.CircleBufferGeometry( 3.1, 20 );
     actormesh = new THREE.InstancedMesh(actorgeometry,actormaterial,1200);
 
     actormesh.instanceMatrix.setUsage( THREE.DynamicDrawUsage ); 
-
 
 var i=0;
 for(var x=0;x<150;x++) {
@@ -57,6 +56,15 @@ for(var x=0;x<150;x++) {
        // worldtils[x][y].position.y = -height/2+(height/100)/2+y*height/100;
        // scene.add(worldtils[x][y]);
     }
+}
+
+for(var z=0;z<1200;z++) {
+
+    matrix.setPosition( 1000,1000, 1 );
+
+    actormesh.setMatrixAt(z, matrix );
+    actormesh.setColorAt( z, color );
+
 }
 
 scene.add(actormesh);
