@@ -255,7 +255,7 @@ wsConnection.onmessage = async function (e) {
 
      async function updateActors() {
         const actorSize = window.actors.length;
-         //actormesh.count =actorSize;
+         actormesh.count =actorSize;
     
         for(var i=0;i<actorSize;i++) {
 
