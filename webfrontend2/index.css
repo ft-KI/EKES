@@ -13,15 +13,43 @@ body {
     justify-content: flex-end;
 }
 
-#screen {
+#screenwrapper {
     width: 50%;
-    background-color: #920000;
-    border-radius: 8px;
-    border: 3px solid #4c4c4c;
+   /* border-radius: 8px;*/
     margin: 0.5vh;
     float: left;
     height: 70%;
+    min-height: 99vh;
+    position: relative;
+    display: flex;
+    flex-direction: column;
 
+}
+
+#simulationController {
+
+    background-color: #969696;
+    border: 3px solid #4c4c4c;
+    border-radius: 8px;
+    width: 100%;
+    height: 100%;
+    position: relative;
+    border-radius: 8px;
+    min-height: 100%;
+    flex: 1;
+    margin-top: 0.5vh;
+
+
+
+}
+
+#screen {
+    background-color: #920000;
+    border: 3px solid #4c4c4c;
+    float: bottom;
+    border-radius: 8px;
+    width: 100%;
+    height: 100%;
 }
 
 #info {
