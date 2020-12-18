@@ -186,6 +186,28 @@ wsConnection.onmessage = async function (e) {
         averageage=rawInfos.averageage;
         foodavailable=rawInfos.foodavailable;
 
+    }else if(JSON.parse(e.data).type==="biparam") {
+        console.log("apply")
+        const recived = JSON.parse(e.data);
+        simulationSpeedParam.value =recived.speed
+        movespeed.value = recived.movespeed
+        movecost.value = recived.movecost
+        rotcost.value = recived.rotcost
+        rotspeed.value = recived.rotspeed
+        eatcost.value = recived.eatcost
+        eatspeed.value = recived.eatspeed
+        childenergie.value = recived.childenergie
+        childage.value = recived.childage
+        costwater.value = recived.costwater
+        costland.value = recived.costland
+        eatadmission.value = recived.eatadmission
+        mutation_percentage.value = recived.mutation_percentage
+        mutation_neurons.value = recived.mutation_neurons
+
+        
+
+
+
     }
 
 

@@ -35,7 +35,7 @@ public class WebMain {
                     evolutionsSimulator.dostep();
                     try {
                         if(Math.abs(System.currentTimeMillis()-timer)>delay){
-                            System.out.println("Speed Warning: durchlauf hat: "+(System.currentTimeMillis()-timer-delay)+"ms zu lange gedauert");
+                           // System.out.println("Speed Warning: durchlauf hat: "+(System.currentTimeMillis()-timer-delay)+"ms zu lange gedauert");
                         }else {
                             TimeUnit.MILLISECONDS.sleep((int) (delay - (System.currentTimeMillis() - timer)));
                         }
@@ -60,7 +60,7 @@ public class WebMain {
                         System.out.println("problem");
                     }
                     try {
-                        TimeUnit.MILLISECONDS.sleep(30);
+                        TimeUnit.MILLISECONDS.sleep(50);
                     } catch (InterruptedException e) {
                         e.printStackTrace();
                     }

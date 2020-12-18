@@ -39,6 +39,29 @@ public class SocketController extends WebSocketServer {
     @Override
     public void onOpen(WebSocket conn, ClientHandshake handshake) {
         //connections.add(conn);
+
+        JSONObject currentParams = new JSONObject();
+        currentParams.put("type","biparam");
+        currentParams.put("clients",this.getConnections().size());
+
+        currentParams.put("speed",WebMain.sps);
+        currentParams.put("movespeed",Variables.moveFaktor);
+        currentParams.put("movecost",Variables.moveCostMult);
+        currentParams.put("rotcost",Variables.rotateCostMult);
+        currentParams.put("rotspeed",Variables.rotatFaktor);
+        currentParams.put("eatcost",Variables.eatcostMult);
+        currentParams.put("eatspeed",Variables.eatMult);
+        currentParams.put("childenergie",Variables.createChildEnergie);
+        currentParams.put("childage",Variables.createChildAge);
+        currentParams.put("costland",Variables.permanetcostland);
+        currentParams.put("costwater",Variables.permanetcostwater);
+        currentParams.put("eatadmission",Variables.eatadmission);
+        currentParams.put("mutation_percentage",Variables.mutation_percentage);
+        currentParams.put("mutation_neurons",Variables.mutation_neurons);
+
+
+        conn.send(currentParams.toString());
+
         System.out.println(
                 conn.getRemoteSocketAddress().getAddress().getHostAddress() + " hat verbindung aufgebaut");
     }
@@ -57,42 +80,60 @@ public class SocketController extends WebSocketServer {
         JSONObject jsonMessage = new JSONObject(message);
         if(jsonMessage.getString("type").contentEquals("param")) {
 
-            WebMain.sps = jsonMessage.getInt("speed");
-            for(Actor actor:WebMain.evolutionsSimulator.getActorManager().getActors()) {
 
-                ((Kreatur2) actor).setMoveFaktor(jsonMessage.getFloat("movespeed"));
-                ((Kreatur2) actor).setMoveCostMult(jsonMessage.getFloat("movecost"));
-                ((Kreatur2) actor).setRotateCostMult(jsonMessage.getFloat("rotcost"));
-                ((Kreatur2) actor).setRotatFaktor(jsonMessage.getFloat("rotspeed"));
-                ((Kreatur2) actor).setEatcostMult(jsonMessage.getFloat("eatcost"));
-                ((Kreatur2) actor).setEatMult(jsonMessage.getFloat("eatspeed"));
-                ((Kreatur2) actor).setCreateChildEnergie(jsonMessage.getFloat("childenergie"));
-                ((Kreatur2) actor).setCreateChildAge(jsonMessage.getFloat("childage"));
-                ((Kreatur2) actor).setPermanetcostland(jsonMessage.getFloat("costland"));
-                ((Kreatur2) actor).setPermanetcostwater(jsonMessage.getFloat("costwater"));
-                ((Kreatur2) actor).setEatadmission(jsonMessage.getFloat("eatadmission"));
-                ((Kreatur2) actor).setMutation_percentage(jsonMessage.getFloat("mutation_percentage"));
-                ((Kreatur2) actor).setMutation_neurons(jsonMessage.getFloat("mutation_neurons"));
+    try {
+        WebMain.sps = jsonMessage.getInt("speed");
+
+        Variables.moveFaktor = (jsonMessage.getFloat("movespeed"));
+        Variables.moveCostMult = (jsonMessage.getFloat("movecost"));
+        Variables.rotateCostMult = (jsonMessage.getFloat("rotcost"));
+        Variables.rotatFaktor = (jsonMessage.getFloat("rotspeed"));
+        Variables.eatcostMult = (jsonMessage.getFloat("eatcost"));
+        Variables.eatMult = (jsonMessage.getFloat("eatspeed"));
+        Variables.createChildEnergie = (jsonMessage.getFloat("childenergie"));
+        Variables.createChildAge = (jsonMessage.getFloat("childage"));
+        Variables.permanetcostland = (jsonMessage.getFloat("costland"));
+        Variables.permanetcostwater = (jsonMessage.getFloat("costwater"));
+        Variables.eatadmission = (jsonMessage.getFloat("eatadmission"));
+        Variables.mutation_percentage = (jsonMessage.getFloat("mutation_percentage"));
+        Variables.mutation_neurons = (jsonMessage.getInt("mutation_neurons"));
+
+
+        jsonMessage.put("type","biparam");
+        jsonMessage.put("clients",this.getConnections().size());
+        System.out.println("sended biparam");
+
+        for (Actor actor : WebMain.evolutionsSimulator.getActorManager().getActors()) {
+
+            ((Kreatur2) actor).setMoveFaktor(jsonMessage.getFloat("movespeed"));
+            ((Kreatur2) actor).setMoveCostMult(jsonMessage.getFloat("movecost"));
+            ((Kreatur2) actor).setRotateCostMult(jsonMessage.getFloat("rotcost"));
+            ((Kreatur2) actor).setRotatFaktor(jsonMessage.getFloat("rotspeed"));
+            ((Kreatur2) actor).setEatcostMult(jsonMessage.getFloat("eatcost"));
+            ((Kreatur2) actor).setEatMult(jsonMessage.getFloat("eatspeed"));
+            ((Kreatur2) actor).setCreateChildEnergie(jsonMessage.getFloat("childenergie"));
+            ((Kreatur2) actor).setCreateChildAge(jsonMessage.getFloat("childage"));
+            ((Kreatur2) actor).setPermanetcostland(jsonMessage.getFloat("costland"));
+            ((Kreatur2) actor).setPermanetcostwater(jsonMessage.getFloat("costwater"));
+            ((Kreatur2) actor).setEatadmission(jsonMessage.getFloat("eatadmission"));
+            ((Kreatur2) actor).setMutation_percentage(jsonMessage.getFloat("mutation_percentage"));
+            ((Kreatur2) actor).setMutation_neurons(jsonMessage.getFloat("mutation_neurons"));
+
+
+        }
+
+
+    }catch (Exception e) {
+
+
+    }
 
 
 
-
-            }
-
-            Variables.moveFaktor =(jsonMessage.getFloat("movespeed"));
-            Variables.moveCostMult = (jsonMessage.getFloat("movecost"));
-            Variables.rotateCostMult=(jsonMessage.getFloat("rotcost"));
-            Variables.rotatFaktor = (jsonMessage.getFloat("rotspeed"));
-            Variables.eatcostMult =(jsonMessage.getFloat("eatcost"));
-            Variables.eatMult =(jsonMessage.getFloat("eatspeed"));
-            Variables.createChildEnergie =(jsonMessage.getFloat("childenergie"));
-            Variables.createChildAge =(jsonMessage.getFloat("childage"));
-            Variables.permanetcostland =(jsonMessage.getFloat("costland"));
-            Variables.permanetcostwater =(jsonMessage.getFloat("costwater"));
-            Variables.eatadmission =(jsonMessage.getFloat("eatadmission"));
-            Variables.mutation_percentage =(jsonMessage.getFloat("mutation_percentage"));
-            Variables.mutation_neurons =(jsonMessage.getInt("mutation_neurons"));
-
+    for(WebSocket ws:this.getConnections()) {
+        if(ws==conn) continue;
+        ws.send(jsonMessage.toString());
+    }
 
 
 
