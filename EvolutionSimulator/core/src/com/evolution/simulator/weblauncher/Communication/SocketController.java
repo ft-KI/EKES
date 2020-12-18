@@ -45,6 +45,7 @@ public class SocketController extends WebSocketServer {
         currentParams.put("clients",this.getConnections().size());
 
         currentParams.put("speed",WebMain.sps);
+        currentParams.put("stopby",WebMain.stopby);
         currentParams.put("movespeed",Variables.moveFaktor);
         currentParams.put("movecost",Variables.moveCostMult);
         currentParams.put("rotcost",Variables.rotateCostMult);
@@ -83,6 +84,7 @@ public class SocketController extends WebSocketServer {
 
     try {
         WebMain.sps = jsonMessage.getInt("speed");
+        WebMain.stopby = jsonMessage.getInt("stopby");
 
         Variables.moveFaktor = (jsonMessage.getFloat("movespeed"));
         Variables.moveCostMult = (jsonMessage.getFloat("movecost"));
@@ -97,6 +99,7 @@ public class SocketController extends WebSocketServer {
         Variables.eatadmission = (jsonMessage.getFloat("eatadmission"));
         Variables.mutation_percentage = (jsonMessage.getFloat("mutation_percentage"));
         Variables.mutation_neurons = (jsonMessage.getInt("mutation_neurons"));
+
 
 
         jsonMessage.put("type","biparam");
@@ -142,6 +145,7 @@ public class SocketController extends WebSocketServer {
             WebMain.evolutionsSimulator = new EvolutionsSimulator();
             Variables.reset();
             WebMain.sps = 30;
+            WebMain.stopby = -1;
 
 
         }

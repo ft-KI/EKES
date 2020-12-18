@@ -27,6 +27,7 @@ var eatadmission;
 var drawcount=0;
 var mutation_neurons;
 var mutation_percentage;
+var stopby;
 
 //infos
 var ActorsSize;
@@ -94,6 +95,7 @@ function loadInfoDisplay() {
     eatadmission = document.getElementById("eatadmission");
     mutation_percentage = document.getElementById("mutation_percentage");
     mutation_neurons = document.getElementById("mutation_neurons");
+    stopby = document.getElementById("stopby")
 }
 
 
@@ -203,8 +205,9 @@ wsConnection.onmessage = async function (e) {
         eatadmission.value = recived.eatadmission
         mutation_percentage.value = recived.mutation_percentage
         mutation_neurons.value = recived.mutation_neurons
+        stopby.value = recived.stopby
 
-        
+
 
 
 
@@ -232,7 +235,8 @@ wsConnection.onmessage = async function (e) {
         costland:costland.value,
         eatadmission:eatadmission.value,
         mutation_percentage:mutation_percentage.value,
-        mutation_neurons:mutation_neurons.value
+        mutation_neurons:mutation_neurons.value,
+        stopby:stopby.value
 
         }
 
