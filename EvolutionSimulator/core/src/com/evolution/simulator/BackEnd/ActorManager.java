@@ -16,17 +16,26 @@ public class ActorManager {
     public float averageAge=0;
     public float ageOnDeathaverage=0;
     public float DeathesperStep=0;
+    public static int [][] positions = {{737,491},{990,670},{250,670},{400,290},{1300,230},{1100,700}};
+    int poscounter =0;
+
     public ActorManager(EvolutionsSimulator es){
         this.es=es;
 
     }
     public void createRandomActor(){
-        int x=(int)(Math.random()*es.getWorld().getWidth()*es.getWorld().getTileSize());
-        int y= (int)(Math.random()*es.getWorld().getHeight()*es.getWorld().getTileSize());
-        if(es.getWorld().getTilefromActorPosition(x,y).getLandType()== LandType.LAND) {
-            Kreatur2 testkreatur = new Kreatur2(x, y, es);
+        //int x=(int)(Math.random()*es.getWorld().getWidth()*es.getWorld().getTileSize());
+       // int y= (int)(Math.random()*es.getWorld().getHeight()*es.getWorld().getTileSize());
+
+
+
+       // if(es.getWorld().getTilefromActorPosition(x,y).getLandType()== LandType.LAND) {
+
+            if(poscounter==positions.length) poscounter=0;
+            Kreatur2 testkreatur = new Kreatur2(positions[poscounter][0], positions[poscounter][1], es);
+            poscounter++;
             actors.add(testkreatur);
-        }
+       // }
     }
     public void doStep(){
         if(actors.size()<100){
