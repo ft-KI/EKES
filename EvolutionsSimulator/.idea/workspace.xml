@@ -1,0 +1,352 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="ArtifactsWorkspaceSettings">
+    <artifacts-to-build>
+      <artifact name="EvolutionsSimulator.main:jar" />
+    </artifacts-to-build>
+  </component>
+  <component name="AutoImportSettings">
+    <option name="autoReloadType" value="SELECTIVE" />
+  </component>
+  <component name="ChangeListManager">
+    <list default="true" id="09991677-3277-416a-8c5e-d4311c855562" name="Default Changelist" comment="">
+      <change beforePath="$PROJECT_DIR$/../EvolutionSimulator/.gitignore" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../EvolutionSimulator/Land.jpg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../EvolutionSimulator/Land2.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../EvolutionSimulator/LandTile.jpg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../EvolutionSimulator/Verlauf.odt" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../EvolutionSimulator/WaterTile.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../EvolutionSimulator/build.gradle" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../EvolutionSimulator/core/assets/Land.jpg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../EvolutionSimulator/core/assets/Land2.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../EvolutionSimulator/core/assets/LandTile.jpg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../EvolutionSimulator/core/assets/WaterTile.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../EvolutionSimulator/core/build.gradle" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../EvolutionSimulator/core/src/com/evolution/simulator/BackEnd/ActorManager.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../EvolutionSimulator/core/src/com/evolution/simulator/BackEnd/EvolutionsSimulator.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../EvolutionSimulator/core/src/com/evolution/simulator/BackEnd/Time.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../EvolutionSimulator/core/src/com/evolution/simulator/BackEnd/Variables.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../EvolutionSimulator/core/src/com/evolution/simulator/BackEnd/Vector2.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../EvolutionSimulator/core/src/com/evolution/simulator/BackEnd/actors/Actor.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../EvolutionSimulator/core/src/com/evolution/simulator/BackEnd/actors/kreatur/Feeler.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../EvolutionSimulator/core/src/com/evolution/simulator/BackEnd/actors/kreatur/Kreatur.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../EvolutionSimulator/core/src/com/evolution/simulator/BackEnd/actors/kreatur/Kreatur2.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../EvolutionSimulator/core/src/com/evolution/simulator/BackEnd/ai/NeuronalNetwork/Connection.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../EvolutionSimulator/core/src/com/evolution/simulator/BackEnd/ai/NeuronalNetwork/NeuronalNetwork.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../EvolutionSimulator/core/src/com/evolution/simulator/BackEnd/ai/NeuronalNetwork/activationFunktions/ActivationFunktion.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../EvolutionSimulator/core/src/com/evolution/simulator/BackEnd/ai/NeuronalNetwork/activationFunktions/Identity.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../EvolutionSimulator/core/src/com/evolution/simulator/BackEnd/ai/NeuronalNetwork/activationFunktions/Sigmoid.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../EvolutionSimulator/core/src/com/evolution/simulator/BackEnd/ai/NeuronalNetwork/neurons/InputNeuron.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../EvolutionSimulator/core/src/com/evolution/simulator/BackEnd/ai/NeuronalNetwork/neurons/Neuron.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../EvolutionSimulator/core/src/com/evolution/simulator/BackEnd/ai/NeuronalNetwork/neurons/WorkingNeuron.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../EvolutionSimulator/core/src/com/evolution/simulator/BackEnd/virtualtileworld/LandType.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../EvolutionSimulator/core/src/com/evolution/simulator/BackEnd/virtualtileworld/Tile.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../EvolutionSimulator/core/src/com/evolution/simulator/BackEnd/virtualtileworld/VirtualTileWorld.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../EvolutionSimulator/core/src/com/evolution/simulator/BackEnd/virtualtileworld/WorldGenerator.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../EvolutionSimulator/core/src/com/evolution/simulator/FrontEnd/tilemaprenderer/ActorRenderer.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../EvolutionSimulator/core/src/com/evolution/simulator/FrontEnd/tilemaprenderer/InfoRenderer.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../EvolutionSimulator/core/src/com/evolution/simulator/FrontEnd/tilemaprenderer/SimulationsRenderer.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../EvolutionSimulator/core/src/com/evolution/simulator/FrontEnd/tilemaprenderer/TileMapRenderer.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../EvolutionSimulator/core/src/com/evolution/simulator/FrontEnd/tilemaprenderer/Unproject.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../EvolutionSimulator/core/src/com/evolution/simulator/FrontEnd/tilemaprenderer/infobox/Info.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../EvolutionSimulator/core/src/com/evolution/simulator/FrontEnd/tilemaprenderer/infobox/InfoBox.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../EvolutionSimulator/core/src/com/evolution/simulator/Main.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../EvolutionSimulator/core/src/com/evolution/simulator/weblauncher/Communication/KreaturTransmit.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../EvolutionSimulator/core/src/com/evolution/simulator/weblauncher/Communication/Parameter.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../EvolutionSimulator/core/src/com/evolution/simulator/weblauncher/Communication/SendingPacker.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../EvolutionSimulator/core/src/com/evolution/simulator/weblauncher/Communication/SocketController.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../EvolutionSimulator/core/src/com/evolution/simulator/weblauncher/WebMain.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../EvolutionSimulator/desktop/build.gradle" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../EvolutionSimulator/desktop/out/production/resources/Land.jpg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../EvolutionSimulator/desktop/src/com/evolution/simulator/desktop/DesktopLauncher.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../EvolutionSimulator/gradle.properties" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../EvolutionSimulator/gradle/wrapper/gradle-wrapper.properties" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../EvolutionSimulator/gradlew" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../EvolutionSimulator/gradlew.bat" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../EvolutionSimulator/settings.gradle" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../webfrontend/.gitignore" beforeDir="false" afterPath="$PROJECT_DIR$/../webfrontend/.gitignore" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../webfrontend/.idea/.gitignore" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../webfrontend/.idea/inspectionProfiles/Project_Default.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../webfrontend/.idea/misc.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../webfrontend/.idea/modules.xml" beforeDir="false" afterPath="$PROJECT_DIR$/../webfrontend/.idea/modules.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../webfrontend/.idea/webfrontend.iml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../webfrontend/README.md" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../webfrontend/package-lock.json" beforeDir="false" afterPath="$PROJECT_DIR$/../webfrontend/package-lock.json" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../webfrontend/package.json" beforeDir="false" afterPath="$PROJECT_DIR$/../webfrontend/package.json" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../webfrontend/public/favicon.ico" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../webfrontend/public/index.html" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../webfrontend/public/logo192.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../webfrontend/public/logo512.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../webfrontend/public/manifest.json" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../webfrontend/public/robots.txt" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../webfrontend/src/App.css" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../webfrontend/src/App.js" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../webfrontend/src/App.test.js" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../webfrontend/src/Communication/Communication.js" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../webfrontend/src/index.css" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../webfrontend/src/index.js" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../webfrontend/src/logo.svg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../webfrontend/src/reportWebVitals.js" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../webfrontend/src/setupTests.js" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../webfrontend/yarn.lock" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../webfrontend2/.gitignore" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../webfrontend2/.idea/codeStyles/codeStyleConfig.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../webfrontend2/.idea/modules.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../webfrontend2/.idea/vcs.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../webfrontend2/.idea/webfrontend2.iml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../webfrontend2/.idea/workspace.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../webfrontend2/assets/play.svg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../webfrontend2/assets/stop.svg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../webfrontend2/chartconfig.js" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../webfrontend2/index.css" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../webfrontend2/index.html" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../webfrontend2/index.js" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../webfrontend2/js/three.js" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../webfrontend2/package-lock.json" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../webfrontend2/package.json" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../webfrontend2/simulation.html" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../webfrontend2/wordRendering.js" beforeDir="false" />
+    </list>
+    <option name="SHOW_DIALOG" value="false" />
+    <option name="HIGHLIGHT_CONFLICTS" value="true" />
+    <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
+    <option name="LAST_RESOLUTION" value="IGNORE" />
+  </component>
+  <component name="ExternalProjectsData">
+    <projectState path="$PROJECT_DIR$">
+      <ProjectState />
+    </projectState>
+  </component>
+  <component name="ExternalProjectsManager">
+    <system id="GRADLE">
+      <state>
+        <task path="$PROJECT_DIR$">
+          <activation />
+        </task>
+        <projects_view>
+          <tree_state>
+            <expand>
+              <path>
+                <item name="" type="6a2764b6:ExternalProjectsStructure$RootNode" />
+                <item name="EvolutionsSimulator" type="f1a62948:ProjectNode" />
+              </path>
+              <path>
+                <item name="" type="6a2764b6:ExternalProjectsStructure$RootNode" />
+                <item name="EvolutionsSimulator" type="f1a62948:ProjectNode" />
+                <item name="Tasks" type="e4a08cd1:TasksNode" />
+              </path>
+              <path>
+                <item name="" type="6a2764b6:ExternalProjectsStructure$RootNode" />
+                <item name="EvolutionsSimulator" type="f1a62948:ProjectNode" />
+                <item name="Tasks" type="e4a08cd1:TasksNode" />
+                <item name="build" type="c8890929:TasksNode$1" />
+              </path>
+              <path>
+                <item name="" type="6a2764b6:ExternalProjectsStructure$RootNode" />
+                <item name="EvolutionsSimulator" type="f1a62948:ProjectNode" />
+                <item name="Tasks" type="e4a08cd1:TasksNode" />
+                <item name="build setup" type="c8890929:TasksNode$1" />
+              </path>
+              <path>
+                <item name="" type="6a2764b6:ExternalProjectsStructure$RootNode" />
+                <item name="EvolutionsSimulator" type="f1a62948:ProjectNode" />
+                <item name="Tasks" type="e4a08cd1:TasksNode" />
+                <item name="documentation" type="c8890929:TasksNode$1" />
+              </path>
+              <path>
+                <item name="" type="6a2764b6:ExternalProjectsStructure$RootNode" />
+                <item name="EvolutionsSimulator" type="f1a62948:ProjectNode" />
+                <item name="Tasks" type="e4a08cd1:TasksNode" />
+                <item name="other" type="c8890929:TasksNode$1" />
+              </path>
+              <path>
+                <item name="" type="6a2764b6:ExternalProjectsStructure$RootNode" />
+                <item name="EvolutionsSimulator" type="f1a62948:ProjectNode" />
+                <item name="Tasks" type="e4a08cd1:TasksNode" />
+                <item name="verification" type="c8890929:TasksNode$1" />
+              </path>
+            </expand>
+            <select />
+          </tree_state>
+        </projects_view>
+      </state>
+    </system>
+  </component>
+  <component name="Git.Settings">
+    <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$/.." />
+  </component>
+  <component name="ProjectId" id="1lvuhgnG6jCv8ObiAUcbmfyX16d" />
+  <component name="ProjectLevelVcsManager" settingsEditedManually="true" />
+  <component name="ProjectViewState">
+    <option name="hideEmptyMiddlePackages" value="true" />
+    <option name="showLibraryContents" value="true" />
+  </component>
+  <component name="PropertiesComponent">
+    <property name="ASKED_SHARE_PROJECT_CONFIGURATION_FILES" value="true" />
+    <property name="RunOnceActivity.OpenProjectViewOnStart" value="true" />
+    <property name="RunOnceActivity.ShowReadmeOnStart" value="true" />
+    <property name="WebServerToolWindowFactoryState" value="true" />
+    <property name="android.sdk.path" value="$USER_HOME$/Android/Sdk" />
+    <property name="aspect.path.notification.shown" value="true" />
+    <property name="last_opened_file_path" value="$PROJECT_DIR$" />
+    <property name="project.structure.last.edited" value="Artifacts" />
+    <property name="project.structure.proportion" value="0.15234375" />
+    <property name="project.structure.side.proportion" value="0.35257083" />
+    <property name="settings.editor.selected.configurable" value="reference.projectsettings.compiler.javacompiler" />
+  </component>
+  <component name="RecentsManager">
+    <key name="CopyFile.RECENT_KEYS">
+      <recent name="$PROJECT_DIR$/src/main/java" />
+    </key>
+    <key name="MoveFile.RECENT_KEYS">
+      <recent name="$PROJECT_DIR$/src/main" />
+      <recent name="$PROJECT_DIR$" />
+      <recent name="$PROJECT_DIR$/src/main/resources" />
+    </key>
+  </component>
+  <component name="RunManager" selected="Gradle.EvolutionsSimulator [fatJar]">
+    <configuration default="true" type="ArquillianTestNG" factoryName="" nameIsGenerated="true">
+      <option name="arquillianRunConfiguration">
+        <value>
+          <option name="containerStateName" value="" />
+        </value>
+      </option>
+      <option name="TEST_OBJECT" value="CLASS" />
+      <properties />
+      <listeners />
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
+    <configuration name="EvolutionsSimulator [buildNeeded]" type="GradleRunConfiguration" factoryName="Gradle" temporary="true">
+      <ExternalSystemSettings>
+        <option name="executionName" />
+        <option name="externalProjectPath" value="$PROJECT_DIR$" />
+        <option name="externalSystemIdString" value="GRADLE" />
+        <option name="scriptParameters" />
+        <option name="taskDescriptions">
+          <list />
+        </option>
+        <option name="taskNames">
+          <list>
+            <option value="buildNeeded" />
+          </list>
+        </option>
+        <option name="vmOptions" />
+      </ExternalSystemSettings>
+      <ExternalSystemDebugServerProcess>true</ExternalSystemDebugServerProcess>
+      <ExternalSystemReattachDebugProcess>true</ExternalSystemReattachDebugProcess>
+      <DebugAllEnabled>false</DebugAllEnabled>
+      <method v="2" />
+    </configuration>
+    <configuration name="EvolutionsSimulator [check]" type="GradleRunConfiguration" factoryName="Gradle" temporary="true">
+      <ExternalSystemSettings>
+        <option name="executionName" />
+        <option name="externalProjectPath" value="$PROJECT_DIR$" />
+        <option name="externalSystemIdString" value="GRADLE" />
+        <option name="scriptParameters" />
+        <option name="taskDescriptions">
+          <list />
+        </option>
+        <option name="taskNames">
+          <list>
+            <option value="check" />
+          </list>
+        </option>
+        <option name="vmOptions" />
+      </ExternalSystemSettings>
+      <ExternalSystemDebugServerProcess>true</ExternalSystemDebugServerProcess>
+      <ExternalSystemReattachDebugProcess>true</ExternalSystemReattachDebugProcess>
+      <DebugAllEnabled>false</DebugAllEnabled>
+      <method v="2" />
+    </configuration>
+    <configuration name="EvolutionsSimulator [fatJar]" type="GradleRunConfiguration" factoryName="Gradle" temporary="true">
+      <ExternalSystemSettings>
+        <option name="executionName" />
+        <option name="externalProjectPath" value="$PROJECT_DIR$" />
+        <option name="externalSystemIdString" value="GRADLE" />
+        <option name="scriptParameters" />
+        <option name="taskDescriptions">
+          <list />
+        </option>
+        <option name="taskNames">
+          <list>
+            <option value="fatJar" />
+          </list>
+        </option>
+        <option name="vmOptions" />
+      </ExternalSystemSettings>
+      <ExternalSystemDebugServerProcess>true</ExternalSystemDebugServerProcess>
+      <ExternalSystemReattachDebugProcess>true</ExternalSystemReattachDebugProcess>
+      <DebugAllEnabled>false</DebugAllEnabled>
+      <method v="2" />
+    </configuration>
+    <configuration name="EvolutionsSimulator [jar]" type="GradleRunConfiguration" factoryName="Gradle" temporary="true">
+      <ExternalSystemSettings>
+        <option name="executionName" />
+        <option name="externalProjectPath" value="$PROJECT_DIR$" />
+        <option name="externalSystemIdString" value="GRADLE" />
+        <option name="scriptParameters" />
+        <option name="taskDescriptions">
+          <list />
+        </option>
+        <option name="taskNames">
+          <list>
+            <option value="jar" />
+          </list>
+        </option>
+        <option name="vmOptions" />
+      </ExternalSystemSettings>
+      <ExternalSystemDebugServerProcess>true</ExternalSystemDebugServerProcess>
+      <ExternalSystemReattachDebugProcess>true</ExternalSystemReattachDebugProcess>
+      <DebugAllEnabled>false</DebugAllEnabled>
+      <method v="2" />
+    </configuration>
+    <configuration name="EvolutionsSimulator [test]" type="GradleRunConfiguration" factoryName="Gradle" temporary="true">
+      <ExternalSystemSettings>
+        <option name="executionName" />
+        <option name="externalProjectPath" value="$PROJECT_DIR$" />
+        <option name="externalSystemIdString" value="GRADLE" />
+        <option name="scriptParameters" />
+        <option name="taskDescriptions">
+          <list />
+        </option>
+        <option name="taskNames">
+          <list>
+            <option value="test" />
+          </list>
+        </option>
+        <option name="vmOptions" />
+      </ExternalSystemSettings>
+      <ExternalSystemDebugServerProcess>true</ExternalSystemDebugServerProcess>
+      <ExternalSystemReattachDebugProcess>true</ExternalSystemReattachDebugProcess>
+      <DebugAllEnabled>false</DebugAllEnabled>
+      <method v="2" />
+    </configuration>
+    <recent_temporary>
+      <list>
+        <item itemvalue="Gradle.EvolutionsSimulator [fatJar]" />
+        <item itemvalue="Gradle.EvolutionsSimulator [jar]" />
+        <item itemvalue="Gradle.EvolutionsSimulator [check]" />
+        <item itemvalue="Gradle.EvolutionsSimulator [test]" />
+        <item itemvalue="Gradle.EvolutionsSimulator [buildNeeded]" />
+      </list>
+    </recent_temporary>
+  </component>
+  <component name="SpellCheckerSettings" RuntimeDictionaries="0" Folders="0" CustomDictionaries="0" DefaultDictionary="application-level" UseSingleDictionary="true" transferred="true" />
+  <component name="TaskManager">
+    <task active="true" id="Default" summary="Default task">
+      <changelist id="09991677-3277-416a-8c5e-d4311c855562" name="Default Changelist" comment="" />
+      <created>1608490008269</created>
+      <option name="number" value="Default" />
+      <option name="presentableId" value="Default" />
+      <updated>1608490008269</updated>
+      <workItem from="1608490010008" duration="223000" />
+      <workItem from="1608490321271" duration="1166000" />
+    </task>
+    <servers />
+  </component>
+  <component name="TypeScriptGeneratedFilesManager">
+    <option name="version" value="3" />
+  </component>
+</project>
