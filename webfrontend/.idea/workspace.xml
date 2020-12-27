@@ -1,0 +1,141 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="BranchesTreeState">
+    <expand>
+      <path>
+        <item name="ROOT" type="e8cecc67:BranchNodeDescriptor" />
+        <item name="LOCAL_ROOT" type="e8cecc67:BranchNodeDescriptor" />
+      </path>
+      <path>
+        <item name="ROOT" type="e8cecc67:BranchNodeDescriptor" />
+        <item name="REMOTE_ROOT" type="e8cecc67:BranchNodeDescriptor" />
+      </path>
+      <path>
+        <item name="ROOT" type="e8cecc67:BranchNodeDescriptor" />
+        <item name="REMOTE_ROOT" type="e8cecc67:BranchNodeDescriptor" />
+        <item name="GROUP_NODE:origin" type="e8cecc67:BranchNodeDescriptor" />
+      </path>
+    </expand>
+    <select />
+  </component>
+  <component name="ChangeListManager">
+    <list default="true" id="baf04087-9cd9-4f86-8009-9fbea11d2ac0" name="Default Changelist" comment="Added Multiple Parameters">
+      <change beforePath="$PROJECT_DIR$/../EvolutionSimulator/core/src/com/evolution/simulator/BackEnd/EvolutionsSimulator.java" beforeDir="false" afterPath="$PROJECT_DIR$/../EvolutionSimulator/core/src/com/evolution/simulator/BackEnd/EvolutionsSimulator.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../EvolutionSimulator/core/src/com/evolution/simulator/weblauncher/Communication/SendingPacker.java" beforeDir="false" afterPath="$PROJECT_DIR$/../EvolutionSimulator/core/src/com/evolution/simulator/weblauncher/Communication/SendingPacker.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/App.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/App.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../webfrontend2/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/../webfrontend2/.idea/workspace.xml" afterDir="false" />
+    </list>
+    <option name="SHOW_DIALOG" value="false" />
+    <option name="HIGHLIGHT_CONFLICTS" value="true" />
+    <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
+    <option name="LAST_RESOLUTION" value="IGNORE" />
+  </component>
+  <component name="ComposerSettings">
+    <execution />
+  </component>
+  <component name="FileTemplateManagerImpl">
+    <option name="RECENT_TEMPLATES">
+      <list>
+        <option value="JavaScript File" />
+      </list>
+    </option>
+  </component>
+  <component name="Git.Settings">
+    <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$/.." />
+  </component>
+  <component name="ProjectId" id="1jK6E1SVpMWn8Ec7U3IGLQjo1K3" />
+  <component name="ProjectLevelVcsManager" settingsEditedManually="true" />
+  <component name="ProjectViewState">
+    <option name="hideEmptyMiddlePackages" value="true" />
+    <option name="showLibraryContents" value="true" />
+  </component>
+  <component name="PropertiesComponent">
+    <property name="RunOnceActivity.OpenProjectViewOnStart" value="true" />
+    <property name="WebServerToolWindowFactoryState" value="false" />
+    <property name="last_opened_file_path" value="$PROJECT_DIR$/../webfrontend2" />
+    <property name="node.js.detected.package.eslint" value="true" />
+    <property name="node.js.detected.package.standard" value="true" />
+    <property name="node.js.path.for.package.eslint" value="project" />
+    <property name="node.js.path.for.package.standard" value="project" />
+    <property name="node.js.selected.package.eslint" value="(autodetect)" />
+    <property name="node.js.selected.package.standard" value="" />
+    <property name="nodejs_package_manager_path" value="yarn" />
+    <property name="settings.editor.selected.configurable" value="preferences.lookFeel" />
+    <property name="vue.rearranger.settings.migration" value="true" />
+  </component>
+  <component name="RunManager">
+    <configuration default="true" type="js.build_tools.npm">
+      <package-json value="$PROJECT_DIR$/package.json" />
+      <command value="start" />
+      <node-interpreter value="project" />
+      <package-manager value="npm" />
+      <envs />
+      <method v="2" />
+    </configuration>
+    <configuration name="start npm" type="js.build_tools.npm">
+      <package-json value="$PROJECT_DIR$/package.json" />
+      <command value="start" />
+      <node-interpreter value="project" />
+      <package-manager value="npm" />
+      <envs />
+      <method v="2" />
+    </configuration>
+  </component>
+  <component name="SpellCheckerSettings" RuntimeDictionaries="0" Folders="0" CustomDictionaries="0" DefaultDictionary="application-level" UseSingleDictionary="true" transferred="true" />
+  <component name="TaskManager">
+    <task active="true" id="Default" summary="Default task">
+      <changelist id="baf04087-9cd9-4f86-8009-9fbea11d2ac0" name="Default Changelist" comment="" />
+      <created>1603540320475</created>
+      <option name="number" value="Default" />
+      <option name="presentableId" value="Default" />
+      <updated>1603540320475</updated>
+      <workItem from="1603540321739" duration="21436000" />
+      <workItem from="1603606423735" duration="7701000" />
+      <workItem from="1603717035982" duration="7367000" />
+      <workItem from="1603891311143" duration="5541000" />
+      <workItem from="1603976045115" duration="1315000" />
+      <workItem from="1604070423145" duration="7515000" />
+      <workItem from="1604139884053" duration="9610000" />
+      <workItem from="1604226665451" duration="4634000" />
+      <workItem from="1604300915476" duration="593000" />
+      <workItem from="1605367274669" duration="6727000" />
+      <workItem from="1605543921792" duration="2819000" />
+      <workItem from="1605619421006" duration="593000" />
+      <workItem from="1605685457970" duration="3931000" />
+      <workItem from="1605805348393" duration="4261000" />
+      <workItem from="1606399915748" duration="598000" />
+      <workItem from="1608225877920" duration="1056000" />
+      <workItem from="1609101850131" duration="12000" />
+      <workItem from="1609101956250" duration="596000" />
+      <workItem from="1609103080984" duration="195000" />
+    </task>
+    <task id="LOCAL-00001" summary="Added Multiple Parameters">
+      <created>1605373833840</created>
+      <option name="number" value="00001" />
+      <option name="presentableId" value="LOCAL-00001" />
+      <option name="project" value="LOCAL" />
+      <updated>1605373833840</updated>
+    </task>
+    <option name="localTasksCounter" value="2" />
+    <servers />
+  </component>
+  <component name="TypeScriptGeneratedFilesManager">
+    <option name="version" value="3" />
+  </component>
+  <component name="Vcs.Log.Tabs.Properties">
+    <option name="TAB_STATES">
+      <map>
+        <entry key="MAIN">
+          <value>
+            <State />
+          </value>
+        </entry>
+      </map>
+    </option>
+    <option name="oldMeFiltersMigrated" value="true" />
+  </component>
+  <component name="VcsManagerConfiguration">
+    <MESSAGE value="Added Multiple Parameters" />
+    <option name="LAST_COMMIT_MESSAGE" value="Added Multiple Parameters" />
+  </component>
+</project>
