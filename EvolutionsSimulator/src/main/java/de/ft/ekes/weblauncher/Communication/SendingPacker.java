@@ -82,6 +82,8 @@ public class SendingPacker {
         jsonObject.put("Timeinyears", WebMain.evolutionsSimulator.time.year);
         jsonObject.put("averageage", WebMain.evolutionsSimulator.actorManager.averageAge);
         jsonObject.put("foodavailable", WebMain.evolutionsSimulator.getWorld().getFoodavailable());
+        jsonObject.put("lastyears_averageage", WebMain.evolutionsSimulator.averageActorAgeforSteps);
+        jsonObject.put("lastyears_ActorsSize", WebMain.evolutionsSimulator.averageActorSizeforSteps);
         jsonObject.put("type","info");
         return jsonObject.toString();
     }

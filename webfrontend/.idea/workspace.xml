@@ -20,10 +20,9 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="baf04087-9cd9-4f86-8009-9fbea11d2ac0" name="Default Changelist" comment="Added Multiple Parameters">
-      <change beforePath="$PROJECT_DIR$/../EvolutionSimulator/core/src/com/evolution/simulator/BackEnd/EvolutionsSimulator.java" beforeDir="false" afterPath="$PROJECT_DIR$/../EvolutionSimulator/core/src/com/evolution/simulator/BackEnd/EvolutionsSimulator.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../EvolutionSimulator/core/src/com/evolution/simulator/weblauncher/Communication/SendingPacker.java" beforeDir="false" afterPath="$PROJECT_DIR$/../EvolutionSimulator/core/src/com/evolution/simulator/weblauncher/Communication/SendingPacker.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/App.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/App.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../webfrontend2/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/../webfrontend2/.idea/workspace.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../EvolutionsSimulator/.idea/modules.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../EvolutionsSimulator/.idea/EvolutionsSimulator.iml" beforeDir="false" afterPath="$PROJECT_DIR$/../EvolutionsSimulator/.idea/EvolutionsSimulator.iml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../EvolutionsSimulator/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/../EvolutionsSimulator/.idea/workspace.xml" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -51,8 +50,9 @@
   </component>
   <component name="PropertiesComponent">
     <property name="RunOnceActivity.OpenProjectViewOnStart" value="true" />
+    <property name="RunOnceActivity.ShowReadmeOnStart" value="true" />
     <property name="WebServerToolWindowFactoryState" value="false" />
-    <property name="last_opened_file_path" value="$PROJECT_DIR$/../webfrontend2" />
+    <property name="last_opened_file_path" value="$PROJECT_DIR$" />
     <property name="node.js.detected.package.eslint" value="true" />
     <property name="node.js.detected.package.standard" value="true" />
     <property name="node.js.path.for.package.eslint" value="project" />
@@ -108,6 +108,7 @@
       <workItem from="1609101850131" duration="12000" />
       <workItem from="1609101956250" duration="596000" />
       <workItem from="1609103080984" duration="195000" />
+      <workItem from="1609103692845" duration="388000" />
     </task>
     <task id="LOCAL-00001" summary="Added Multiple Parameters">
       <created>1605373833840</created>
