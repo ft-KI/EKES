@@ -10,6 +10,13 @@ public class EvolutionsSimulator {
     public ActorManager actorManager;
     public VirtualTileWorld world=new VirtualTileWorld(worldWidth,worldHeight,10);
     public Time time;
+
+    public int calcBySteps=5000;
+    public int averageActorSizeforSteps = 0;
+    public double calcAverageActorSizeforSteps=0;
+
+    public float averageActorAgeforSteps = 0;
+    public double calcAverageActorAgeforSteps=0;
     public EvolutionsSimulator(){
         WorldGenerator worldGenerator=new WorldGenerator(System.getProperty("user.dir")+"/Land.jpg",worldWidth,worldHeight);
         worldGenerator.generateWorld(world);
@@ -24,6 +31,13 @@ public class EvolutionsSimulator {
      */
     public void dostep(){
         //System.out.println(actorManager.actors.size());
+        if(time.year % calcBySteps*time.TicksperYear == 0){
+            averageActorSizeforSteps=(int)(calcAverageActorSizeforSteps/calcBySteps);
+            averageActorAgeforSteps= (float) (calcAverageActorAgeforSteps/calcBySteps);
+        }else{
+            calcAverageActorSizeforSteps+= actorManager.getActors().size();
+            calcAverageActorAgeforSteps+= actorManager.averageAge;
+        }
         world.doStep();
         actorManager.doStep();
         time.Tick();

@@ -24,6 +24,8 @@ var ActorsSize;
 var Timeinyears;
 var averageage;
 var foodavailable;
+var lastyears_ActorsSize;
+var lastyears_averageage;
 wsConnection.onmessage = async function (e) {
 
     // console.log(e.data);
@@ -39,6 +41,8 @@ wsConnection.onmessage = async function (e) {
         Timeinyears=rawInfos.Timeinyears;
         averageage=rawInfos.averageage;
         foodavailable=rawInfos.foodavailable;
+        lastyears_ActorsSize = rawInfos.lastyears_ActorsSize;
+        lastyears_averageage = rawInfos.lastyears_averageage
 
     }
 
@@ -62,6 +66,8 @@ function infodraw(){
     infos=infos+"<br>Timeinyears: "+Timeinyears+"</br>";
     infos=infos+"<br>averageage: "+averageage+"</br>";
     infos=infos+"<br>foodavailable: "+foodavailable+"</br>";
+    infos=infos+"<br>Last 50 Years ActorsSize: "+lastyears_ActorsSize+"</br>";
+    infos=infos+"<br>Last 50 Years averageage: "+lastyears_averageage+"</br>";
 
 
 
