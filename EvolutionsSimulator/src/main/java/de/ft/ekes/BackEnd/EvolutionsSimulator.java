@@ -9,7 +9,7 @@ public class EvolutionsSimulator {
     public ActorManager actorManager;
     public VirtualTileWorld world=new VirtualTileWorld(worldWidth,worldHeight,10);
     public Time time;
-    public int calcBySteps=5000;
+    public int calcBySteps=2500;
     public int averageActorSizeforSteps = 0;
     public double calcAverageActorSizeforSteps=0;
 
@@ -38,7 +38,7 @@ public class EvolutionsSimulator {
                 calcAverageActorAgeforSteps = 0;
                 calcAverageActorSizeforSteps = 0;
                 done = true;
-                System.out.println(Math.round(calcBySteps*time.TicksperYear)+"Year: " + yearscounter + " Size: " + averageActorSizeforSteps + " Age: " + averageActorAgeforSteps);
+                System.out.println(averageActorSizeforSteps + " " + String.valueOf(averageActorAgeforSteps).replace(".",","));
                 yearscounter++;
             }
         }else{
