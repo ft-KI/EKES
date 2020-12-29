@@ -167,7 +167,7 @@ public class Kreatur2 extends Actor {
     }
     public void Rotate(){
         float rotate=outRotateLeft-outRotateRight;
-        if(rotate>0.3f){
+        if(Math.abs(rotate)>0.3f){
             this.rotationangle+=rotate*rotatFaktor;
             energy-=Math.abs(rotate)*rotateCostMult*costMult;
         }
