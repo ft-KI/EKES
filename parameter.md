@@ -14,6 +14,6 @@ EKES Simulations-Parameter:
 - **Maximale Fressaufnahme** (Maximales Futter, welches mit einem "Fressvorgang" aufgenommen werden kann)
 - **Mutations Rate** (Wieviel Prozent der Gewichtung bei der Erstellung eines Nachfolgers verändert werden darf)
 - **Mutations Anzahl** (Wieviele Gewichtungen bei einer Fortpflanzung angepasst werden sollen)
-- **Stopen bei** (Bei welchem Jahr die Simulation stoppen soll. Das ist besonders praktisch für statistische Zwecke. Durch Hochsetzung dieses Wertes kann die Simulation fortgesetzt werden)
+- **Stopen bei** (Bei welchem Jahr die Simulation stoppen soll. Das ist besonders praktisch für statistische Zwecke. Durch Hochsetzung dieses Wertes kann die Simulation fortgesetzt werden. Bei -1 wird die Simulation gar nicht angehalten)
 
 
