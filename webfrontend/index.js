@@ -106,12 +106,12 @@ function infodraw(){
 
 
     infos="<h2>Info Daten</h2>"
-    infos=infos+"<br>ActorsSize: "+ActorsSize+"</br>";
-    infos=infos+"<br>Timeinyears: "+Timeinyears+"</br>";
-    infos=infos+"<br>averageage: "+averageage+"</br>";
-    infos=infos+"<br>foodavailable: "+foodavailable+"</br>";
-    infos=infos+"<br>Last 50 Years ActorsSize: "+lastyears_ActorsSize+"</br>";
-    infos=infos+"<br>Last 50 Years averageage: "+lastyears_averageage+"</br>";
+    infos=infos+"<br>Menge an Kreaturen: "+ActorsSize+"</br>";
+    infos=infos+"<br>Jahre: "+Timeinyears+"</br>";
+    infos=infos+"<br>Durchschnittsalter: "+averageage+"</br>";
+    infos=infos+"<br>Fressensdurschnitt: "+foodavailable+"</br>";
+    infos=infos+"<br>Letze 25 Jahre Kreaturen: "+lastyears_ActorsSize+"</br>";
+    infos=infos+"<br>Letze 25 Jahre Durchschnittsalter: "+lastyears_averageage+"</br>";
 
 
     infoblock.innerHTML = infos;
