@@ -1,5 +1,7 @@
 package de.ft.ekes.BackEnd;
 
+import de.ft.ekes.BackEnd.actors.Actor;
+import de.ft.ekes.BackEnd.actors.kreatur.Kreatur2;
 import de.ft.ekes.BackEnd.virtualtileworld.VirtualTileWorld;
 import de.ft.ekes.BackEnd.virtualtileworld.WorldGenerator;
 
@@ -12,6 +14,10 @@ public class EvolutionsSimulator {
     public int calcBySteps=2500;
     public int averageActorSizeforSteps = 0;
     public double calcAverageActorSizeforSteps=0;
+private boolean onetimeinfect = true;
+    public double averageActorLifeTimeForSteps = 0;
+    public int killedActors = 0;
+    public double calcAverageActorLifeTimeForSteps=0;
 
     public float averageActorAgeforSteps = 0;
     public double calcAverageActorAgeforSteps=0;
@@ -31,14 +37,15 @@ public class EvolutionsSimulator {
      */
     public void dostep(){
 
-        if(Math.floor(time.year) % Math.floor(calcBySteps*time.TicksperYear) == 0){
+        if(false){
             if(!done) {
                 averageActorSizeforSteps = (int) (calcAverageActorSizeforSteps / calcBySteps);
                 averageActorAgeforSteps = (float) (calcAverageActorAgeforSteps / calcBySteps);
+                averageActorLifeTimeForSteps = (float) (calcAverageActorLifeTimeForSteps/killedActors);
                 calcAverageActorAgeforSteps = 0;
                 calcAverageActorSizeforSteps = 0;
                 done = true;
-                System.out.println(averageActorSizeforSteps + " " + String.valueOf(averageActorAgeforSteps).replace(".",","));
+                System.out.println(averageActorSizeforSteps + " " + String.valueOf(averageActorAgeforSteps).replace(".",",")+ " " +String.valueOf(averageActorLifeTimeForSteps).replace(".",","));
                 yearscounter++;
             }
         }else{
@@ -51,6 +58,16 @@ public class EvolutionsSimulator {
         world.doStep();
         actorManager.doStep();
         time.Tick();
+        if(Math.floor(time.year)>150) {
+
+            System.out.println(actorManager.actors.size());
+
+            if(!onetimeinfect) return;
+            for(int i=0;i<10;i++) {
+                ((Kreatur2) actorManager.actors.get((int) Math.floor(Math.random() * actorManager.getActors().size()))).setInfected(true);
+            }
+            onetimeinfect = false;
+        }
     }
 
 

@@ -34,6 +34,9 @@ public abstract class Actor {
     }
     public final void kill(){
         killed=true;
+        es.calcAverageActorLifeTimeForSteps+=this.age;
+        es.killedActors++;
+
     }
 
     public final int getGeneration() {

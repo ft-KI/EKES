@@ -9,12 +9,14 @@ public class KreaturTransmit {
     private int y;
     private ArrayList<Feeler> feelers = new ArrayList<>();
     private int gen;
+    private boolean infected;
 
-    public KreaturTransmit(int x, int y, ArrayList<Feeler> feelers,int gen) {
+    public KreaturTransmit(int x, int y, ArrayList<Feeler> feelers,int gen,boolean infected) {
         this.x = x;
         this.y = y;
         this.feelers = feelers;
         this.gen = gen;
+        this.infected = infected;
     }
 
     public int getX() {

@@ -7,6 +7,8 @@ import de.ft.ekes.BackEnd.ai.NeuronalNetwork.NeuronalNetwork;
 import de.ft.ekes.BackEnd.ai.NeuronalNetwork.activationFunktions.Sigmoid;
 import de.ft.ekes.BackEnd.virtualtileworld.LandType;
 import de.ft.ekes.BackEnd.virtualtileworld.Tile;
+import de.ft.ekes.weblauncher.Communication.KreaturTransmit;
+import de.ft.ekes.weblauncher.WebMain;
 
 import java.util.ArrayList;
 
@@ -45,6 +47,7 @@ public class Kreatur2 extends Actor {
     private float outRotateRight=0;
     private float outRotateLeft=0;
 
+    private boolean infected = false;
     private float outEat=0;
     private float outGenerateChildren=0;
     private int feelerlength=15;
@@ -57,7 +60,7 @@ public class Kreatur2 extends Actor {
         generateFeelers();
         this.rotationangle=(float)(Math.random()*Math.PI*2);
         brain=new NeuronalNetwork();
-        brain.createInputNeurons(3+feelers.size()*2);
+        brain.createInputNeurons(4+feelers.size()*2);
         brain.addHiddenLayer(20);
         brain.addHiddenLayer(20);
         brain.createOutputtNeurons(5);
@@ -76,30 +79,20 @@ public class Kreatur2 extends Actor {
         for(int i=0;i<mutation_neurons;i++) {
             brain.randomMutate(mutation_percentage);
         }
+
         this.israndom = false;
         super.generation=parent.generation+1;
         for(Feeler f:feelers) {
             f.calculateFeelerPosition(rotationangle, super.getXposition(), super.getYposition());
         }
+        this.infected = parent.isInfected();
     }
     private void generateFeelers(){
-        //feelers.add(new Feeler((float)(20*Math.PI/180), feelerlength));
-        //feelers.add(new Feeler((float)(-20*Math.PI/180), feelerlength));
-        //feelers.add(new Feeler((float)(45*Math.PI/180), feelerlength));
-        //feelers.add(new Feeler((float)(-45*Math.PI/180), feelerlength));
-        //feelers.add(new Feeler((float)(135*Math.PI/180), feelerlength));
-        //feelers.add(new Feeler((float)(-135*Math.PI/180), feelerlength));
+
 
         feelers.add(new Feeler((float)(0), feelerlength));
         feelers.add(new Feeler((float)(0), feelerlength*2));
         feelers.add(new Feeler((float)(0), feelerlength*3));
-
-
-
-
-
-
-
 
 
 
@@ -117,6 +110,7 @@ public class Kreatur2 extends Actor {
         brain.getInputNeurons().get(0).setValue(INpsitionladtype);
         brain.getInputNeurons().get(1).setValue(INpositionFoodValue);
         brain.getInputNeurons().get(2).setValue(INenergy);
+        brain.getInputNeurons().get(3).setValue(isInfected()?1:0);
         for(int i=0;i<feelers.size();i++){
             brain.getInputNeurons().get(3+i).setValue(feelers.get(i).getFeelerTile(es.getWorld(),rotationangle,super.getXposition(),super.getYposition()).getLandType().getValue()*100f);
         }
@@ -140,9 +134,26 @@ public class Kreatur2 extends Actor {
             costMult=permanetcostwater;
         }
         energy-=permanetcostland*costMult;
+
         costMult+=age*0.1f;
         if(energy<100){
             super.kill();
+        }
+        if(isInfected()) {
+            energy-=5*costMult; //VIRUS!!!
+            for(Actor actor: WebMain.evolutionsSimulator.actorManager.getActors()) {
+                if(actor instanceof Kreatur2)  {
+                    if(((Kreatur2) actor).isInfected()) continue;
+                    if(Math.abs(actor.getXposition()-this.getXposition())<=10)  {
+                        if(Math.abs(actor.getYposition()-this.getYposition())<=10) {
+                            ((Kreatur2) actor).setInfected(true);
+                        }
+                    }
+
+                }
+            }
+
+            infected = !(Math.random() * 100 > 99);
         }
     }
     public void createChild(){
@@ -286,5 +297,13 @@ public class Kreatur2 extends Actor {
 
     public void setMutation_neurons(float mutation_neurons) {
         this.mutation_neurons = mutation_neurons;
+    }
+
+    public boolean isInfected() {
+        return infected;
+    }
+
+    public void setInfected(boolean infected) {
+        this.infected = infected;
     }
 }

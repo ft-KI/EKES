@@ -66,7 +66,7 @@ public class SendingPacker {
     public static String packActors() {
         kreaturTransmits.clear();
         for (int i = 0; i < WebMain.evolutionsSimulator.getActorManager().getActors().size(); i++) {
-            kreaturTransmits.add(new KreaturTransmit(WebMain.evolutionsSimulator.getActorManager().getActors().get(i).getXposition(), WebMain.evolutionsSimulator.getActorManager().getActors().get(i).getYposition(), ((Kreatur2) WebMain.evolutionsSimulator.getActorManager().getActors().get(i)).feelers, WebMain.evolutionsSimulator.getActorManager().getActors().get(i).generation));
+            kreaturTransmits.add(new KreaturTransmit(WebMain.evolutionsSimulator.getActorManager().getActors().get(i).getXposition(), WebMain.evolutionsSimulator.getActorManager().getActors().get(i).getYposition(), ((Kreatur2) WebMain.evolutionsSimulator.getActorManager().getActors().get(i)).feelers, WebMain.evolutionsSimulator.getActorManager().getActors().get(i).generation,((Kreatur2) WebMain.evolutionsSimulator.getActorManager().getActors().get(i)).isInfected()));
         }
 
         JSONObject jsonObject = new JSONObject();
