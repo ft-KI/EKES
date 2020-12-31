@@ -15,6 +15,8 @@ public class EvolutionsSimulator {
 
     public float averageActorAgeforSteps = 0;
     public double calcAverageActorAgeforSteps=0;
+    public float averageFoodAvailable=0;
+    public float calcAverageFoodAvailable=0;
     public int yearscounter = 0;
     public boolean done = false;
     public EvolutionsSimulator(){
@@ -35,16 +37,19 @@ public class EvolutionsSimulator {
             if(!done) {
                 averageActorSizeforSteps = (int) (calcAverageActorSizeforSteps / calcBySteps);
                 averageActorAgeforSteps = (float) (calcAverageActorAgeforSteps / calcBySteps);
+                averageFoodAvailable=(float)(calcAverageFoodAvailable / calcBySteps);
+                calcAverageFoodAvailable=0;
                 calcAverageActorAgeforSteps = 0;
                 calcAverageActorSizeforSteps = 0;
                 done = true;
-                System.out.println(averageActorSizeforSteps + " " + String.valueOf(averageActorAgeforSteps).replace(".",","));
+                System.out.println(averageActorSizeforSteps + " " + String.valueOf(averageActorAgeforSteps).replace(".",",")+ " "+ String.valueOf(averageFoodAvailable).replace(".",","));
                 yearscounter++;
             }
         }else{
             done = false;
             calcAverageActorSizeforSteps+= actorManager.getActors().size();
             calcAverageActorAgeforSteps+= actorManager.averageAge;
+            calcAverageFoodAvailable+=world.getFoodavailable();
 
         }
         //System.out.println(actorManager.actors.size());
