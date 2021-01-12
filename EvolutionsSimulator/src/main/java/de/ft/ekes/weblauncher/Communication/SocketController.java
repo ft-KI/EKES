@@ -15,6 +15,7 @@ import org.json.JSONObject;
 
 import java.net.InetSocketAddress;
 import java.net.UnknownHostException;
+import java.util.ArrayList;
 import java.util.Collections;
 
 
@@ -22,7 +23,7 @@ public class SocketController extends WebSocketServer {
 
 
 
-    //ArrayList<WebSocket> connections = new ArrayList<>();
+    ArrayList<WebSocket> connections = new ArrayList<>();
     public SocketController(int port) throws UnknownHostException {
         super(new InetSocketAddress(port));
     }
@@ -38,7 +39,7 @@ public class SocketController extends WebSocketServer {
 
     @Override
     public void onOpen(WebSocket conn, ClientHandshake handshake) {
-        //connections.add(conn);
+        connections.add(conn);
 
         JSONObject currentParams = new JSONObject();
         currentParams.put("type","biparam");
@@ -59,6 +60,7 @@ public class SocketController extends WebSocketServer {
         currentParams.put("eatadmission",Variables.eatadmission);
         currentParams.put("mutation_percentage",Variables.mutation_percentage);
         currentParams.put("mutation_neurons",Variables.mutation_neurons);
+        currentParams.put("permission", connections.size());
 
 
         conn.send(currentParams.toString());
@@ -70,7 +72,34 @@ public class SocketController extends WebSocketServer {
     @Override
     public void onClose(WebSocket conn, int code, String reason, boolean remote) {
         System.out.println("Eine verbindung wurde ");
-        //connections.remove(conn);
+        connections.remove(conn);
+
+        if(connections.size()>0) {
+            JSONObject currentParams = new JSONObject();
+            currentParams.put("type","biparam");
+            currentParams.put("clients",this.getConnections().size());
+
+            currentParams.put("speed", WebMain.sps);
+            currentParams.put("stopby",WebMain.stopby);
+            currentParams.put("movespeed",Variables.moveFaktor);
+            currentParams.put("movecost",Variables.moveCostMult);
+            currentParams.put("rotcost",Variables.rotateCostMult);
+            currentParams.put("rotspeed",Variables.rotatFaktor);
+            currentParams.put("eatcost",Variables.eatcostMult);
+            currentParams.put("eatspeed",Variables.eatMult);
+            currentParams.put("childenergie",Variables.createChildEnergie);
+            currentParams.put("childage",Variables.createChildAge);
+            currentParams.put("costland",Variables.permanetcostland);
+            currentParams.put("costwater",Variables.permanetcostwater);
+            currentParams.put("eatadmission",Variables.eatadmission);
+            currentParams.put("mutation_percentage",Variables.mutation_percentage);
+            currentParams.put("mutation_neurons",Variables.mutation_neurons);
+            currentParams.put("permission", 0);
+
+
+            connections.get(0).send(currentParams.toString());
+        }
+
 
     }
 
@@ -135,6 +164,7 @@ public class SocketController extends WebSocketServer {
 
     for(WebSocket ws:this.getConnections()) {
         if(ws==conn) continue;
+        jsonMessage.put("permission", this.connections.indexOf(ws));
         ws.send(jsonMessage.toString());
     }
 

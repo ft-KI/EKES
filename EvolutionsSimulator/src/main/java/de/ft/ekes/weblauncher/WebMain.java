@@ -19,9 +19,7 @@ public class WebMain {
     public static int stopby = -1;
     public static long timer = 0;
     public static float delay = 0;
-    public static ArrayList<Parameter> worldparams = new ArrayList<>();
-    public static ArrayList<Parameter> actorparams = new ArrayList<>();
-    public static ArrayList<Parameter> infoparams = new ArrayList<>();
+
 
     public static void main(String[] args) throws UnknownHostException {
         evolutionsSimulator = new EvolutionsSimulator();

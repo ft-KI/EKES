@@ -78,8 +78,8 @@ function loadInfoDisplay() {
 
     document.getElementById("reset").onclick = function() {resetSimulation()};
     document.getElementById("send").onclick = function() {sendParams()};
- console.log( document.getElementById("reset").onclick);
    // simulation = document.getElementById('screen');
+    window.simset = document.getElementById("simsets");
     infoblock =  document.getElementById("info");
     graphupdatespeed=document.getElementById("graphupdatespeed");
     Graphsichtfeld=document.getElementById("Graphsichtfeld");
@@ -168,7 +168,7 @@ var rawInfos
 //Connections
 var wsConnection;
 function initWS() {
-     wsConnection = new WebSocket('ws://localhost:8080/evodata');
+     wsConnection = new WebSocket('ws://212.227.211.145:8080/evodata');
 wsConnection.onopen = function () {
 };
 wsConnection.onerror = function (error) {
@@ -211,10 +211,14 @@ wsConnection.onmessage = async function (e) {
         mutation_percentage.value = recived.mutation_percentage
         mutation_neurons.value = recived.mutation_neurons
         stopby.value = recived.stopby
+        window.changePermissions = recived.permission;
 
 
-
-
+        if(window.changePermissions!==0)  {
+            window.simset.style.display = 'block';
+        }else{
+            window.simset.style.display = 'none';
+        }
 
     }
 
