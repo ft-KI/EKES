@@ -22,7 +22,7 @@ import java.util.Collections;
 public class SocketController extends WebSocketServer {
 
 
-
+ArrayList<WebSocket> sockets = new ArrayList<>();
     public SocketController(int port) throws UnknownHostException {
         super(new InetSocketAddress(port));
     }
@@ -38,7 +38,7 @@ public class SocketController extends WebSocketServer {
 
     @Override
     public void onOpen(WebSocket conn, ClientHandshake handshake) {
-
+        sockets.add(conn);
         JSONObject currentParams = new JSONObject();
         currentParams.put("type","biparam");
         currentParams.put("clients",this.getConnections().size());
@@ -58,7 +58,7 @@ public class SocketController extends WebSocketServer {
         currentParams.put("eatadmission",Variables.eatadmission);
         currentParams.put("mutation_percentage",Variables.mutation_percentage);
         currentParams.put("mutation_neurons",Variables.mutation_neurons);
-        currentParams.put("permission", this.getConnections().size());
+        currentParams.put("permission", this.sockets.size()-1);
 
 
         conn.send(currentParams.toString());
@@ -71,7 +71,7 @@ public class SocketController extends WebSocketServer {
     public void onClose(WebSocket conn, int code, String reason, boolean remote) {
         System.out.println("Eine verbindung wurde ");
 
-        if(this.getConnections().size()>0) {
+        if(this.sockets.size()>0) {
             JSONObject currentParams = new JSONObject();
             currentParams.put("type","biparam");
             currentParams.put("clients",this.getConnections().size());
@@ -94,7 +94,7 @@ public class SocketController extends WebSocketServer {
             currentParams.put("permission", 0);
 
 
-            this.getConnections().stream().findFirst().get().send(currentParams.toString());
+           this.sockets.get(0).send(currentParams.toString());
         }
 
 
@@ -157,10 +157,9 @@ public class SocketController extends WebSocketServer {
 
     }
 
-    ArrayList list = new ArrayList<>(this.getConnections());
     for(WebSocket ws:this.getConnections()) {
         if(ws==conn) continue;
-        jsonMessage.put("permission", list.indexOf(ws));
+        jsonMessage.put("permission", sockets.indexOf(ws));
         ws.send(jsonMessage.toString());
     }
 

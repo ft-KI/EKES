@@ -79,6 +79,7 @@ function loadInfoDisplay() {
     document.getElementById("reset").onclick = function() {resetSimulation()};
     document.getElementById("send").onclick = function() {sendParams()};
    // simulation = document.getElementById('screen');
+    window.queue = document.getElementById("queue");
     window.simset = document.getElementById("simsets");
     infoblock =  document.getElementById("info");
     graphupdatespeed=document.getElementById("graphupdatespeed");
@@ -214,10 +215,13 @@ wsConnection.onmessage = async function (e) {
         window.changePermissions = recived.permission;
 
 
-        if(window.changePermissions===0)  {
+        if(window.changePermissions===1)  {
             window.simset.style.display = 'block';
+            window.queue.style.display = 'none';
         }else{
             window.simset.style.display = 'none';
+            window.queue.style.display = 'block';
+            window.queue.innerHTML = "Zurzeit benutzt ein anderer die Simulation.\nSobald die anderen vor Ihnen die Simulation verlässt, werden hier die Parmeter stehen";
         }
 
     }
