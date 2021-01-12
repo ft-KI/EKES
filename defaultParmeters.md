@@ -1,4 +1,4 @@
-EKES Simulations-Parameter Standart-Werte:
+EKES Simulations-Parameter Standard-Werte:
 
 - **SPS Begrenzung:** 30
 - **Bewegungs Kosten:** 5
@@ -14,5 +14,5 @@ EKES Simulations-Parameter Standart-Werte:
 - **Maximale Fressaufnahme:** 0.8 (h. 80%)
 - **Mutations Rate:** 0.23 (h. 23%)
 - **Mutations Anzahl:** 4
-- **Stopen bei:** -1
+- **Stoppen bei:** -1
 
