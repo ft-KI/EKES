@@ -70,6 +70,7 @@ ArrayList<WebSocket> sockets = new ArrayList<>();
     @Override
     public void onClose(WebSocket conn, int code, String reason, boolean remote) {
         System.out.println("Eine verbindung wurde ");
+        this.sockets.remove(conn);
 
         if(this.sockets.size()>0) {
             JSONObject currentParams = new JSONObject();

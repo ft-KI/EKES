@@ -215,7 +215,7 @@ wsConnection.onmessage = async function (e) {
         window.changePermissions = recived.permission;
 
 
-        if(window.changePermissions===1)  {
+        if(window.changePermissions===0)  {
             window.simset.style.display = 'block';
             window.queue.style.display = 'none';
         }else{
