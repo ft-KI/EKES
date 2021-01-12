@@ -221,7 +221,7 @@ wsConnection.onmessage = async function (e) {
         }else{
             window.simset.style.display = 'none';
             window.queue.style.display = 'block';
-            window.queue.innerHTML = "Zurzeit benutzt ein anderer die Simulation.\nSobald die anderen vor Ihnen die Simulation verlässt, werden hier die Parmeter stehen";
+            window.queue.innerHTML = "Zurzeit benutzt ein Anderer die Simulation. Sobald die Anderen vor Ihnen die Simulation verlassen, werden hier die Parameter angezeigt. Zurzeit sind "+window.changePermissions+" Leute vor Ihnen.";
         }
 
     }

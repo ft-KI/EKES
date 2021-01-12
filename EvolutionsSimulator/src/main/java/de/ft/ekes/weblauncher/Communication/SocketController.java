@@ -72,7 +72,7 @@ ArrayList<WebSocket> sockets = new ArrayList<>();
         System.out.println("Eine verbindung wurde ");
         this.sockets.remove(conn);
 
-        if(this.sockets.size()>0) {
+        for(WebSocket socket:sockets) {
             JSONObject currentParams = new JSONObject();
             currentParams.put("type","biparam");
             currentParams.put("clients",this.getConnections().size());
@@ -92,10 +92,10 @@ ArrayList<WebSocket> sockets = new ArrayList<>();
             currentParams.put("eatadmission",Variables.eatadmission);
             currentParams.put("mutation_percentage",Variables.mutation_percentage);
             currentParams.put("mutation_neurons",Variables.mutation_neurons);
-            currentParams.put("permission", 0);
+            currentParams.put("permission", this.sockets.indexOf(socket));
 
 
-           this.sockets.get(0).send(currentParams.toString());
+           socket.send(currentParams.toString());
         }
 
 
