@@ -10,6 +10,7 @@ public class EvolutionsSimulator {
     public VirtualTileWorld world=new VirtualTileWorld(worldWidth,worldHeight,10);
     public Time time;
     public int calcBySteps=2500;
+    public int increaseBySteps=10000;
     public int averageActorSizeforSteps = 0;
     public double calcAverageActorSizeforSteps=0;
 
@@ -31,7 +32,17 @@ public class EvolutionsSimulator {
     /**
      * Macht den nächsten schritt der simulation
      */
+    boolean done2=false;
     public void dostep(){
+        if(Math.floor(time.year) % Math.floor(increaseBySteps*time.TicksperYear) == 0 && Math.floor(time.year)>10){
+            if(!done2) {
+                done2 = true;
+                if (Variables.createChildAge < 26) {
+                    Variables.createChildAge+=2;
+                    System.out.println("--increase--");
+                }
+            }
+        }else done2=false;
 
         if(Math.floor(time.year) % Math.floor(calcBySteps*time.TicksperYear) == 0){
             if(!done) {
