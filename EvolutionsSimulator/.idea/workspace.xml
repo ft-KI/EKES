@@ -10,28 +10,40 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="09991677-3277-416a-8c5e-d4311c855562" name="Default Changelist" comment="">
-      <change afterPath="$PROJECT_DIR$/.idea/deployment.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.gradle/6.4/executionHistory/executionHistory.bin" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/.gradle/6.4/executionHistory/executionHistory.lock" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/.gradle/6.4/fileChanges/last-build.bin" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/.gradle/6.4/fileContent/fileContent.lock" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/.gradle/6.4/fileHashes/fileHashes.bin" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/.gradle/6.4/fileHashes/fileHashes.lock" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/.gradle/6.4/gc.properties" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/.gradle/6.4/javaCompile/classAnalysis.bin" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/.gradle/6.4/javaCompile/javaCompile.lock" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/.gradle/6.4/javaCompile/taskHistory.bin" beforeDir="false" />
       <change beforePath="$PROJECT_DIR$/.gradle/6.7/executionHistory/executionHistory.bin" beforeDir="false" afterPath="$PROJECT_DIR$/.gradle/6.7/executionHistory/executionHistory.bin" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.gradle/6.7/executionHistory/executionHistory.lock" beforeDir="false" afterPath="$PROJECT_DIR$/.gradle/6.7/executionHistory/executionHistory.lock" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.gradle/6.7/fileHashes/fileHashes.bin" beforeDir="false" afterPath="$PROJECT_DIR$/.gradle/6.7/fileHashes/fileHashes.bin" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.gradle/6.7/fileHashes/fileHashes.lock" beforeDir="false" afterPath="$PROJECT_DIR$/.gradle/6.7/fileHashes/fileHashes.lock" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.gradle/6.7/javaCompile/classAnalysis.bin" beforeDir="false" afterPath="$PROJECT_DIR$/.gradle/6.7/javaCompile/classAnalysis.bin" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.gradle/6.7/javaCompile/javaCompile.lock" beforeDir="false" afterPath="$PROJECT_DIR$/.gradle/6.7/javaCompile/javaCompile.lock" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.gradle/6.7/javaCompile/taskHistory.bin" beforeDir="false" afterPath="$PROJECT_DIR$/.gradle/6.7/javaCompile/taskHistory.bin" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.gradle/buildOutputCleanup/buildOutputCleanup.lock" beforeDir="false" afterPath="$PROJECT_DIR$/.gradle/buildOutputCleanup/buildOutputCleanup.lock" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.gradle/checksums/checksums.lock" beforeDir="false" afterPath="$PROJECT_DIR$/.gradle/checksums/checksums.lock" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.gradle/buildOutputCleanup/outputFiles.bin" beforeDir="false" afterPath="$PROJECT_DIR$/.gradle/buildOutputCleanup/outputFiles.bin" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/EvolutionsSimulator.iml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/EvolutionsSimulator.iml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/build/tmp/compileJava/source-classes-mapping.txt" beforeDir="false" afterPath="$PROJECT_DIR$/build/tmp/compileJava/source-classes-mapping.txt" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/de/ft/ekes/BackEnd/EvolutionsSimulator.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/de/ft/ekes/BackEnd/EvolutionsSimulator.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/de/ft/ekes/BackEnd/actors/Actor.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/de/ft/ekes/BackEnd/actors/Actor.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/de/ft/ekes/BackEnd/actors/kreatur/Kreatur2.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/de/ft/ekes/BackEnd/actors/kreatur/Kreatur2.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/de/ft/ekes/weblauncher/Communication/KreaturTransmit.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/de/ft/ekes/weblauncher/Communication/KreaturTransmit.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/de/ft/ekes/weblauncher/Communication/SendingPacker.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/de/ft/ekes/weblauncher/Communication/SendingPacker.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/de/ft/ekes/BackEnd/virtualtileworld/WorldGenerator.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/de/ft/ekes/BackEnd/virtualtileworld/WorldGenerator.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/de/ft/ekes/weblauncher/WebMain.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/de/ft/ekes/weblauncher/WebMain.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/../webfrontend/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/../webfrontend/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../webfrontend/index.js" beforeDir="false" afterPath="$PROJECT_DIR$/../webfrontend/index.js" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
     <option name="LAST_RESOLUTION" value="IGNORE" />
+  </component>
+  <component name="ComposerSettings">
+    <execution />
   </component>
   <component name="ExternalProjectsData">
     <projectState path="$PROJECT_DIR$">
@@ -115,11 +127,12 @@
     <property name="WebServerToolWindowFactoryState" value="true" />
     <property name="android.sdk.path" value="$USER_HOME$/Android/Sdk" />
     <property name="aspect.path.notification.shown" value="true" />
-    <property name="last_opened_file_path" value="$PROJECT_DIR$" />
+    <property name="last_opened_file_path" value="$PROJECT_DIR$/../../../JAVA/KI" />
     <property name="project.structure.last.edited" value="Artifacts" />
     <property name="project.structure.proportion" value="0.15234375" />
     <property name="project.structure.side.proportion" value="0.35257083" />
     <property name="settings.editor.selected.configurable" value="reference.settingsdialog.project.gradle" />
+    <property name="vue.rearranger.settings.migration" value="true" />
   </component>
   <component name="RecentsManager">
     <key name="CopyFile.RECENT_KEYS">
@@ -231,22 +244,6 @@
       <DebugAllEnabled>false</DebugAllEnabled>
       <method v="2" />
     </configuration>
-    <list>
-      <item itemvalue="Application.WebMain" />
-      <item itemvalue="Gradle.EvolutionsSimulator [buildEKES]" />
-      <item itemvalue="Gradle.EvolutionsSimulator [check]" />
-      <item itemvalue="Gradle.EvolutionsSimulator [fatJar]" />
-      <item itemvalue="Gradle.EvolutionsSimulator [jar]" />
-    </list>
-    <recent_temporary>
-      <list>
-        <item itemvalue="Application.WebMain" />
-        <item itemvalue="Gradle.EvolutionsSimulator [buildEKES]" />
-        <item itemvalue="Gradle.EvolutionsSimulator [fatJar]" />
-        <item itemvalue="Gradle.EvolutionsSimulator [jar]" />
-        <item itemvalue="Gradle.EvolutionsSimulator [check]" />
-      </list>
-    </recent_temporary>
   </component>
   <component name="SpellCheckerSettings" RuntimeDictionaries="0" Folders="0" CustomDictionaries="0" DefaultDictionary="application-level" UseSingleDictionary="true" transferred="true" />
   <component name="TaskManager">
@@ -264,8 +261,21 @@
       <workItem from="1609246479191" duration="334000" />
       <workItem from="1609346082736" duration="958000" />
       <workItem from="1609347671101" duration="2318000" />
-      <workItem from="1609355888900" duration="3899000" />
+      <workItem from="1609355888900" duration="4195000" />
+      <workItem from="1610046271479" duration="457000" />
+      <workItem from="1610047921468" duration="1243000" />
+      <workItem from="1610116623542" duration="473000" />
+      <workItem from="1610117329516" duration="1429000" />
+      <workItem from="1610560402963" duration="55000" />
     </task>
+    <task id="LOCAL-00001" summary="Virus">
+      <created>1609360072197</created>
+      <option name="number" value="00001" />
+      <option name="presentableId" value="LOCAL-00001" />
+      <option name="project" value="LOCAL" />
+      <updated>1609360072197</updated>
+    </task>
+    <option name="localTasksCounter" value="2" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -282,5 +292,9 @@
       </map>
     </option>
     <option name="oldMeFiltersMigrated" value="true" />
+  </component>
+  <component name="VcsManagerConfiguration">
+    <MESSAGE value="Virus" />
+    <option name="LAST_COMMIT_MESSAGE" value="Virus" />
   </component>
 </project>

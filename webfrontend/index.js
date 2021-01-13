@@ -316,6 +316,10 @@ wsConnection.onmessage = async function (e) {
       } else {
         actormesh.setColorAt(i,color.setHex( 0xffffff)); 
       }
+        if(window.actors[i].infected) {
+         actormesh.setColorAt(i,color.setHex(0xff0000))
+
+        }
 
     }
      actormesh.instanceColor.needsUpdate = true;

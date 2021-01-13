@@ -5,11 +5,13 @@ import java.awt.*;
 import java.awt.image.BufferedImage;
 import java.io.File;
 import java.io.IOException;
+import java.util.Arrays;
 
 public class WorldGenerator {
     private BufferedImage image;
     private int imageWidth=0;
     private int imageHeight=0;
+    private int[] array;
     public WorldGenerator(String pathtoimage, int width, int height){
         this.imageWidth=width;
         this.imageHeight=height;
@@ -41,9 +43,11 @@ public class WorldGenerator {
         image=ergebnis;
     }
     public void generateWorld(VirtualTileWorld vtw){
+        array = new int[imageHeight*imageWidth];
         luminanz();
         for(int x=0;x<imageWidth;x++){
             for(int y=0;y<imageHeight;y++){
+                array[(y*imageHeight)+x] = getRed(x,y);
             if(getRed(x,y)>200){
                 vtw.getTiles().get(x).get(imageHeight-y-1).setLandType(LandType.LAND);
             }else{
@@ -51,6 +55,7 @@ public class WorldGenerator {
             }
             }
         }
+        System.out.println(Arrays.toString(array));
     }
 
 
@@ -65,6 +70,7 @@ public class WorldGenerator {
 
 
                 int luminanz=(int) (0.229*r+0.587*g+0.114*b);
+
                 setpixelcolor(x,y,luminanz,luminanz,luminanz);
             }
         }
