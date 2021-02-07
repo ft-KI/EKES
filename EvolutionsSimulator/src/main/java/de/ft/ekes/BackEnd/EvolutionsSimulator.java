@@ -29,17 +29,17 @@ public class EvolutionsSimulator {
     }
 
     /**
-     * Macht den nächsten schritt der simulation
+     * One Simulation Step
      */
 
-    public void dostep(){
+    public void doStep(){
 
 
         if(Math.floor(time.year) % Math.floor(calcBySteps*time.TicksperYear) == 0){
             if(!done) {
                 averageActorSizeforSteps = (int) (calcAverageActorSizeforSteps / calcBySteps);
                 averageActorAgeforSteps = (float) (calcAverageActorAgeforSteps / calcBySteps);
-                averageFoodAvailable=(float)(calcAverageFoodAvailable / calcBySteps);
+                averageFoodAvailable= calcAverageFoodAvailable / calcBySteps;
                 calcAverageFoodAvailable=0;
                 calcAverageActorAgeforSteps = 0;
                 calcAverageActorSizeforSteps = 0;
@@ -61,13 +61,6 @@ public class EvolutionsSimulator {
     }
 
 
-    public int getWorldHeight() {
-        return worldHeight;
-    }
-
-    public int getWorldWidth() {
-        return worldWidth;
-    }
 
     public VirtualTileWorld getWorld() {
         return world;

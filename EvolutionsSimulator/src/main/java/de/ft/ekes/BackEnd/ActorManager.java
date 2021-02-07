@@ -1,7 +1,7 @@
 package de.ft.ekes.BackEnd;
 
 import de.ft.ekes.BackEnd.actors.Actor;
-import de.ft.ekes.BackEnd.actors.kreatur.Kreatur2;
+import de.ft.ekes.BackEnd.actors.kreatur.Kreatur;
 
 import java.util.ArrayList;
 
@@ -13,25 +13,19 @@ public class ActorManager {
     public float ageOnDeathaverage=0;
     public float DeathesperStep=0;
     public static int [][] positions = {{737,491},{990,670},{250,670},{400,290},{1300,230},{1100,700}};
-    int poscounter =0;
+    int posCounter =0;
 
     public ActorManager(EvolutionsSimulator es){
         this.es=es;
 
     }
     public void createRandomActor(){
-        //int x=(int)(Math.random()*es.getWorld().getWidth()*es.getWorld().getTileSize());
-       // int y= (int)(Math.random()*es.getWorld().getHeight()*es.getWorld().getTileSize());
 
-
-
-       // if(es.getWorld().getTilefromActorPosition(x,y).getLandType()== LandType.LAND) {
-
-            if(poscounter==positions.length) poscounter=0;
-            Kreatur2 testkreatur = new Kreatur2(positions[poscounter][0], positions[poscounter][1], es);
-            poscounter++;
+            if(posCounter ==positions.length) posCounter =0;
+            Kreatur testkreatur = new Kreatur(positions[posCounter][0], positions[posCounter][1], es);
+            posCounter++;
             actors.add(testkreatur);
-       // }
+
     }
     public void doStep(){
         if(actors.size()<100){
@@ -50,8 +44,8 @@ public class ActorManager {
                 actors.remove(actor);
                 actorsSize--;
             }
-                if(((Kreatur2) actor).getAge()>getha){
-                    getha=((Kreatur2) actor).getAge();
+                if(((Kreatur) actor).getAge()>getha){
+                    getha=((Kreatur) actor).getAge();
                 }
 
             calcaverageage+=actor.age;

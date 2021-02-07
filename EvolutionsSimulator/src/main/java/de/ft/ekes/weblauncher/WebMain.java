@@ -1,12 +1,10 @@
 package de.ft.ekes.weblauncher;
 
 import de.ft.ekes.BackEnd.EvolutionsSimulator;
-import de.ft.ekes.weblauncher.Communication.Parameter;
 import de.ft.ekes.weblauncher.Communication.SendingPacker;
 import de.ft.ekes.weblauncher.Communication.SocketController;
 
 import java.net.UnknownHostException;
-import java.util.ArrayList;
 import java.util.concurrent.TimeUnit;
 
 public class WebMain {
@@ -45,7 +43,7 @@ public class WebMain {
                         continue;
 
                     }
-                    evolutionsSimulator.dostep();
+                    evolutionsSimulator.doStep();
                     try {
                         if (Math.abs(System.currentTimeMillis() - timer) > delay) {
                             // System.out.println("Speed Warning: durchlauf hat: "+(System.currentTimeMillis()-timer-delay)+"ms zu lange gedauert");

@@ -20,14 +20,9 @@ public class WorldGenerator {
     public void readImage(String s) {
 
 
-
-
-
-
         BufferedImage ergebnis = new BufferedImage(imageWidth, imageHeight, BufferedImage.TYPE_INT_ARGB); // bzw. TYPE_INT_RGB falls du kein Alphakanal brauchst
         try{
             ergebnis.getGraphics().drawImage(ImageIO.read(new File(s)), 0,0, imageWidth, imageHeight, null);
-            //image= ImageIO.read(new File(s));
         }catch(IOException e){
             //Use fall back image
             try {

@@ -1,6 +1,6 @@
 package de.ft.ekes.weblauncher.Communication;
 
-import de.ft.ekes.BackEnd.actors.kreatur.Kreatur2;
+import de.ft.ekes.BackEnd.actors.kreatur.Kreatur;
 import de.ft.ekes.BackEnd.virtualtileworld.LandType;
 import de.ft.ekes.weblauncher.WebMain;
 import com.google.gson.ExclusionStrategy;
@@ -39,10 +39,8 @@ public class SendingPacker {
             for(int y=0;y<WebMain.evolutionsSimulator.getWorld().getTiles().get(x).size();y++) {
 
                 if(WebMain.evolutionsSimulator.getWorld().getTiles().get(x).get(y).getLandType()== LandType.WATER) {
-                    // json.put(-1);
                     reihen.put(-1);
                 }else {
-                    // json.put(WebMain.evolutionsSimulator.getWorld().getTiles().get(x).get(y).getFoodvalue());
                     reihen.put(WebMain.evolutionsSimulator.getWorld().getTiles().get(x).get(y).getFoodvalue());
                 }
 
@@ -66,7 +64,7 @@ public class SendingPacker {
     public static String packActors() {
         kreaturTransmits.clear();
         for (int i = 0; i < WebMain.evolutionsSimulator.getActorManager().getActors().size(); i++) {
-            kreaturTransmits.add(new KreaturTransmit(WebMain.evolutionsSimulator.getActorManager().getActors().get(i).getXposition(), WebMain.evolutionsSimulator.getActorManager().getActors().get(i).getYposition(), ((Kreatur2) WebMain.evolutionsSimulator.getActorManager().getActors().get(i)).feelers, WebMain.evolutionsSimulator.getActorManager().getActors().get(i).generation));
+            kreaturTransmits.add(new KreaturTransmit(WebMain.evolutionsSimulator.getActorManager().getActors().get(i).getXposition(), WebMain.evolutionsSimulator.getActorManager().getActors().get(i).getYposition(), ((Kreatur) WebMain.evolutionsSimulator.getActorManager().getActors().get(i)).feelers, WebMain.evolutionsSimulator.getActorManager().getActors().get(i).generation));
         }
 
         JSONObject jsonObject = new JSONObject();

@@ -4,7 +4,7 @@ package de.ft.ekes.weblauncher.Communication;
 import de.ft.ekes.BackEnd.EvolutionsSimulator;
 import de.ft.ekes.BackEnd.Variables;
 import de.ft.ekes.BackEnd.actors.Actor;
-import de.ft.ekes.BackEnd.actors.kreatur.Kreatur2;
+import de.ft.ekes.BackEnd.actors.kreatur.Kreatur;
 import de.ft.ekes.weblauncher.WebMain;
 import org.java_websocket.WebSocket;
 import org.java_websocket.drafts.Draft;
@@ -135,19 +135,19 @@ ArrayList<WebSocket> sockets = new ArrayList<>();
 
         for (Actor actor : WebMain.evolutionsSimulator.getActorManager().getActors()) {
 
-            ((Kreatur2) actor).setMoveFaktor(jsonMessage.getFloat("movespeed"));
-            ((Kreatur2) actor).setMoveCostMult(jsonMessage.getFloat("movecost"));
-            ((Kreatur2) actor).setRotateCostMult(jsonMessage.getFloat("rotcost"));
-            ((Kreatur2) actor).setRotatFaktor(jsonMessage.getFloat("rotspeed"));
-            ((Kreatur2) actor).setEatcostMult(jsonMessage.getFloat("eatcost"));
-            ((Kreatur2) actor).setEatMult(jsonMessage.getFloat("eatspeed"));
-            ((Kreatur2) actor).setCreateChildEnergie(jsonMessage.getFloat("childenergie"));
-            ((Kreatur2) actor).setCreateChildAge(jsonMessage.getFloat("childage"));
-            ((Kreatur2) actor).setPermanetcostland(jsonMessage.getFloat("costland"));
-            ((Kreatur2) actor).setPermanetcostwater(jsonMessage.getFloat("costwater"));
-            ((Kreatur2) actor).setEatadmission(jsonMessage.getFloat("eatadmission"));
-            ((Kreatur2) actor).setMutation_percentage(jsonMessage.getFloat("mutation_percentage"));
-            ((Kreatur2) actor).setMutation_neurons(jsonMessage.getFloat("mutation_neurons"));
+            ((Kreatur) actor).setMoveFaktor(jsonMessage.getFloat("movespeed"));
+            ((Kreatur) actor).setMoveCostMult(jsonMessage.getFloat("movecost"));
+            ((Kreatur) actor).setRotateCostMult(jsonMessage.getFloat("rotcost"));
+            ((Kreatur) actor).setRotatFaktor(jsonMessage.getFloat("rotspeed"));
+            ((Kreatur) actor).setEatcostMult(jsonMessage.getFloat("eatcost"));
+            ((Kreatur) actor).setEatMult(jsonMessage.getFloat("eatspeed"));
+            ((Kreatur) actor).setCreateChildEnergie(jsonMessage.getFloat("childenergie"));
+            ((Kreatur) actor).setCreateChildAge(jsonMessage.getFloat("childage"));
+            ((Kreatur) actor).setPermanetcostland(jsonMessage.getFloat("costland"));
+            ((Kreatur) actor).setPermanetcostwater(jsonMessage.getFloat("costwater"));
+            ((Kreatur) actor).setEatadmission(jsonMessage.getFloat("eatadmission"));
+            ((Kreatur) actor).setMutation_percentage(jsonMessage.getFloat("mutation_percentage"));
+            ((Kreatur) actor).setMutation_neurons(jsonMessage.getFloat("mutation_neurons"));
 
 
         }

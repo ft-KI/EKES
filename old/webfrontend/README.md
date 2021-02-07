@@ -1,3 +1,0 @@
-# Weitere Informationen zum webfrontend
-
-

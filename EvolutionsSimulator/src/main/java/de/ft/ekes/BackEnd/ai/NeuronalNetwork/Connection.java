@@ -4,6 +4,7 @@ package de.ft.ekes.BackEnd.ai.NeuronalNetwork;
 import de.ft.ekes.BackEnd.ai.NeuronalNetwork.neurons.Neuron;
 
 public class Connection {
+
     private Neuron startNeuron;
     private float weight;
     private float momentum=0;
