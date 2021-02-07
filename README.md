@@ -1,5 +1,7 @@
 # EKES
 
+Dieses Projekt ist Teil von Jugend-Forscht 2021
+
 EKES ist eine Evolutions-Simulation, mit einem Webfronted und einem JAVA-Backend.
 
 ## Quick Start
