@@ -10,7 +10,7 @@ EKES ist eine Evolutions-Simulation, mit einem Webfronted und einem JAVA-Backend
  - Führe den Befehl npm install aus
  - Führe den Befehl npm start aus
  - Öffne den Ordner EvolutionSimulator in Intellij Idea
- - Starte WebMain.main mit der JDK 11-15
+ - Starte WebMain.main mit der JDK 11-14
  - Navigiere zu localhost:3000 und sieh dir die Simulation an
 
 Wir nutzen logischerweise für unser Projekt das neuronale mutierende Lernen, weil es bei einer Evolution nicht unbedingt ein richtig oder falsch geben muss. Dabei setzen wir bei der Evolutionssimulation auf einzelne Kreaturen.
