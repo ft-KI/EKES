@@ -1,16 +1,120 @@
 <!DOCTYPE html>
-<html lang="de">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+<html lang="">
+  <head>
+    <meta charset="utf-8">
     <title>EKES</title>
-</head>
-<body>
+    <link rel="stylesheet" href="index.css">
+    <script type="module" src="index.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/chart.js@2.9.4/dist/Chart.min.js"></script>
+    <script src="js/three.js"></script>
+  </head>
+  <body>
+    <div className="App">
+      <div id="wrapper">
+          <div id="infos">
+              <p id="info"></p>
+              <div >
+                  <canvas id="graphAverageAge"></canvas>
+                  <canvas id="graphActorsSize"></canvas>
+                  <canvas id="graphFoodAvailable"></canvas>
+              </div>
+          </div>
+          <div id="screenwrapper">
+          <canvas id="screen" width="1200" height="800"></canvas>
 
-    <div class="wrapper">
+              <div id="simulationController">
+                  <h2>Pausieren</h2>
+              </div>
+          </div>
 
-        <button id="start">Simulation Starten</button>
+          <div id="controll">
+              <h2>Einstellungen</h2>
+              <h3>Darstellungs Optionen:</h3>
+              <label htmlFor="graphupdatespeed">Diagramm Update Geschwindigkeit</label>
+              <input type="range" id="graphupdatespeed" name="graphupdatespeed" min="1" max="100" value="1"/>
+              <br></br>
+              <label htmlFor="Graphsichtfeld">Diagramm Sichtfeld</label>
+              <input type="range" id="Graphsichtfeld" name="Graphsichtfeld" min="10" max="1000" value="200"/>
+        
+        <div id="simsets">
+              <h3>Simulations Optionen:</h3>
+              <label htmlFor="Simulations Beschleunigung">SPS Begrenzung: </label>
+              <input type="number" id="simspeed" name="Simulations Beschleunigung" min="1" max="1000" value="30"/>
 
-    </div>
-</body>
+              <br/>
+
+              <label htmlFor="simmovecost">Bewegungs Kosten: </label>
+              <input type="number" id="simmovecost" name="simmovecost" min="1" max="1000" value="5"/>
+              <br/>
+              <label htmlFor="simmovementspeed">Geschwindkeit: </label>
+              <input type="number" id="simmovementspeed" name="simmovementspeed" min="1" max="1000" value="5"/>
+
+              <br/>
+
+              <label htmlFor="simrotcost">Drehungs Kosten: </label>
+              <input type="number" id="simrotcost" name="simrotcost" min="1" max="1000" value="3"/>
+              <br/>
+              <label htmlFor="simrotspeed">Drehungs Geschwindkeit: </label>
+              <input type="number" id="simrotspeed" name="simrotspeed" min="1" max="1000" value="2"/>
+
+              <br/>
+
+              <label htmlFor="simeatcost">Essens Kosten: </label>
+              <input type="number" id="simeatcost" name="simeatcost" min="1" max="1000" value="1"/>
+              <br/>
+              <label htmlFor="simgettingenergie">Essens-Energie-Gewinn: </label>
+              <input type="number" id="simgettingenergie" name="simgettingenergie" min="1" max="1000" value="50"/>
+              <br/>
+
+              <label htmlFor="permcostland">Permanente Land Kosten: </label>
+              <input type="number" id="permcostland" name="permcostland" min="1" max="1000" value="0.04"/>
+              <br/>
+              <label htmlFor="permcostwater">Permanente Wasser Kosten: </label>
+              <input type="number" id="permcostwater" name="permcostwater" min="1" max="1000" value="3"/>
+
+              <br/>
+
+              <label htmlFor="createchildcost">Kind Erstellungs Kosten: </label>
+              <input type="number" id="createchildcost" name="createchildcost" min="1" max="1000" value="400"/>
+              <br/>
+              <label htmlFor="childage">Kind Erstellungs Alter: </label>
+              <input type="number" id="childage" name="childage" min="1" max="1000" value="6"/>
+
+              <br/>
+
+              <label htmlFor="eatadmission">Maximale Fressaufnahme: </label>
+              <input type="number" id="eatadmission" name="eatadmission" min="0" max="10" value="0.8"/>
+
+              <br/>
+
+              <label htmlFor="mutation_percentage">Mutations Rate: </label>
+              <input type="number" id="mutation_percentage" name="mutation_percentage" min="0" max="1000" value="0.23"/>
+
+              <br/>
+
+              <label htmlFor="mutation_neurons">Mutations Anzahl: </label>
+              <input type="number" id="mutation_neurons" name="mutation_neurons" min="0" max="1000" value="4"/>
+
+              <br/>
+
+
+              <label htmlFor="stopby">Stoppen bei: </label>
+              <input type="number" id="stopby" name="stopby" min="0" max="1000" value="-1"/>
+
+              <br/>
+
+
+              <button id="send">Anwenden</button>
+              <button id="reset">Reset</button>
+
+        </div>
+
+
+              <p id="queue"></p>
+
+          </div>
+
+      </div>
+  </div>
+  </body>
 </html>

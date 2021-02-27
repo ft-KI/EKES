@@ -105,14 +105,13 @@ function loadInfoDisplay() {
 function infodraw(){
     var infos;
 
-
     infos="<h2>Info Daten</h2>"
-    infos=infos+"<br>Menge an Kreaturen: "+ActorsSize+"</br>";
-    infos=infos+"<br>Jahre: "+Timeinyears+"</br>";
-    infos=infos+"<br>Durchschnittsalter: "+averageage+"</br>";
-    infos=infos+"<br>Fressensdurschnitt: "+foodavailable+"</br>";
+    infos=infos+"<br>Menge an Kreaturen: "+Math.round(ActorsSize)+"</br>";
+    infos=infos+"<br>Jahre: "+Math.round(Timeinyears*10)/10+"</br>";
+    infos=infos+"<br>Durchschnittsalter: "+Math.round(averageage*10)/10+"</br>";
+    infos=infos+"<br>Fressensdurschnitt: "+Math.round(foodavailable*100)/100+"</br>";
     infos=infos+"<br>Letze 25 Jahre Kreaturen: "+lastyears_ActorsSize+"</br>";
-    infos=infos+"<br>Letze 25 Jahre Durchschnittsalter: "+lastyears_averageage+"</br>";
+    infos=infos+"<br>Letze 25 Jahre Durchschnittsalter: "+Math.round(lastyears_averageage*100)/100+"</br>";
 
 
     infoblock.innerHTML = infos;
@@ -169,7 +168,7 @@ var rawInfos
 //Connections
 var wsConnection;
 function initWS() {
-     wsConnection = new WebSocket('ws://212.227.211.145:8080/evodata');
+     wsConnection = new WebSocket('ws://localhost:8080/evodata');
 wsConnection.onopen = function () {
 };
 wsConnection.onerror = function (error) {

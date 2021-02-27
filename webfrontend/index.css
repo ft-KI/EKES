@@ -6,50 +6,59 @@ body {
       sans-serif;
     -webkit-font-smoothing: antialiased;
     -moz-osx-font-smoothing: grayscale;
-    background-color: #282c34;
+    background-color: #121924;
   }
 #wrapper {
     display: flex;
     justify-content: flex-end;
+    margin: 0vh;
 }
+
+:root {
+
+    --containerColor: #212c3e;
+
+}
+
 
 #screenwrapper {
     width: 50%;
    /* border-radius: 8px;*/
-    margin: 0.5vh;
     float: left;
     height: 70%;
     min-height: 99vh;
     position: relative;
     display: flex;
     flex-direction: column;
+    margin: 0.5vh;
 
 }
 
 #simulationController {
 
-    background-color: #969696;
-    border: 3px solid #4c4c4c;
-    border-radius: 8px;
-    width: 100%;
-    height: 100%;
-    position: relative;
-    border-radius: 8px;
-    min-height: 100%;
-    flex: 1;
+    background-color: var(--containerColor);
     margin-top: 0.5vh;
+    position: relative;
+
 
 
 
 }
+h2{
+    margin-top: 0;
+    color: white;
+}
+h3 {
+    color: #a4b1cd;
 
-#screen {
-    background-color: #920000;
-    border: 3px solid #4c4c4c;
+}
+
+ #screen {
+    background-color: var(--containerColor);
     float: bottom;
-    border-radius: 8px;
     width: 100%;
     height: 100%;
+    margin: 0;
 }
 
 #info {
@@ -58,36 +67,53 @@ body {
 
 #infos {
     width: 25%;
-    height: 95vh;
-    margin: 0.5vh;
+    max-height: 95.4vh;
+
     padding: 15px;
-    background-color: #969696;
-    border: 3px solid #4c4c4c;
-    border-radius: 8px;
+    background-color: var(--containerColor);
+
     float: left;
     overflow-x: hidden;
     overflow-y: auto;
+    margin-top: 0.5vh;
+    margin-left: 0.5vh;
 }
 
 #controll {
     width: 25%;
     float: left;
-    margin: 0.5vh;
     padding: 15px;
-    background-color: #969696;
-    border: 3px solid #4c4c4c;
-    border-radius: 8px;
+    background-color: var(--containerColor);
+
     overflow-x: hidden;
     overflow-y: auto;
-    height: 95vh;
+    max-height: 95.4vh;
+    margin-top: 0.5vh;
+    margin-right: 0.5vh;
 
+}
+
+#infos::-webkit-scrollbar {
+    display: none;
 }
 
 p,
 label {
     font: 1rem 'Fira Sans', sans-serif;
+    color: white;
 }
 
 input {
     margin: .4rem;
+    border-radius: 6px;
+    background-color: #141d2b;
+    border-color: transparent;
+    color: #9fef00;
+    text-align: center;
+}
+
+#reset {
+}
+.greenText {
+
 }
