@@ -1,5 +1,6 @@
 package de.ft.ekes.BackEnd;
 
+import de.ft.ekes.BackEnd.actors.kreatur.Kreatur;
 import de.ft.ekes.BackEnd.virtualtileworld.VirtualTileWorld;
 import de.ft.ekes.BackEnd.virtualtileworld.WorldGenerator;
 
@@ -58,6 +59,19 @@ public class EvolutionsSimulator {
         world.doStep();
         actorManager.doStep();
         time.Tick();
+
+        float dh=0;
+        for(int i=0;i<actorManager.getActors().size();i++){
+            if(actorManager.getActors().get(i) instanceof Kreatur) {
+                //dh+=((Kreatur) actorManager.getActors().get(i)).getBrain().getHiddenNeurons().size();
+                if(((Kreatur) actorManager.getActors().get(i)).getBrain().getHiddenNeurons().size()<3){
+                    dh++;
+                  //  System.out.println(((Kreatur) actorManager.getActors().get(i)).getBrain().getOutputNeurons().get(3).getInputConnections().get(5).getWeight());
+
+                }
+            }
+        }
+        System.out.println("asdf: "+dh);
     }
 
 
