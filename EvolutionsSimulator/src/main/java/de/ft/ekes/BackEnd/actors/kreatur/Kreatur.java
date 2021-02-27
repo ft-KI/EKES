@@ -48,8 +48,6 @@ public class Kreatur extends Actor {
     private float outEat=0;
     private float outGenerateChildren=0;
     private int feelerlength=15;
-
-
     // public Feeler feelerone=new Feeler(-10,feelerlength);
     public ArrayList<Feeler>feelers=new ArrayList<>();
     public Kreatur(int x, int y, EvolutionsSimulator es){
@@ -62,9 +60,6 @@ public class Kreatur extends Actor {
         brain.createInputNeurons(3+feelers.size()*2);
         brain.addHiddenLayer(20);
         brain.addHiddenLayer(20);
-
-
-
         brain.createOutputtNeurons(5);
         brain.connectRandomFullMeshed();
         brain.addBiasforallNeurons();
@@ -77,34 +72,7 @@ public class Kreatur extends Actor {
         super.Yposition= parent.getYposition()+10;
         generateFeelers();
         this.rotationangle=(float)(Math.random()*Math.PI*2);
-
-        //There is a likelihood that a hidden layer will be removed or added by accident
-        int manipulatehiddenlayers=0;
-
-
-        if(Math.random()>0.80f) {
-            if(Math.random() >= 0.5f){
-                manipulatehiddenlayers++;
-                System.out.println("added");
-            }else{
-                manipulatehiddenlayers--;
-                System.out.println("removed");
-            }
-        }
-
-        int manipulatehiddenneurons=0;
-        if(Math.random()>0.8f){
-            if(Math.random()>=0.5f){
-                manipulatehiddenneurons++;
-            }else{
-                manipulatehiddenneurons--;
-            }
-        }
-        brain=parent.brain.cloneFullMeshed(manipulatehiddenlayers, 0);
-
-
-
-        //Here the neural network is mutated
+        brain=parent.brain.cloneFullMeshed();
         for(int i=0;i<mutation_neurons;i++) {
             brain.randomMutate(mutation_percentage);
         }
@@ -318,9 +286,5 @@ public class Kreatur extends Actor {
 
     public void setMutation_neurons(float mutation_neurons) {
         this.mutation_neurons = mutation_neurons;
-    }
-
-    public NeuronalNetwork getBrain() {
-        return brain;
     }
 }
