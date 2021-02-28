@@ -260,28 +260,58 @@ public class NeuronalNetwork {
         return outputNeurons;
     }
 
-
-    public NeuronalNetwork cloneFullMeshed() {
+    public void addNeuron(int hiddenindex, int neuronindex){
+        this.hiddenNeurons.get(hiddenindex).add(neuronindex, new WorkingNeuron());
+    }
+    public void removeNeuron(int hiddenindex, int neuronindex){
+        if(this.hiddenNeurons.get(hiddenindex).size()>1)
+        this.hiddenNeurons.get(hiddenindex).remove(neuronindex);
+    }
+    public NeuronalNetwork cloneFullMeshed(int manipulateHiddenNeurons) {
         NeuronalNetwork network = new NeuronalNetwork();
         network.createInputNeurons(this.inputNeurons.size());
         for (int i = 0; i < this.hiddenNeurons.size(); i++) {
             network.addHiddenLayer(this.hiddenNeurons.get(i).size());
         }
+
+        int r=(int)(Math.random()*(network.hiddenNeurons.size()));
+        //System.out.println(r);
+        if(manipulateHiddenNeurons>0){
+            for(int i=0;i<manipulateHiddenNeurons;i++){
+                network.addNeuron(r, (int)(Math.random()*(network.hiddenNeurons.get(r).size()-1)));
+            }
+        }else if(manipulateHiddenNeurons<0){
+            for(int i=0;i<Math.abs(manipulateHiddenNeurons);i++){
+                network.removeNeuron(r, (int)(Math.random()*(network.hiddenNeurons.get(r).size()-1)));
+            }
+        }
+
+
         network.createOutputtNeurons(this.outputNeurons.size());
-        network.connectFullMeshed();
+        network.connectFullMeshed(false, 1f);
 
         if(isBiasUsed) {
             network.addBiasforallNeurons();
         }
         for(int i=0;i<this.outputNeurons.size();i++){
             for(int i1=0;i1<this.outputNeurons.get(i).getInputConnections().size();i1++) {
+                try{
                     network.getOutputNeurons().get(i).getInputConnections().get(i1).setWeight(this.outputNeurons.get(i).getInputConnections().get(i1).getWeight());
+                }catch (Exception e){
+                    //e.printStackTrace();
+                }
             }
         }
         for(int i=0;i<this.hiddenNeurons.size();i++){
             for(int i1=0;i1<this.hiddenNeurons.get(i).size();i1++){
                 for(int i2=0;i2<this.hiddenNeurons.get(i).get(i1).getInputConnections().size();i2++){
-                    network.hiddenNeurons.get(i).get(i1).getInputConnections().get(i2).setWeight(this.hiddenNeurons.get(i).get(i1).getInputConnections().get(i2).getWeight());
+                    if(i1 <= network.hiddenNeurons.get(i).size()-1&&network.hiddenNeurons.get(i).get(i1).getInputConnections().size()-1>=i2) {
+                        try {
+                            network.hiddenNeurons.get(i).get(i1).getInputConnections().get(i2).setWeight(this.hiddenNeurons.get(i).get(i1).getInputConnections().get(i2).getWeight());
+                        }catch (Exception e){
+                            e.printStackTrace();
+                        }
+                    }
                 }
             }
         }

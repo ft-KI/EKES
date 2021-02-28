@@ -60,11 +60,20 @@ public class Kreatur extends Actor {
         brain.createInputNeurons(3+feelers.size()*2);
         brain.addHiddenLayer(20);
         brain.addHiddenLayer(20);
+        brain.addHiddenLayer(20);
+
+
+
+
+
+
+
         brain.createOutputtNeurons(5);
         brain.connectRandomFullMeshed();
         brain.addBiasforallNeurons();
         brain.setAllActivationfunktions(new Sigmoid());
         this.israndom = true;
+
     }
     public Kreatur(Kreatur parent){
         super.es=parent.es;
@@ -72,10 +81,21 @@ public class Kreatur extends Actor {
         super.Yposition= parent.getYposition()+10;
         generateFeelers();
         this.rotationangle=(float)(Math.random()*Math.PI*2);
-        brain=parent.brain.cloneFullMeshed();
+        int manipulatehiddenneurons=0;
+        if(Math.random()>0.70f){
+            if(Math.random()>=0.5f){
+                manipulatehiddenneurons=1;
+            }else{
+                manipulatehiddenneurons=-1;
+            }
+        }
+
+        brain=parent.brain.cloneFullMeshed(manipulatehiddenneurons);
         for(int i=0;i<mutation_neurons;i++) {
             brain.randomMutate(mutation_percentage);
         }
+        //neuron add/remove
+
         this.israndom = false;
         super.generation=parent.generation+1;
         for(Feeler f:feelers) {
@@ -286,5 +306,9 @@ public class Kreatur extends Actor {
 
     public void setMutation_neurons(float mutation_neurons) {
         this.mutation_neurons = mutation_neurons;
+    }
+
+    public NeuronalNetwork getBrain() {
+        return brain;
     }
 }
