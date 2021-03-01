@@ -12,6 +12,7 @@ import org.json.JSONArray;
 import org.json.JSONObject;
 
 import java.util.ArrayList;
+import java.util.stream.Collectors;
 
 public class SendingPacker {
     private static final ArrayList<CreatureTransmit> creatureTransmits = new ArrayList<>();
@@ -80,6 +81,7 @@ public class SendingPacker {
         jsonObject.put("ActorsSize", WebMain.evolutionsSimulator.actorManager.getActors().size());
         jsonObject.put("Timeinyears", WebMain.evolutionsSimulator.time.year);
         jsonObject.put("averageage", WebMain.evolutionsSimulator.actorManager.averageAge);
+        jsonObject.put("averagehidden", WebMain.evolutionsSimulator.actorManager.getActors().stream().collect(Collectors.summarizingInt(p-> (Integer) ((Creature) p).getBrain().getHiddenNeurons().stream().mapToInt(ArrayList::size).sum())).getAverage());
         jsonObject.put("foodavailable", WebMain.evolutionsSimulator.getWorld().getFoodavailable());
         jsonObject.put("lastyears_averageage", WebMain.evolutionsSimulator.averageActorAgeForSteps);
         jsonObject.put("lastyears_ActorsSize", WebMain.evolutionsSimulator.averageActorSizeForSteps);

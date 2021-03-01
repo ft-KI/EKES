@@ -36,6 +36,7 @@ var averageage;
 var foodavailable;
 var lastyears_ActorsSize;
 var lastyears_averageage;
+var averageHiddenNeurons;
 
 
 
@@ -76,8 +77,12 @@ function loadInfoDisplay() {
     window.graphActorsSize = new Chart(ctx2,config_actorssize);
     window.graphFoodAvailable=new Chart(ctx3, config_foodavailable);
 
-    document.getElementById("reset").onclick = function() {resetSimulation()};
-    document.getElementById("send").onclick = function() {sendParams()};
+    window.reset = document.getElementById("reset")
+    window.send =  document.getElementById("send");
+
+
+    window.reset.onclick = function() {resetSimulation()};
+    window.send.onclick = function() {sendParams()};
    // simulation = document.getElementById('screen');
     window.queue = document.getElementById("queue");
     window.simset = document.getElementById("simsets");
@@ -110,6 +115,7 @@ function infodraw(){
     infos=infos+"<br>Jahre: "+Math.round(Timeinyears*10)/10+"</br>";
     infos=infos+"<br>Durchschnittsalter: "+Math.round(averageage*10)/10+"</br>";
     infos=infos+"<br>Fressensdurschnitt: "+Math.round(foodavailable*100)/100+"</br>";
+    infos=infos+"<br>Durchschnitts Hidden-Neuronen: "+Math.round(averageHiddenNeurons*100)/100+"</br>";
     infos=infos+"<br>Letze 25 Jahre Kreaturen: "+lastyears_ActorsSize+"</br>";
     infos=infos+"<br>Letze 25 Jahre Durchschnittsalter: "+Math.round(lastyears_averageage*100)/100+"</br>";
 
@@ -168,7 +174,7 @@ var rawInfos
 //Connections
 var wsConnection;
 function initWS() {
-     wsConnection = new WebSocket('ws://localhost:8080/evodata');
+     wsConnection = new WebSocket('ws://212.227.211.145:8080/evodata');
 wsConnection.onopen = function () {
 };
 wsConnection.onerror = function (error) {
@@ -191,7 +197,8 @@ wsConnection.onmessage = async function (e) {
         averageage=rawInfos.averageage;
         foodavailable=rawInfos.foodavailable;
         lastyears_ActorsSize = rawInfos.lastyears_ActorsSize;
-        lastyears_averageage = rawInfos.lastyears_averageage
+        lastyears_averageage = rawInfos.lastyears_averageage;
+        averageHiddenNeurons = rawInfos.averagehidden;
 
     }else if(JSON.parse(e.data).type==="biparam") {
         console.log("apply")
@@ -215,10 +222,24 @@ wsConnection.onmessage = async function (e) {
 
 
         if(window.changePermissions===0)  {
-            window.simset.style.display = 'block';
+            //window.simset.style.display = 'block';
+            var allChildNodes = window.simset.getElementsByTagName('*');
+
+            for(var i = 0; i < allChildNodes.length; i++)
+            {
+                allChildNodes[i].disabled = false;
+            }
+
             window.queue.style.display = 'none';
         }else{
-            window.simset.style.display = 'none';
+            var allChildNodes = window.simset.getElementsByTagName('*');
+
+            for(var i = 0; i < allChildNodes.length; i++)
+            {
+                allChildNodes[i].disabled = true;
+            }
+
+            //window.simset.style.display = 'none';
             window.queue.style.display = 'block';
             window.queue.innerHTML = "Zurzeit benutzt ein Anderer die Simulation. Sobald die Anderen vor Ihnen die Simulation verlassen, werden hier die Parameter angezeigt. Zurzeit sind "+window.changePermissions+" Leute vor Ihnen.";
         }

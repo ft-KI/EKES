@@ -52,7 +52,6 @@ public class Creature extends Actor {
         brain.createInputNeurons(3 + feelers.size() * 2);
         brain.addHiddenLayer(20);
         brain.addHiddenLayer(20);
-        brain.addHiddenLayer(20);
 
         brain.createOutputNeurons(5);
         brain.connectRandomFullMeshed();
@@ -69,7 +68,7 @@ public class Creature extends Actor {
         generateFeelers();
         this.rotationAngle = (float) (Math.random() * Math.PI * 2);
         int manipulateHiddenNeurons = 0;
-        if (Math.random() > 0.70f) {
+        if (Math.random() > 0.80f) {
             if (Math.random() >= 0.5f) {
                 manipulateHiddenNeurons = 1;
             } else {
