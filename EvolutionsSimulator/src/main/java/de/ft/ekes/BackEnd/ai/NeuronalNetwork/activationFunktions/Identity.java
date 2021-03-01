@@ -1,6 +1,6 @@
 package de.ft.ekes.BackEnd.ai.NeuronalNetwork.activationFunktions;
 
-public class Identity implements ActivationFunktion{
+public class Identity implements ActivationFunction {
 
     public float activation(float input) {
         return input;

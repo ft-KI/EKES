@@ -1,22 +1,22 @@
 package de.ft.ekes.weblauncher.Communication;
 
-import de.ft.ekes.BackEnd.actors.kreatur.Kreatur;
-import de.ft.ekes.BackEnd.virtualtileworld.LandType;
-import de.ft.ekes.weblauncher.WebMain;
 import com.google.gson.ExclusionStrategy;
 import com.google.gson.FieldAttributes;
 import com.google.gson.Gson;
 import com.google.gson.GsonBuilder;
 import com.google.gson.annotations.Expose;
+import de.ft.ekes.BackEnd.actors.kreatur.Creature;
+import de.ft.ekes.BackEnd.virtualtileworld.LandType;
+import de.ft.ekes.weblauncher.WebMain;
 import org.json.JSONArray;
 import org.json.JSONObject;
 
 import java.util.ArrayList;
 
 public class SendingPacker {
-    private static ArrayList<KreaturTransmit> kreaturTransmits = new ArrayList<>();
+    private static final ArrayList<CreatureTransmit> creatureTransmits = new ArrayList<>();
 
-    public static Gson gson=new GsonBuilder()
+    public static Gson gson = new GsonBuilder()
             .setExclusionStrategies(new ExclusionStrategy() {
                 @Override
                 public boolean shouldSkipField(FieldAttributes f) {
@@ -34,55 +34,56 @@ public class SendingPacker {
 
         JSONArray json = new JSONArray();
 
-        for(int x = 0; x< WebMain.evolutionsSimulator.getWorld().getTiles().size(); x++) {
-            JSONArray reihen=new JSONArray();
-            for(int y=0;y<WebMain.evolutionsSimulator.getWorld().getTiles().get(x).size();y++) {
+        for (int x = 0; x < WebMain.evolutionsSimulator.getWorld().getTiles().size(); x++) {
+            JSONArray rows = new JSONArray();
+            for (int y = 0; y < WebMain.evolutionsSimulator.getWorld().getTiles().get(x).size(); y++) {
 
-                if(WebMain.evolutionsSimulator.getWorld().getTiles().get(x).get(y).getLandType()== LandType.WATER) {
-                    reihen.put(-1);
-                }else {
-                    reihen.put(WebMain.evolutionsSimulator.getWorld().getTiles().get(x).get(y).getFoodvalue());
+                if (WebMain.evolutionsSimulator.getWorld().getTiles().get(x).get(y).getLandType() == LandType.WATER) {
+                    rows.put(-1);
+                } else {
+                    rows.put(WebMain.evolutionsSimulator.getWorld().getTiles().get(x).get(y).getFoodValue());
                 }
 
             }
-            json.put(reihen);
+            json.put(rows);
 
         }
 
 
         JSONObject jsonObject = new JSONObject();
-        jsonObject.put("type","world");
-        jsonObject.put("world",json);
-        jsonObject.put("height",WebMain.evolutionsSimulator.getWorld().getHeight());
-        jsonObject.put("width",WebMain.evolutionsSimulator.getWorld().getWidth());
-        jsonObject.put("tilesize",WebMain.evolutionsSimulator.getWorld().getTileSize());
+        jsonObject.put("type", "world");
+        jsonObject.put("world", json);
+        jsonObject.put("height", WebMain.evolutionsSimulator.getWorld().getHeight());
+        jsonObject.put("width", WebMain.evolutionsSimulator.getWorld().getWidth());
+        jsonObject.put("tilesize", WebMain.evolutionsSimulator.getWorld().getTileSize());
 
         return jsonObject.toString();
 
     }
 
     public static String packActors() {
-        kreaturTransmits.clear();
+        creatureTransmits.clear();
         for (int i = 0; i < WebMain.evolutionsSimulator.getActorManager().getActors().size(); i++) {
-            kreaturTransmits.add(new KreaturTransmit(WebMain.evolutionsSimulator.getActorManager().getActors().get(i).getXposition(), WebMain.evolutionsSimulator.getActorManager().getActors().get(i).getYposition(), ((Kreatur) WebMain.evolutionsSimulator.getActorManager().getActors().get(i)).feelers, WebMain.evolutionsSimulator.getActorManager().getActors().get(i).generation));
+            creatureTransmits.add(new CreatureTransmit(WebMain.evolutionsSimulator.getActorManager().getActors().get(i).getXPosition(), WebMain.evolutionsSimulator.getActorManager().getActors().get(i).getYPosition(), ((Creature) WebMain.evolutionsSimulator.getActorManager().getActors().get(i)).feelers, WebMain.evolutionsSimulator.getActorManager().getActors().get(i).generation));
         }
 
         JSONObject jsonObject = new JSONObject();
-        jsonObject.put("kreatures",gson.toJson(kreaturTransmits));
-        jsonObject.put("type","creatures");
+        jsonObject.put("kreatures", gson.toJson(creatureTransmits));
+        jsonObject.put("type", "creatures");
 
         return jsonObject.toString();
 
     }
-    public static String packInfos(){
+
+    public static String packInfos() {
         JSONObject jsonObject = new JSONObject();
         jsonObject.put("ActorsSize", WebMain.evolutionsSimulator.actorManager.getActors().size());
         jsonObject.put("Timeinyears", WebMain.evolutionsSimulator.time.year);
         jsonObject.put("averageage", WebMain.evolutionsSimulator.actorManager.averageAge);
         jsonObject.put("foodavailable", WebMain.evolutionsSimulator.getWorld().getFoodavailable());
-        jsonObject.put("lastyears_averageage", WebMain.evolutionsSimulator.averageActorAgeforSteps);
-        jsonObject.put("lastyears_ActorsSize", WebMain.evolutionsSimulator.averageActorSizeforSteps);
-        jsonObject.put("type","info");
+        jsonObject.put("lastyears_averageage", WebMain.evolutionsSimulator.averageActorAgeForSteps);
+        jsonObject.put("lastyears_ActorsSize", WebMain.evolutionsSimulator.averageActorSizeForSteps);
+        jsonObject.put("type", "info");
         return jsonObject.toString();
     }
 }

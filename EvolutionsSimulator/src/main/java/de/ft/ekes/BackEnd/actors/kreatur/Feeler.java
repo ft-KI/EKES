@@ -5,37 +5,41 @@ import de.ft.ekes.BackEnd.virtualtileworld.Tile;
 import de.ft.ekes.BackEnd.virtualtileworld.VirtualTileWorld;
 
 public class Feeler {
-    private float angle=0;
-    private int feelerlength=15;
-    private Vector2 feelerpos=new Vector2();
-    public Feeler(float angle, int feelerlength){
-        this.angle=angle;
-        this.feelerlength=feelerlength;
-    }
+    private float angle;
+    private int feelerLength;
+    private final Vector2 feelerPos = new Vector2();
 
-    public void setAngle(float angle) {
+    public Feeler(float angle, int feelerLength) {
         this.angle = angle;
-    }
-
-    public void setFeelerlength(int feelerlength) {
-        this.feelerlength = feelerlength;
+        this.feelerLength = feelerLength;
     }
 
     public float getAngle() {
         return angle;
     }
 
-    public int getFeelerlength() {
-        return feelerlength;
+    public void setAngle(float angle) {
+        this.angle = angle;
     }
-    public void calculateFeelerPosition(float rotationangle, int x, int y){
-        feelerpos.set((int)(x+Math.cos(rotationangle+this.angle)*feelerlength),(int)(y+Math.sin(rotationangle+this.angle)*feelerlength));
+
+    public int getFeelerLength() {
+        return feelerLength;
     }
-    public Tile getFeelerTile(VirtualTileWorld vtw, float rotationangle, int x, int y){
-        calculateFeelerPosition(rotationangle,x,y);
-        return vtw.getTilefromActorPosition(feelerpos.x,feelerpos.y);
+
+    public void setFeelerLength(int feelerLength) {
+        this.feelerLength = feelerLength;
     }
-    public Vector2 getFeelerPosition(){
-        return feelerpos;
+
+    public void calculateFeelerPosition(float rotationAngle, int x, int y) {
+        feelerPos.set((int) (x + Math.cos(rotationAngle + this.angle) * feelerLength), (int) (y + Math.sin(rotationAngle + this.angle) * feelerLength));
+    }
+
+    public Tile getFeelerTile(VirtualTileWorld vtw, float rotationAngle, int x, int y) {
+        calculateFeelerPosition(rotationAngle, x, y);
+        return vtw.getTilefromActorPosition(feelerPos.x, feelerPos.y);
+    }
+
+    public Vector2 getFeelerPosition() {
+        return feelerPos;
     }
 }
