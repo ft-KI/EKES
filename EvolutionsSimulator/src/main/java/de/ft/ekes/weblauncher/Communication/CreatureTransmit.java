@@ -4,13 +4,13 @@ import de.ft.ekes.BackEnd.actors.kreatur.Feeler;
 
 import java.util.ArrayList;
 
-public class KreaturTransmit {
+public class CreatureTransmit {
     private int x;
     private int y;
     private ArrayList<Feeler> feelers = new ArrayList<>();
     private int gen;
 
-    public KreaturTransmit(int x, int y, ArrayList<Feeler> feelers,int gen) {
+    public CreatureTransmit(int x, int y, ArrayList<Feeler> feelers, int gen) {
         this.x = x;
         this.y = y;
         this.feelers = feelers;
@@ -21,16 +21,16 @@ public class KreaturTransmit {
         return x;
     }
 
+    public void setX(int x) {
+        this.x = x;
+    }
+
     public int getGen() {
         return gen;
     }
 
     public void setGen(int gen) {
         this.gen = gen;
-    }
-
-    public void setX(int x) {
-        this.x = x;
     }
 
     public int getY() {

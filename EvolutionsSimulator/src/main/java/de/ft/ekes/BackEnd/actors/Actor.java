@@ -1,39 +1,40 @@
 package de.ft.ekes.BackEnd.actors;
 
-import de.ft.ekes.BackEnd.EvolutionsSimulator;
 import com.google.gson.annotations.Expose;
+import de.ft.ekes.BackEnd.EvolutionsSimulator;
 
 public abstract class Actor {
-    public float Xposition=0;
-    public float Yposition=0;
+    public float XPosition = 0;
+    public float YPosition = 0;
 
     @Expose
     public EvolutionsSimulator es;
 
-    public float age=0;
+    public float age = 0;
 
-    public boolean killed=false;
+    public boolean killed = false;
 
-    public boolean israndom ;
+    public boolean isRandom;
 
-    public int generation=1;
+    public int generation = 1;
 
     public abstract void DoStep();
 
-    public final void doStep(){
+    public final void doStep() {
         DoStep();
-        this.age+=es.time.TicksperYear;
+        this.age += es.time.TicksPerYear;
     }
 
-    public final int getXposition() {
-        return (int)Xposition;
+    public final int getXPosition() {
+        return (int) XPosition;
     }
 
-    public final int getYposition() {
-        return (int)Yposition;
+    public final int getYPosition() {
+        return (int) YPosition;
     }
-    public final void kill(){
-        killed=true;
+
+    public final void kill() {
+        killed = true;
     }
 
     public final int getGeneration() {

@@ -1,10 +1,10 @@
 package de.ft.ekes.BackEnd.virtualtileworld;
 
 public enum LandType {
-    NONE(0),LAND(0),WATER(1);
-    private int value;
+    NONE(0), LAND(0), WATER(1);
+    private final int value;
 
-    private LandType(int value) {
+    LandType(int value) {
         this.value = value;
     }
 

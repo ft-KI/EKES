@@ -2,13 +2,10 @@ package de.ft.ekes.BackEnd.virtualtileworld;
 
 public class Tile {
     private LandType landType;
-    private float foodvalue=0;
-    private float Fruchtbarkeit =0;
-    public Tile(LandType landType){
-        this.landType=landType;
-    }
+    private float foodValue = 0;
+    private float fertility = 0;
 
-    public void setLandType(LandType landType) {
+    public Tile(LandType landType) {
         this.landType = landType;
     }
 
@@ -16,20 +13,24 @@ public class Tile {
         return landType;
     }
 
-    public float getFoodvalue() {
-        return foodvalue;
+    public void setLandType(LandType landType) {
+        this.landType = landType;
     }
 
-    public float getFruchtbarkeit() {
-        return Fruchtbarkeit;
+    public float getFoodValue() {
+        return foodValue;
     }
 
-    public void setFoodvalue(float foodvalue) {
-        this.foodvalue = foodvalue;
+    public void setFoodValue(float foodValue) {
+        this.foodValue = foodValue;
     }
 
-    public void setFruchtbarkeit(float fruchtbarkeit) {
-        this.Fruchtbarkeit = fruchtbarkeit;
+    public float getFertility() {
+        return fertility;
+    }
+
+    public void setFertility(float fertility) {
+        this.fertility = fertility;
     }
 
 }

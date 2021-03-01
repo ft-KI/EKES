@@ -22,64 +22,58 @@ public class WebMain {
     public static void main(String[] args) throws UnknownHostException {
         evolutionsSimulator = new EvolutionsSimulator();
 
-        simulationThread = new Thread() {
-            @Override
-            public void run() {
-                while (true) {
-                    delay = 1000f / sps;
-                    timer = System.currentTimeMillis();
-                    if (stopby != -1)
-                        if (evolutionsSimulator.time.year >= stopby) {
-                            try {
-                                if (Math.abs(System.currentTimeMillis() - timer) > delay) {
-                                    // System.out.println("Speed Warning: durchlauf hat: "+(System.currentTimeMillis()-timer-delay)+"ms zu lange gedauert");
-                                } else {
-                                    TimeUnit.MILLISECONDS.sleep((int) (delay - (System.currentTimeMillis() - timer)));
-                                }
-                            } catch (InterruptedException e) {
-
+        simulationThread = new Thread(() -> {
+            while (true) {
+                delay = 1000f / sps;
+                timer = System.currentTimeMillis();
+                if (stopby != -1)
+                    if (evolutionsSimulator.time.year >= stopby) {
+                        try {
+                            if (Math.abs(System.currentTimeMillis() - timer) > delay) {
+                                //Can display speed warning
+                            } else {
+                                TimeUnit.MILLISECONDS.sleep((int) (delay - (System.currentTimeMillis() - timer)));
                             }
+                        } catch (InterruptedException e) {
+
+                        }
 
                         continue;
 
                     }
-                    evolutionsSimulator.doStep();
-                    try {
-                        if (Math.abs(System.currentTimeMillis() - timer) > delay) {
-                            // System.out.println("Speed Warning: durchlauf hat: "+(System.currentTimeMillis()-timer-delay)+"ms zu lange gedauert");
-                        } else {
-                            TimeUnit.MILLISECONDS.sleep((int) (delay - (System.currentTimeMillis() - timer)));
-                        }
-                    } catch (InterruptedException e) {
-
+                evolutionsSimulator.doStep();
+                try {
+                    if (Math.abs(System.currentTimeMillis() - timer) > delay) {
+                        //Can display speed warning
+                    } else {
+                        TimeUnit.MILLISECONDS.sleep((int) (delay - (System.currentTimeMillis() - timer)));
                     }
+                } catch (InterruptedException ignored) {
+
                 }
             }
-        };
+        });
         simulationThread.start();
         socketController = new SocketController(8080);
         socketController.start();
-        sendingInterval = new Thread() {
-            @Override
-            public void run() {
-                while (true) {
-                    try {
-                        socketController.broadcast(SendingPacker.packWorld());
-                        socketController.broadcast(SendingPacker.packActors());
-                        socketController.broadcast(SendingPacker.packInfos());
-                    } catch (Exception e) {
-                        System.out.println("problem");
-                    }
-                    try {
-                        TimeUnit.MILLISECONDS.sleep(50);
-                    } catch (InterruptedException e) {
-                        e.printStackTrace();
-                    }
-
-
+        sendingInterval = new Thread(() -> {
+            while (true) {
+                try {
+                    socketController.broadcast(SendingPacker.packWorld());
+                    socketController.broadcast(SendingPacker.packActors());
+                    socketController.broadcast(SendingPacker.packInfos());
+                } catch (Exception e) {
+                    //something went wrong while sending -> doesnt matter so simulation goes on
                 }
+                try {
+                    TimeUnit.MILLISECONDS.sleep(50);
+                } catch (InterruptedException e) {
+                    e.printStackTrace();
+                }
+
+
             }
-        };
+        });
 
         sendingInterval.start();
 
