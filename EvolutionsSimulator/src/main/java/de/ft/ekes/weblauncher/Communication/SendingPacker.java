@@ -5,6 +5,7 @@ import com.google.gson.FieldAttributes;
 import com.google.gson.Gson;
 import com.google.gson.GsonBuilder;
 import com.google.gson.annotations.Expose;
+import de.ft.ekes.BackEnd.AverageElement;
 import de.ft.ekes.BackEnd.actors.kreatur.Creature;
 import de.ft.ekes.BackEnd.virtualtileworld.LandType;
 import de.ft.ekes.weblauncher.WebMain;
@@ -81,7 +82,17 @@ public class SendingPacker {
         jsonObject.put("ActorsSize", WebMain.evolutionsSimulator.actorManager.getActors().size());
         jsonObject.put("Timeinyears", WebMain.evolutionsSimulator.time.year);
         jsonObject.put("averageage", WebMain.evolutionsSimulator.actorManager.averageAge);
-        jsonObject.put("averagehidden", WebMain.evolutionsSimulator.actorManager.getActors().stream().collect(Collectors.summarizingInt(p-> (Integer) ((Creature) p).getBrain().getHiddenNeurons().stream().mapToInt(ArrayList::size).sum())).getAverage());
+
+        String values = "";
+        ArrayList<AverageElement> averageHiddenNeurons = WebMain.evolutionsSimulator.getActorManager().averageHiddenNeurons;
+        for (int i = 0; i < averageHiddenNeurons.size(); i++) {
+            AverageElement ae = averageHiddenNeurons.get(i);
+            values += Math.round(ae.getAverage() * 100) / 100f;
+            if(i!=averageHiddenNeurons.size()-1)
+            values += " : ";
+        }
+
+        jsonObject.put("averagehidden", values);
         jsonObject.put("foodavailable", WebMain.evolutionsSimulator.getWorld().getFoodavailable());
         jsonObject.put("lastyears_averageage", WebMain.evolutionsSimulator.averageActorAgeForSteps);
         jsonObject.put("lastyears_ActorsSize", WebMain.evolutionsSimulator.averageActorSizeForSteps);

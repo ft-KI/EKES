@@ -15,7 +15,7 @@ public class ActorManager {
     EvolutionsSimulator es;
     int posCounter = 0;
 
-    ArrayList<AverageElement> averageHiddenNeurons = new ArrayList<>();
+   public  ArrayList<AverageElement> averageHiddenNeurons = new ArrayList<>();
     long averageHiddenNeuronCounter;
 
     public ActorManager(EvolutionsSimulator es) {
