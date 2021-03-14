@@ -1,4 +1,4 @@
-package de.ft.ekes.BackEnd.ai.NeuronalNetwork.activationFunktions;
+package de.ft.ekes.BackEnd.ai.NeuronalNetwork.activationFunctions;
 
 public class Identity implements ActivationFunction {
 

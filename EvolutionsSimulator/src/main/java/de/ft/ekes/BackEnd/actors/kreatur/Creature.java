@@ -4,7 +4,7 @@ import de.ft.ekes.BackEnd.EvolutionsSimulator;
 import de.ft.ekes.BackEnd.Variables;
 import de.ft.ekes.BackEnd.actors.Actor;
 import de.ft.ekes.BackEnd.ai.NeuronalNetwork.NeuronalNetwork;
-import de.ft.ekes.BackEnd.ai.NeuronalNetwork.activationFunktions.Sigmoid;
+import de.ft.ekes.BackEnd.ai.NeuronalNetwork.activationFunctions.Sigmoid;
 import de.ft.ekes.BackEnd.virtualtileworld.LandType;
 import de.ft.ekes.BackEnd.virtualtileworld.Tile;
 

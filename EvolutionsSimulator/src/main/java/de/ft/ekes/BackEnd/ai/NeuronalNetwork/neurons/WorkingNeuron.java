@@ -2,8 +2,8 @@ package de.ft.ekes.BackEnd.ai.NeuronalNetwork.neurons;
 
 
 import de.ft.ekes.BackEnd.ai.NeuronalNetwork.Connection;
-import de.ft.ekes.BackEnd.ai.NeuronalNetwork.activationFunktions.ActivationFunction;
-import de.ft.ekes.BackEnd.ai.NeuronalNetwork.activationFunktions.Sigmoid;
+import de.ft.ekes.BackEnd.ai.NeuronalNetwork.activationFunctions.ActivationFunction;
+import de.ft.ekes.BackEnd.ai.NeuronalNetwork.activationFunctions.Sigmoid;
 
 import java.util.ArrayList;
 

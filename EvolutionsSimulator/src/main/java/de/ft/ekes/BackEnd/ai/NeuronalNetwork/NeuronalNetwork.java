@@ -1,7 +1,7 @@
 package de.ft.ekes.BackEnd.ai.NeuronalNetwork;
 
 
-import de.ft.ekes.BackEnd.ai.NeuronalNetwork.activationFunktions.ActivationFunction;
+import de.ft.ekes.BackEnd.ai.NeuronalNetwork.activationFunctions.ActivationFunction;
 import de.ft.ekes.BackEnd.ai.NeuronalNetwork.neurons.InputNeuron;
 import de.ft.ekes.BackEnd.ai.NeuronalNetwork.neurons.WorkingNeuron;
 

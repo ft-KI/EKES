@@ -1,4 +1,4 @@
-package de.ft.ekes.BackEnd.ai.NeuronalNetwork.activationFunktions;
+package de.ft.ekes.BackEnd.ai.NeuronalNetwork.activationFunctions;
 
 public interface ActivationFunction {
     float activation(float value);
