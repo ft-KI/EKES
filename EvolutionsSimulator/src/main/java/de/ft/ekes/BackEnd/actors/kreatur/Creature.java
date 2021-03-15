@@ -98,7 +98,7 @@ public class Creature extends Actor {
     }
 
     @Override
-    public void DoStep() {
+    public void calculateBrain() {
         brain.reset();
         float InPositionFoodValue = super.es.world.getTilefromActorPosition(super.getXPosition(), super.getYPosition()).getFoodValue();
         float InPositionLandTyp = super.es.world.getTilefromActorPosition(super.getXPosition(), super.getYPosition()).getLandType().getValue() * 100f;

@@ -18,10 +18,10 @@ public abstract class Actor {
 
     public int generation = 1;
 
-    public abstract void DoStep();
+    public abstract void calculateBrain();
 
     public final void doStep() {
-        DoStep();
+        calculateBrain();
         this.age += es.time.TicksPerYear;
     }
 
