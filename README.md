@@ -1,8 +1,11 @@
+
 # EKES
 
 Dieses Projekt ist Teil von Jugend-Forscht 2021
 
 EKES ist eine Evolutions-Simulation, mit einem Webfronted und einem JAVA-Backend.
+
+![#](https://user-images.githubusercontent.com/46609883/111344927-19fd5980-867d-11eb-9803-8efa1e0d3803.png)
 
 ## Quick Start
  - Command `git clone https://github.com/ft-KI/EKES` ausführen
