@@ -115,7 +115,7 @@ function infodraw(){
     infos=infos+"<br>Jahre: "+Math.round(Timeinyears*10)/10+"</br>";
     infos=infos+"<br>Durchschnittsalter: "+Math.round(averageage*10)/10+"</br>";
     infos=infos+"<br>Fressensdurschnitt: "+Math.round(foodavailable*100)/100+"</br>";
-    infos=infos+"<br>Durchschnitts Hidden-Neuronen: "+Math.round(averageHiddenNeurons*100)/100+"</br>";
+    infos=infos+"<br>Durchschnitts Hidden-Neuronen: "+averageHiddenNeurons+"</br>";
     infos=infos+"<br>Letze 25 Jahre Kreaturen: "+lastyears_ActorsSize+"</br>";
     infos=infos+"<br>Letze 25 Jahre Durchschnittsalter: "+Math.round(lastyears_averageage*100)/100+"</br>";
 
