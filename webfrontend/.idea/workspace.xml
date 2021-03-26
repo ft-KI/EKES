@@ -29,6 +29,7 @@
       <change beforePath="$PROJECT_DIR$/../EvolutionsSimulator/build.gradle" beforeDir="false" afterPath="$PROJECT_DIR$/../EvolutionsSimulator/build.gradle" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/../EvolutionsSimulator/src/main/java/de/ft/ekes/BackEnd/actors/kreatur/Creature.java" beforeDir="false" afterPath="$PROJECT_DIR$/../EvolutionsSimulator/src/main/java/de/ft/ekes/BackEnd/actors/kreatur/Creature.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/index.html" beforeDir="false" afterPath="$PROJECT_DIR$/index.html" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/index.js" beforeDir="false" afterPath="$PROJECT_DIR$/index.js" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
@@ -119,7 +120,7 @@
       <workItem from="1609143715570" duration="2092000" />
       <workItem from="1609185113954" duration="684000" />
       <workItem from="1609229661009" duration="2501000" />
-      <workItem from="1614609814738" duration="944000" />
+      <workItem from="1614609814738" duration="1621000" />
     </task>
     <task id="LOCAL-00001" summary="Added Multiple Parameters">
       <created>1605373833840</created>
